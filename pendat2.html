@@ -1,0 +1,943 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Deteksi Outlier dengan K-Nearest Neighbors (KNN) &#8212; WebStatisku</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'pendat2';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Data UnderStanding" href="pendat1.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="WebStatisku - Home"/>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="WebStatisku - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Selamat Datang Web Statis Penambangan Data
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="pendat1.html">Data UnderStanding</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Deteksi Outlier dengan K-Nearest Neighbors (KNN)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fpendat2.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/pendat2.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Deteksi Outlier dengan K-Nearest Neighbors (KNN)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tahap-deteksi-outlier-dengan-knn">Tahap Deteksi Outlier dengan KNN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kelebihan">Kelebihan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kekurangan">Kekurangan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="deteksi-outlier-dengan-k-nearest-neighbors-knn">
+<h1>Deteksi Outlier dengan K-Nearest Neighbors (KNN)<a class="headerlink" href="#deteksi-outlier-dengan-k-nearest-neighbors-knn" title="Link to this heading">#</a></h1>
+<p>Outlier adalah data yang berbeda jauh dari pola umum dalam dataset. Penyebabnya bisa karena kesalahan pengukuran, input data yang salah, atau fenomena unik. Outlier bisa memengaruhi hasil analisis dan model machine learning, sehingga perlu dideteksi.</p>
+<p>KNN bekerja dengan melihat kedekatan antar data. Dalam deteksi outlier, KNN mengukur jarak antara suatu titik dengan tetangga terdekatnya:</p>
+<ul class="simple">
+<li><p>Jika suatu titik hanya memiliki sedikit tetangga dalam radius tertentu, kemungkinan besar itu outlier.</p></li>
+<li><p>Jika jarak ke tetangga terdekat sangat besar, titik tersebut bisa dianggap sebagai outlier.</p></li>
+</ul>
+<section id="tahap-deteksi-outlier-dengan-knn">
+<h2>Tahap Deteksi Outlier dengan KNN<a class="headerlink" href="#tahap-deteksi-outlier-dengan-knn" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Menghitung Jarak Antar Titik</p></li>
+</ol>
+<ul class="simple">
+<li><p>Menggunakan metrik jarak seperti Euclidean, Manhattan, atau Minkowski untuk mengukur kedekatan antar data.</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>Menentukan Nilai K (Jumlah Tetangga Terdekat)</p></li>
+</ol>
+<ul class="simple">
+<li><p>K terlalu kecil: terlalu sensitif terhadap noise.</p></li>
+<li><p>K terlalu besar: kurang akurat dalam mendeteksi outlier.</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p>Menentukan Skor Outlier</p></li>
+</ol>
+<ul class="simple">
+<li><p>K-Nearest Neighbor Distance: Jika jarak ke K tetangga terlalu besar, kemungkinan outlier.</p></li>
+<li><p>Local Outlier Factor (LOF): Membandingkan kepadatan suatu titik dengan tetangganya. Jika kepadatannya lebih rendah, kemungkinan outlier.</p></li>
+<li><p>Distance-Based Outlier Score: Jika jumlah tetangga dalam radius tertentu sangat sedikit, bisa dianggap outlier.</p></li>
+</ul>
+</section>
+<section id="kelebihan">
+<h2>Kelebihan<a class="headerlink" href="#kelebihan" title="Link to this heading">#</a></h2>
+<p>✔ Sederhana dan mudah dipahami.</p>
+<p>✔ Tidak bergantung pada distribusi data.</p>
+<p>✔ Bisa digunakan untuk data berdimensi tinggi.</p>
+</section>
+<section id="kekurangan">
+<h2>Kekurangan<a class="headerlink" href="#kekurangan" title="Link to this heading">#</a></h2>
+<p>✖ Lambat untuk dataset besar karena harus menghitung banyak jarak.</p>
+<p>✖ Sensitif terhadap pemilihan nilai K.</p>
+</section>
+<section id="kesimpulan">
+<h2>Kesimpulan<a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h2>
+<p>KNN bisa digunakan untuk mendeteksi outlier dengan menganalisis jarak antara titik data dan tetangganya. Metode seperti K-Nearest Neighbor Distance dan LOF membantu mengidentifikasi data yang berbeda jauh dari pola umum. Pemilihan K dan metrik jarak yang tepat sangat penting untuk akurasi deteksi outlier.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">scipy.spatial.distance</span> <span class="kn">import</span> <span class="n">euclidean</span>
+
+<span class="c1"># Load kedua file CSV</span>
+<span class="n">df_mysql</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;mysql.csv&quot;</span><span class="p">)</span>
+<span class="n">df_postgres</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;postgres.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># Gabungkan berdasarkan &#39;id&#39; dan &#39;Class&#39;</span>
+<span class="n">df_merged</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_mysql</span><span class="p">,</span> <span class="n">df_postgres</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;Class&#39;</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
+
+<span class="c1"># Pilih fitur yang digunakan untuk perhitungan jarak</span>
+<span class="n">feature_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;petal length&quot;</span><span class="p">,</span> <span class="s2">&quot;petal width&quot;</span><span class="p">,</span> <span class="s2">&quot;sepal length&quot;</span><span class="p">,</span> <span class="s2">&quot;sepal width&quot;</span><span class="p">]</span>
+<span class="n">data_values</span> <span class="o">=</span> <span class="n">df_merged</span><span class="p">[</span><span class="n">feature_columns</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># Ambil referensi dari baris terakhir</span>
+<span class="n">reference_point</span> <span class="o">=</span> <span class="n">data_values</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Fungsi untuk menghitung jarak Euclidean ke referensi</span>
+<span class="k">def</span> <span class="nf">compute_distances</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">reference</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">euclidean</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">reference</span><span class="p">)</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span><span class="p">])</span>
+
+<span class="c1"># Hitung jarak Euclidean dari setiap baris ke referensi</span>
+<span class="n">df_merged</span><span class="p">[</span><span class="s2">&quot;distance&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">compute_distances</span><span class="p">(</span><span class="n">data_values</span><span class="p">,</span> <span class="n">reference_point</span><span class="p">)</span>
+
+<span class="c1"># Tentukan threshold outlier berdasarkan persentil ke-93.5</span>
+<span class="n">threshold</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">df_merged</span><span class="p">[</span><span class="s2">&quot;distance&quot;</span><span class="p">],</span> <span class="mf">93.5</span><span class="p">)</span>
+<span class="n">df_merged</span><span class="p">[</span><span class="s2">&quot;outlier&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_merged</span><span class="p">[</span><span class="s2">&quot;distance&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">threshold</span>
+
+<span class="c1"># Cetak hasil data dengan outlier</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_merged</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+
+<span class="c1"># Visualisasi scatter plot untuk Sepal</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">df_merged</span><span class="p">[</span><span class="s2">&quot;sepal length&quot;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">df_merged</span><span class="p">[</span><span class="s2">&quot;sepal width&quot;</span><span class="p">],</span>
+    <span class="n">hue</span><span class="o">=</span><span class="n">df_merged</span><span class="p">[</span><span class="s2">&quot;outlier&quot;</span><span class="p">],</span> <span class="n">palette</span><span class="o">=</span><span class="p">{</span><span class="kc">False</span><span class="p">:</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">:</span> <span class="s2">&quot;red&quot;</span><span class="p">}</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Outlier Detection (Sepal)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Sepal Length&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Sepal Width&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Outlier&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Visualisasi scatter plot untuk Petal</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">df_merged</span><span class="p">[</span><span class="s2">&quot;petal length&quot;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">df_merged</span><span class="p">[</span><span class="s2">&quot;petal width&quot;</span><span class="p">],</span>
+    <span class="n">hue</span><span class="o">=</span><span class="n">df_merged</span><span class="p">[</span><span class="s2">&quot;outlier&quot;</span><span class="p">],</span> <span class="n">palette</span><span class="o">=</span><span class="p">{</span><span class="kc">False</span><span class="p">:</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">:</span> <span class="s2">&quot;red&quot;</span><span class="p">}</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Outlier Detection (Petal)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Petal Length&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Petal Width&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Outlier&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> id           Class  petal length  petal width  sepal length  sepal width  distance  outlier
+  1     Iris-setosa           1.4          0.2           5.1          3.5  4.140048    False
+  2     Iris-setosa           1.4          0.2           4.9          3.0  4.153312    False
+  3     Iris-setosa           1.3          0.2           4.7          3.2  4.298837     True
+  4     Iris-setosa           1.5          0.2           4.6          3.1  4.149699    False
+  5     Iris-setosa           1.4          0.2           5.0          3.6  4.173727    False
+  6     Iris-setosa           1.7          0.4           5.4          3.9  3.818377    False
+  7     Iris-setosa           1.4          0.3           4.6          3.4  4.217819    False
+  8     Iris-setosa           1.5          0.2           5.0          3.4  4.060788    False
+  9     Iris-setosa           1.4          0.2           4.4          2.9  4.302325     True
+ 10     Iris-setosa           1.5          0.1           4.9          3.1  4.106093    False
+ 11     Iris-setosa           1.5          0.2           5.4          3.7  4.032369    False
+ 12     Iris-setosa           1.6          0.2           4.8          3.4  4.022437    False
+ 13     Iris-setosa           1.4          0.1           4.8          3.0  4.217819    False
+ 14     Iris-setosa           1.1          0.1           4.3          3.0  4.631414     True
+ 15     Iris-setosa           1.2          0.2           5.8          4.0  4.333590     True
+ 16     Iris-setosa           1.5          0.4           5.7          4.4  4.113393    False
+ 17     Iris-setosa           1.3          0.4           5.4          3.9  4.178516    False
+ 18     Iris-setosa           1.4          0.3           5.1          3.5  4.102438    False
+ 19     Iris-setosa           1.7          0.3           5.7          3.8  3.806573    False
+ 20     Iris-setosa           1.5          0.3           5.1          3.8  4.060788    False
+ 21     Iris-setosa           1.7          0.2           5.4          3.4  3.811824    False
+ 22     Iris-setosa           1.5          0.4           5.1          3.7  4.006245    False
+ 23     Iris-setosa           1.0          0.2           4.6          3.6  4.628175     True
+ 24     Iris-setosa           1.7          0.5           5.1          3.3  3.738984    False
+ 25     Iris-setosa           1.9          0.2           4.8          3.4  3.764306    False
+ 26     Iris-setosa           1.6          0.2           5.0          3.0  3.952215    False
+ 27     Iris-setosa           1.6          0.4           5.0          3.4  3.896152    False
+ 28     Iris-setosa           1.5          0.2           5.2          3.5  4.032369    False
+ 29     Iris-setosa           1.4          0.2           5.2          3.4  4.110961    False
+ 30     Iris-setosa           1.6          0.2           4.7          3.2  4.036087    False
+ 31     Iris-setosa           1.6          0.2           4.8          3.1  4.003748    False
+ 32     Iris-setosa           1.5          0.4           5.4          3.4  3.915354    False
+ 33     Iris-setosa           1.5          0.1           5.2          4.1  4.189272    False
+ 34     Iris-setosa           1.4          0.2           5.5          4.2  4.224926    False
+ 35     Iris-setosa           1.5          0.1           4.9          3.1  4.106093    False
+ 36     Iris-setosa           1.2          0.2           5.0          3.2  4.315090     True
+ 37     Iris-setosa           1.3          0.2           5.5          3.5  4.172529    False
+ 38     Iris-setosa           1.5          0.1           4.9          3.1  4.106093    False
+ 39     Iris-setosa           1.3          0.2           4.4          3.0  4.387482     True
+ 40     Iris-setosa           1.5          0.2           5.1          3.4  4.039802    False
+ 41     Iris-setosa           1.3          0.3           5.0          3.5  4.213075    False
+ 42     Iris-setosa           1.3          0.3           4.5          2.3  4.374929     True
+ 43     Iris-setosa           1.3          0.2           4.4          3.2  4.392038     True
+ 44     Iris-setosa           1.6          0.6           5.0          3.5  3.840573    False
+ 45     Iris-setosa           1.9          0.4           5.1          3.8  3.671512    False
+ 46     Iris-setosa           1.4          0.3           4.8          3.0  4.141256    False
+ 47     Iris-setosa           1.6          0.2           5.1          3.8  4.011234    False
+ 48     Iris-setosa           1.4          0.2           4.6          3.2  4.240283     True
+ 49     Iris-setosa           1.5          0.2           5.3          3.7  4.045986    False
+ 50     Iris-setosa           1.4          0.2           5.0          3.3  4.141256    False
+ 51 Iris-versicolor           4.7          1.4           7.0          3.2  1.252996    False
+ 52 Iris-versicolor           4.5          1.5           6.4          3.2  0.860233    False
+ 53 Iris-versicolor           4.9          1.5           6.9          3.1  1.067708    False
+ 54 Iris-versicolor           4.0          1.3           5.5          2.3  1.452584    False
+ 55 Iris-versicolor           4.6          1.5           6.5          2.8  0.860233    False
+ 56 Iris-versicolor           4.5          1.3           5.7          2.8  0.830662    False
+ 57 Iris-versicolor           4.7          1.6           6.3          3.3  0.670820    False
+ 58 Iris-versicolor           3.3          1.0           4.9          2.4  2.289105    False
+ 59 Iris-versicolor           4.6          1.3           6.6          2.9  1.000000    False
+ 60 Iris-versicolor           3.9          1.4           5.2          2.7  1.476482    False
+ 61 Iris-versicolor           3.5          1.0           5.0          2.0  2.238303    False
+ 62 Iris-versicolor           4.2          1.5           5.9          3.0  0.948683    False
+ 63 Iris-versicolor           4.0          1.0           6.0          2.2  1.581139    False
+ 64 Iris-versicolor           4.7          1.4           6.1          2.9  0.608276    False
+ 65 Iris-versicolor           3.6          1.3           5.6          2.9  1.612452    False
+ 66 Iris-versicolor           4.4          1.4           6.7          3.1  1.140175    False
+ 67 Iris-versicolor           4.5          1.5           5.6          3.0  0.734847    False
+ 68 Iris-versicolor           4.1          1.0           5.8          2.7  1.319091    False
+ 69 Iris-versicolor           4.5          1.5           6.2          2.2  1.086278    False
+ 70 Iris-versicolor           3.9          1.1           5.6          2.5  1.506652    False
+ 71 Iris-versicolor           4.8          1.8           5.9          3.2  0.360555    False
+ 72 Iris-versicolor           4.0          1.3           6.1          2.8  1.240967    False
+ 73 Iris-versicolor           4.9          1.5           6.3          2.5  0.734847    False
+ 74 Iris-versicolor           4.7          1.2           6.1          2.8  0.774597    False
+ 75 Iris-versicolor           4.3          1.3           6.4          2.9  1.072381    False
+ 76 Iris-versicolor           4.4          1.4           6.6          3.0  1.067708    False
+ 77 Iris-versicolor           4.8          1.4           6.8          2.8  1.048809    False
+ 78 Iris-versicolor           5.0          1.7           6.7          3.0  0.812404    False
+ 79 Iris-versicolor           4.5          1.5           6.0          2.9  0.685565    False
+ 80 Iris-versicolor           3.5          1.0           5.7          2.6  1.843909    False
+ 81 Iris-versicolor           3.8          1.1           5.5          2.4  1.643168    False
+ 82 Iris-versicolor           3.7          1.0           5.5          2.4  1.766352    False
+ 83 Iris-versicolor           3.9          1.2           5.8          2.7  1.378405    False
+ 84 Iris-versicolor           5.1          1.6           6.0          2.7  0.374166    False
+ 85 Iris-versicolor           4.5          1.5           5.4          3.0  0.836660    False
+ 86 Iris-versicolor           4.5          1.6           6.0          3.4  0.754983    False
+ 87 Iris-versicolor           4.7          1.5           6.7          3.1  0.948683    False
+ 88 Iris-versicolor           4.4          1.3           6.3          2.3  1.178983    False
+ 89 Iris-versicolor           4.1          1.3           5.6          3.0  1.157584    False
+ 90 Iris-versicolor           4.0          1.3           5.5          2.5  1.367479    False
+ 91 Iris-versicolor           4.4          1.2           5.5          2.6  1.081665    False
+ 92 Iris-versicolor           4.6          1.4           6.1          3.0  0.670820    False
+ 93 Iris-versicolor           4.0          1.2           5.8          2.6  1.319091    False
+ 94 Iris-versicolor           3.3          1.0           5.0          2.3  2.275961    False
+ 95 Iris-versicolor           4.2          1.3           5.6          2.7  1.113553    False
+ 96 Iris-versicolor           4.2          1.2           5.7          3.0  1.100000    False
+ 97 Iris-versicolor           4.2          1.3           5.7          2.9  1.053565    False
+ 98 Iris-versicolor           4.3          1.3           6.2          2.9  0.994987    False
+ 99 Iris-versicolor           3.0          1.1           5.1          2.5  2.406242    False
+100 Iris-versicolor           4.1          1.3           5.7          2.8  1.153256    False
+101  Iris-virginica           6.0          2.5           6.3          3.3  1.244990    False
+102  Iris-virginica           5.1          1.9           5.8          2.7  0.331662    False
+103  Iris-virginica           5.9          2.1           7.1          3.0  1.473092    False
+104  Iris-virginica           5.6          1.8           6.3          2.9  0.648074    False
+105  Iris-virginica           5.8          2.2           6.5          3.0  1.004988    False
+106  Iris-virginica           6.6          2.1           7.6          3.0  2.286919    False
+107  Iris-virginica           4.5          1.7           4.9          2.5  1.272792    False
+108  Iris-virginica           6.3          1.8           7.3          2.9  1.846619    False
+109  Iris-virginica           5.8          1.8           6.7          2.5  1.174734    False
+110  Iris-virginica           6.1          2.5           7.2          3.6  1.881489    False
+111  Iris-virginica           5.1          2.0           6.5          3.2  0.663325    False
+112  Iris-virginica           5.3          1.9           6.4          2.7  0.624500    False
+113  Iris-virginica           5.5          2.1           6.8          3.0  1.029563    False
+114  Iris-virginica           5.0          2.0           5.7          2.5  0.583095    False
+115  Iris-virginica           5.1          2.4           5.8          2.8  0.640312    False
+116  Iris-virginica           5.3          2.3           6.4          3.2  0.761577    False
+117  Iris-virginica           5.5          1.8           6.5          3.0  0.721110    False
+118  Iris-virginica           6.7          2.2           7.7          3.8  2.569047    False
+119  Iris-virginica           6.9          2.3           7.7          2.6  2.624881    False
+120  Iris-virginica           5.0          1.5           6.0          2.2  0.866025    False
+121  Iris-virginica           5.7          2.3           6.9          3.2  1.284523    False
+122  Iris-virginica           4.9          2.0           5.6          2.8  0.458258    False
+123  Iris-virginica           6.7          2.0           7.7          2.8  2.424871    False
+124  Iris-virginica           4.9          1.8           6.3          2.7  0.538516    False
+125  Iris-virginica           5.7          2.1           6.7          3.3  1.086278    False
+126  Iris-virginica           6.0          1.8           7.2          3.2  1.593738    False
+127  Iris-virginica           4.8          1.8           6.2          2.8  0.469042    False
+128  Iris-virginica           4.9          1.8           6.1          3.0  0.282843    False
+129  Iris-virginica           5.6          2.1           6.4          2.8  0.793725    False
+130  Iris-virginica           5.8          1.6           7.2          3.0  1.489966    False
+131  Iris-virginica           6.1          1.9           7.4          2.8  1.816590    False
+132  Iris-virginica           6.4          2.0           7.9          3.8  2.523886    False
+133  Iris-virginica           5.6          2.2           6.4          2.8  0.836660    False
+134  Iris-virginica           5.1          1.5           6.3          2.8  0.538516    False
+135  Iris-virginica           5.6          1.4           6.1          2.6  0.781025    False
+136  Iris-virginica           6.1          2.3           7.7          3.0  2.118962    False
+137  Iris-virginica           5.6          2.4           6.3          3.4  0.964365    False
+138  Iris-virginica           5.5          1.8           6.4          3.1  0.648074    False
+139  Iris-virginica           4.8          1.8           6.0          3.0  0.316228    False
+140  Iris-virginica           5.4          2.1           6.9          3.1  1.090871    False
+141  Iris-virginica           5.6          2.4           6.7          3.1  1.122497    False
+142  Iris-virginica           5.1          2.3           6.9          3.1  1.122497    False
+143  Iris-virginica           5.1          1.9           5.8          2.7  0.331662    False
+144  Iris-virginica           5.9          2.3           6.8          3.2  1.319091    False
+145  Iris-virginica           5.7          2.5           6.7          3.3  1.256981    False
+146  Iris-virginica           5.2          2.3           6.7          3.0  0.948683    False
+147  Iris-virginica           5.0          1.9           6.3          2.5  0.655744    False
+148  Iris-virginica           5.2          2.0           6.5          3.0  0.640312    False
+149  Iris-virginica           5.4          2.3           6.2          3.4  0.768115    False
+150  Iris-virginica           5.1          1.8           5.9          3.0  0.000000    False
+</pre></div>
+</div>
+<img alt="_images/7707df2ed9470a12803b56a9cb3266e7cb17db06ccbca7192cd7cc0beda20afa.png" src="_images/7707df2ed9470a12803b56a9cb3266e7cb17db06ccbca7192cd7cc0beda20afa.png" />
+<img alt="_images/ab31e30fee02288de3a613b80e453bb127b02a72d4205db854ed72d96a78c98a.png" src="_images/ab31e30fee02288de3a613b80e453bb127b02a72d4205db854ed72d96a78c98a.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hitung total outlier</span>
+<span class="n">total_outliers</span> <span class="o">=</span> <span class="n">df_merged</span><span class="p">[</span><span class="s2">&quot;outlier&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total Outlier: </span><span class="si">{</span><span class="n">total_outliers</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total Outlier: 10
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Urutkan data berdasarkan jarak dari terkecil ke terbesar</span>
+<span class="n">df_sorted</span> <span class="o">=</span> <span class="n">df_merged</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;distance&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Tampilkan hasilnya</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_sorted</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> id           Class  petal length  petal width  sepal length  sepal width  distance  outlier
+150  Iris-virginica           5.1          1.8           5.9          3.0  0.000000    False
+128  Iris-virginica           4.9          1.8           6.1          3.0  0.282843    False
+139  Iris-virginica           4.8          1.8           6.0          3.0  0.316228    False
+102  Iris-virginica           5.1          1.9           5.8          2.7  0.331662    False
+143  Iris-virginica           5.1          1.9           5.8          2.7  0.331662    False
+ 71 Iris-versicolor           4.8          1.8           5.9          3.2  0.360555    False
+ 84 Iris-versicolor           5.1          1.6           6.0          2.7  0.374166    False
+122  Iris-virginica           4.9          2.0           5.6          2.8  0.458258    False
+127  Iris-virginica           4.8          1.8           6.2          2.8  0.469042    False
+124  Iris-virginica           4.9          1.8           6.3          2.7  0.538516    False
+134  Iris-virginica           5.1          1.5           6.3          2.8  0.538516    False
+114  Iris-virginica           5.0          2.0           5.7          2.5  0.583095    False
+ 64 Iris-versicolor           4.7          1.4           6.1          2.9  0.608276    False
+112  Iris-virginica           5.3          1.9           6.4          2.7  0.624500    False
+148  Iris-virginica           5.2          2.0           6.5          3.0  0.640312    False
+115  Iris-virginica           5.1          2.4           5.8          2.8  0.640312    False
+104  Iris-virginica           5.6          1.8           6.3          2.9  0.648074    False
+138  Iris-virginica           5.5          1.8           6.4          3.1  0.648074    False
+147  Iris-virginica           5.0          1.9           6.3          2.5  0.655744    False
+111  Iris-virginica           5.1          2.0           6.5          3.2  0.663325    False
+ 57 Iris-versicolor           4.7          1.6           6.3          3.3  0.670820    False
+ 92 Iris-versicolor           4.6          1.4           6.1          3.0  0.670820    False
+ 79 Iris-versicolor           4.5          1.5           6.0          2.9  0.685565    False
+117  Iris-virginica           5.5          1.8           6.5          3.0  0.721110    False
+ 73 Iris-versicolor           4.9          1.5           6.3          2.5  0.734847    False
+ 67 Iris-versicolor           4.5          1.5           5.6          3.0  0.734847    False
+ 86 Iris-versicolor           4.5          1.6           6.0          3.4  0.754983    False
+116  Iris-virginica           5.3          2.3           6.4          3.2  0.761577    False
+149  Iris-virginica           5.4          2.3           6.2          3.4  0.768115    False
+ 74 Iris-versicolor           4.7          1.2           6.1          2.8  0.774597    False
+135  Iris-virginica           5.6          1.4           6.1          2.6  0.781025    False
+129  Iris-virginica           5.6          2.1           6.4          2.8  0.793725    False
+ 78 Iris-versicolor           5.0          1.7           6.7          3.0  0.812404    False
+ 56 Iris-versicolor           4.5          1.3           5.7          2.8  0.830662    False
+ 85 Iris-versicolor           4.5          1.5           5.4          3.0  0.836660    False
+133  Iris-virginica           5.6          2.2           6.4          2.8  0.836660    False
+ 55 Iris-versicolor           4.6          1.5           6.5          2.8  0.860233    False
+ 52 Iris-versicolor           4.5          1.5           6.4          3.2  0.860233    False
+120  Iris-virginica           5.0          1.5           6.0          2.2  0.866025    False
+ 62 Iris-versicolor           4.2          1.5           5.9          3.0  0.948683    False
+ 87 Iris-versicolor           4.7          1.5           6.7          3.1  0.948683    False
+146  Iris-virginica           5.2          2.3           6.7          3.0  0.948683    False
+137  Iris-virginica           5.6          2.4           6.3          3.4  0.964365    False
+ 98 Iris-versicolor           4.3          1.3           6.2          2.9  0.994987    False
+ 59 Iris-versicolor           4.6          1.3           6.6          2.9  1.000000    False
+105  Iris-virginica           5.8          2.2           6.5          3.0  1.004988    False
+113  Iris-virginica           5.5          2.1           6.8          3.0  1.029563    False
+ 77 Iris-versicolor           4.8          1.4           6.8          2.8  1.048809    False
+ 97 Iris-versicolor           4.2          1.3           5.7          2.9  1.053565    False
+ 76 Iris-versicolor           4.4          1.4           6.6          3.0  1.067708    False
+ 53 Iris-versicolor           4.9          1.5           6.9          3.1  1.067708    False
+ 75 Iris-versicolor           4.3          1.3           6.4          2.9  1.072381    False
+ 91 Iris-versicolor           4.4          1.2           5.5          2.6  1.081665    False
+ 69 Iris-versicolor           4.5          1.5           6.2          2.2  1.086278    False
+125  Iris-virginica           5.7          2.1           6.7          3.3  1.086278    False
+140  Iris-virginica           5.4          2.1           6.9          3.1  1.090871    False
+ 96 Iris-versicolor           4.2          1.2           5.7          3.0  1.100000    False
+ 95 Iris-versicolor           4.2          1.3           5.6          2.7  1.113553    False
+141  Iris-virginica           5.6          2.4           6.7          3.1  1.122497    False
+142  Iris-virginica           5.1          2.3           6.9          3.1  1.122497    False
+ 66 Iris-versicolor           4.4          1.4           6.7          3.1  1.140175    False
+100 Iris-versicolor           4.1          1.3           5.7          2.8  1.153256    False
+ 89 Iris-versicolor           4.1          1.3           5.6          3.0  1.157584    False
+109  Iris-virginica           5.8          1.8           6.7          2.5  1.174734    False
+ 88 Iris-versicolor           4.4          1.3           6.3          2.3  1.178983    False
+ 72 Iris-versicolor           4.0          1.3           6.1          2.8  1.240967    False
+101  Iris-virginica           6.0          2.5           6.3          3.3  1.244990    False
+ 51 Iris-versicolor           4.7          1.4           7.0          3.2  1.252996    False
+145  Iris-virginica           5.7          2.5           6.7          3.3  1.256981    False
+107  Iris-virginica           4.5          1.7           4.9          2.5  1.272792    False
+121  Iris-virginica           5.7          2.3           6.9          3.2  1.284523    False
+ 93 Iris-versicolor           4.0          1.2           5.8          2.6  1.319091    False
+144  Iris-virginica           5.9          2.3           6.8          3.2  1.319091    False
+ 68 Iris-versicolor           4.1          1.0           5.8          2.7  1.319091    False
+ 90 Iris-versicolor           4.0          1.3           5.5          2.5  1.367479    False
+ 83 Iris-versicolor           3.9          1.2           5.8          2.7  1.378405    False
+ 54 Iris-versicolor           4.0          1.3           5.5          2.3  1.452584    False
+103  Iris-virginica           5.9          2.1           7.1          3.0  1.473092    False
+ 60 Iris-versicolor           3.9          1.4           5.2          2.7  1.476482    False
+130  Iris-virginica           5.8          1.6           7.2          3.0  1.489966    False
+ 70 Iris-versicolor           3.9          1.1           5.6          2.5  1.506652    False
+ 63 Iris-versicolor           4.0          1.0           6.0          2.2  1.581139    False
+126  Iris-virginica           6.0          1.8           7.2          3.2  1.593738    False
+ 65 Iris-versicolor           3.6          1.3           5.6          2.9  1.612452    False
+ 81 Iris-versicolor           3.8          1.1           5.5          2.4  1.643168    False
+ 82 Iris-versicolor           3.7          1.0           5.5          2.4  1.766352    False
+131  Iris-virginica           6.1          1.9           7.4          2.8  1.816590    False
+ 80 Iris-versicolor           3.5          1.0           5.7          2.6  1.843909    False
+108  Iris-virginica           6.3          1.8           7.3          2.9  1.846619    False
+110  Iris-virginica           6.1          2.5           7.2          3.6  1.881489    False
+136  Iris-virginica           6.1          2.3           7.7          3.0  2.118962    False
+ 61 Iris-versicolor           3.5          1.0           5.0          2.0  2.238303    False
+ 94 Iris-versicolor           3.3          1.0           5.0          2.3  2.275961    False
+106  Iris-virginica           6.6          2.1           7.6          3.0  2.286919    False
+ 58 Iris-versicolor           3.3          1.0           4.9          2.4  2.289105    False
+ 99 Iris-versicolor           3.0          1.1           5.1          2.5  2.406242    False
+123  Iris-virginica           6.7          2.0           7.7          2.8  2.424871    False
+132  Iris-virginica           6.4          2.0           7.9          3.8  2.523886    False
+118  Iris-virginica           6.7          2.2           7.7          3.8  2.569047    False
+119  Iris-virginica           6.9          2.3           7.7          2.6  2.624881    False
+ 45     Iris-setosa           1.9          0.4           5.1          3.8  3.671512    False
+ 24     Iris-setosa           1.7          0.5           5.1          3.3  3.738984    False
+ 25     Iris-setosa           1.9          0.2           4.8          3.4  3.764306    False
+ 19     Iris-setosa           1.7          0.3           5.7          3.8  3.806573    False
+ 21     Iris-setosa           1.7          0.2           5.4          3.4  3.811824    False
+  6     Iris-setosa           1.7          0.4           5.4          3.9  3.818377    False
+ 44     Iris-setosa           1.6          0.6           5.0          3.5  3.840573    False
+ 27     Iris-setosa           1.6          0.4           5.0          3.4  3.896152    False
+ 32     Iris-setosa           1.5          0.4           5.4          3.4  3.915354    False
+ 26     Iris-setosa           1.6          0.2           5.0          3.0  3.952215    False
+ 31     Iris-setosa           1.6          0.2           4.8          3.1  4.003748    False
+ 22     Iris-setosa           1.5          0.4           5.1          3.7  4.006245    False
+ 47     Iris-setosa           1.6          0.2           5.1          3.8  4.011234    False
+ 12     Iris-setosa           1.6          0.2           4.8          3.4  4.022437    False
+ 11     Iris-setosa           1.5          0.2           5.4          3.7  4.032369    False
+ 28     Iris-setosa           1.5          0.2           5.2          3.5  4.032369    False
+ 30     Iris-setosa           1.6          0.2           4.7          3.2  4.036087    False
+ 40     Iris-setosa           1.5          0.2           5.1          3.4  4.039802    False
+ 49     Iris-setosa           1.5          0.2           5.3          3.7  4.045986    False
+ 20     Iris-setosa           1.5          0.3           5.1          3.8  4.060788    False
+  8     Iris-setosa           1.5          0.2           5.0          3.4  4.060788    False
+ 18     Iris-setosa           1.4          0.3           5.1          3.5  4.102438    False
+ 38     Iris-setosa           1.5          0.1           4.9          3.1  4.106093    False
+ 10     Iris-setosa           1.5          0.1           4.9          3.1  4.106093    False
+ 35     Iris-setosa           1.5          0.1           4.9          3.1  4.106093    False
+ 29     Iris-setosa           1.4          0.2           5.2          3.4  4.110961    False
+ 16     Iris-setosa           1.5          0.4           5.7          4.4  4.113393    False
+  1     Iris-setosa           1.4          0.2           5.1          3.5  4.140048    False
+ 50     Iris-setosa           1.4          0.2           5.0          3.3  4.141256    False
+ 46     Iris-setosa           1.4          0.3           4.8          3.0  4.141256    False
+  4     Iris-setosa           1.5          0.2           4.6          3.1  4.149699    False
+  2     Iris-setosa           1.4          0.2           4.9          3.0  4.153312    False
+ 37     Iris-setosa           1.3          0.2           5.5          3.5  4.172529    False
+  5     Iris-setosa           1.4          0.2           5.0          3.6  4.173727    False
+ 17     Iris-setosa           1.3          0.4           5.4          3.9  4.178516    False
+ 33     Iris-setosa           1.5          0.1           5.2          4.1  4.189272    False
+ 41     Iris-setosa           1.3          0.3           5.0          3.5  4.213075    False
+ 13     Iris-setosa           1.4          0.1           4.8          3.0  4.217819    False
+  7     Iris-setosa           1.4          0.3           4.6          3.4  4.217819    False
+ 34     Iris-setosa           1.4          0.2           5.5          4.2  4.224926    False
+ 48     Iris-setosa           1.4          0.2           4.6          3.2  4.240283     True
+  3     Iris-setosa           1.3          0.2           4.7          3.2  4.298837     True
+  9     Iris-setosa           1.4          0.2           4.4          2.9  4.302325     True
+ 36     Iris-setosa           1.2          0.2           5.0          3.2  4.315090     True
+ 15     Iris-setosa           1.2          0.2           5.8          4.0  4.333590     True
+ 42     Iris-setosa           1.3          0.3           4.5          2.3  4.374929     True
+ 39     Iris-setosa           1.3          0.2           4.4          3.0  4.387482     True
+ 43     Iris-setosa           1.3          0.2           4.4          3.2  4.392038     True
+ 23     Iris-setosa           1.0          0.2           4.6          3.6  4.628175     True
+ 14     Iris-setosa           1.1          0.1           4.3          3.0  4.631414     True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="pendat1.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Data UnderStanding</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tahap-deteksi-outlier-dengan-knn">Tahap Deteksi Outlier dengan KNN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kelebihan">Kelebihan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kekurangan">Kekurangan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Vania Putri
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

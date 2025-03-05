@@ -5,3 +5,4 @@ format: jb-book
 root: intro
 chapters:
   - file: pendat1
+  - file: pendat2
