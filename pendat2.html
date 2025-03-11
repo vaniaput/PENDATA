@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Deteksi Outlier dengan K-Nearest Neighbors (KNN) &#8212; WebStatisku</title>
+    <title>Data Understanding (Outlier) &#8212; WebStatisku</title>
   
   
   
@@ -169,7 +169,7 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="pendat1.html">Data UnderStanding</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Deteksi Outlier dengan K-Nearest Neighbors (KNN)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Data Understanding (Outlier)</a></li>
 </ul>
 
     </div>
@@ -352,7 +352,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Deteksi Outlier dengan K-Nearest Neighbors (KNN)</h1>
+    <h1>Data Understanding (Outlier)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -362,10 +362,20 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tahap-deteksi-outlier-dengan-knn">Tahap Deteksi Outlier dengan KNN</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kelebihan">Kelebihan</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kekurangan">Kekurangan</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deteksi-outlier">Deteksi Outlier</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-nearest-neighbors-knn">K-Nearest Neighbors (KNN)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tahap-deteksi-outlier-dengan-knn">Tahap Deteksi Outlier dengan KNN</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kelebihan">Kelebihan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kekurangan">Kekurangan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-outlier-factor-lof">Local Outlier Factor (LOF)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tahapan-lof">Tahapan LOF</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mengitung-manual">Mengitung Manual</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-lof-menggunakan-scikit-learn">Implementasi LOF menggunakan Scikit-Learn</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -377,16 +387,21 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="deteksi-outlier-dengan-k-nearest-neighbors-knn">
-<h1>Deteksi Outlier dengan K-Nearest Neighbors (KNN)<a class="headerlink" href="#deteksi-outlier-dengan-k-nearest-neighbors-knn" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="data-understanding-outlier">
+<h1>Data Understanding (Outlier)<a class="headerlink" href="#data-understanding-outlier" title="Link to this heading">#</a></h1>
+<section id="deteksi-outlier">
+<h2>Deteksi Outlier<a class="headerlink" href="#deteksi-outlier" title="Link to this heading">#</a></h2>
 <p>Outlier adalah data yang berbeda jauh dari pola umum dalam dataset. Penyebabnya bisa karena kesalahan pengukuran, input data yang salah, atau fenomena unik. Outlier bisa memengaruhi hasil analisis dan model machine learning, sehingga perlu dideteksi.</p>
+</section>
+<section id="k-nearest-neighbors-knn">
+<h2>K-Nearest Neighbors (KNN)<a class="headerlink" href="#k-nearest-neighbors-knn" title="Link to this heading">#</a></h2>
 <p>KNN bekerja dengan melihat kedekatan antar data. Dalam deteksi outlier, KNN mengukur jarak antara suatu titik dengan tetangga terdekatnya:</p>
 <ul class="simple">
 <li><p>Jika suatu titik hanya memiliki sedikit tetangga dalam radius tertentu, kemungkinan besar itu outlier.</p></li>
 <li><p>Jika jarak ke tetangga terdekat sangat besar, titik tersebut bisa dianggap sebagai outlier.</p></li>
 </ul>
 <section id="tahap-deteksi-outlier-dengan-knn">
-<h2>Tahap Deteksi Outlier dengan KNN<a class="headerlink" href="#tahap-deteksi-outlier-dengan-knn" title="Link to this heading">#</a></h2>
+<h3>Tahap Deteksi Outlier dengan KNN<a class="headerlink" href="#tahap-deteksi-outlier-dengan-knn" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Menghitung Jarak Antar Titik</p></li>
 </ol>
@@ -410,18 +425,18 @@
 </ul>
 </section>
 <section id="kelebihan">
-<h2>Kelebihan<a class="headerlink" href="#kelebihan" title="Link to this heading">#</a></h2>
+<h3>Kelebihan<a class="headerlink" href="#kelebihan" title="Link to this heading">#</a></h3>
 <p>✔ Sederhana dan mudah dipahami.</p>
 <p>✔ Tidak bergantung pada distribusi data.</p>
 <p>✔ Bisa digunakan untuk data berdimensi tinggi.</p>
 </section>
 <section id="kekurangan">
-<h2>Kekurangan<a class="headerlink" href="#kekurangan" title="Link to this heading">#</a></h2>
+<h3>Kekurangan<a class="headerlink" href="#kekurangan" title="Link to this heading">#</a></h3>
 <p>✖ Lambat untuk dataset besar karena harus menghitung banyak jarak.</p>
 <p>✖ Sensitif terhadap pemilihan nilai K.</p>
 </section>
 <section id="kesimpulan">
-<h2>Kesimpulan<a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h2>
+<h3>Kesimpulan<a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h3>
 <p>KNN bisa digunakan untuk mendeteksi outlier dengan menganalisis jarak antara titik data dan tetangganya. Metode seperti K-Nearest Neighbor Distance dan LOF membantu mengidentifikasi data yang berbeda jauh dari pola umum. Pemilihan K dan metrik jarak yang tepat sangat penting untuk akurasi deteksi outlier.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -643,6 +658,7 @@
 <img alt="_images/ab31e30fee02288de3a613b80e453bb127b02a72d4205db854ed72d96a78c98a.png" src="_images/ab31e30fee02288de3a613b80e453bb127b02a72d4205db854ed72d96a78c98a.png" />
 </div>
 </div>
+<p>Kode ini bertujuan untuk mendeteksi outlier dalam dataset yang berasal dari MySQL dan PostgreSQL menggunakan jarak Euclidean. Pertama, data dari kedua sumber dibaca dan digabungkan berdasarkan kolom “id” dan “Class”. Selanjutnya, fitur “petal length”, “petal width”, “sepal length”, dan “sepal width” dipilih untuk analisis. Jarak Euclidean dihitung dengan membandingkan setiap baris terhadap baris terakhir sebagai referensi, lalu hasilnya disimpan dalam kolom “distance”. Untuk menentukan outlier, digunakan threshold berdasarkan persentil ke-93.5, di mana data dengan jarak lebih besar dari threshold dianggap sebagai outlier. Hasil analisis ditampilkan dalam bentuk tabel dan divisualisasikan menggunakan scatter plot untuk sepal dan petal, dengan titik merah menunjukkan outlier dan titik biru sebagai data normal. Melalui pendekatan ini, kode dapat mengidentifikasi data yang berbeda secara signifikan dari pola umum dalam dataset.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hitung total outlier</span>
@@ -657,6 +673,7 @@
 </div>
 </div>
 </div>
+<p>Kode ini berfungsi untuk menghitung jumlah total outlier dalam dataset setelah proses deteksi menggunakan jarak Euclidean. Dengan menjumlahkan nilai True pada kolom “outlier”, kode ini menentukan berapa banyak data yang dianggap menyimpang berdasarkan threshold yang telah ditentukan sebelumnya. Hasil perhitungan kemudian disimpan dalam variabel total_outliers dan ditampilkan dalam format yang lebih informatif menggunakan fungsi print(). Dengan adanya langkah ini, pengguna dapat dengan mudah mengetahui jumlah data yang diklasifikasikan sebagai outlier tanpa harus menganalisis tabel secara manual.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Urutkan data berdasarkan jarak dari terkecil ke terbesar</span>
@@ -823,6 +840,157 @@
 </div>
 </div>
 </div>
+<p>Kode ini mengurutkan dataset berdasarkan nilai jarak Euclidean dari yang terkecil hingga yang terbesar. Dengan menggunakan fungsi sort_values(), pengurutan dilakukan pada kolom “distance” dalam urutan ascending (menaik), sehingga data yang paling mirip dengan referensi akan berada di atas, sedangkan data yang paling berbeda (termasuk outlier) berada di bawah. Hasil pengurutan kemudian disimpan dalam variabel df_sorted, dan ditampilkan dalam bentuk tabel menggunakan print(df_sorted.to_string(index=False)), yang memastikan tampilan data tanpa indeks tambahan. Langkah ini membantu pengguna untuk menganalisis pola jarak dan dengan mudah mengidentifikasi outlier dalam dataset.</p>
+</section>
+</section>
+<section id="local-outlier-factor-lof">
+<h2>Local Outlier Factor (LOF)<a class="headerlink" href="#local-outlier-factor-lof" title="Link to this heading">#</a></h2>
+<p>Local Outlier Factor (LOF) adalah metode berbasis kepadatan yang digunakan untuk mengidentifikasi outlier dalam suatu dataset. LOF membandingkan kepadatan lokal suatu titik dengan kepadatan lokal dari tetangganya. Jika suatu titik memiliki kepadatan yang jauh lebih rendah dibandingkan dengan sekitarnya, maka titik tersebut dianggap sebagai outlier.</p>
+<p>LOF mengukur sejauh mana suatu titik berbeda dari tetangganya dalam hal kepadatan. Metode ini berguna dalam mendeteksi outlier karena tidak hanya mempertimbangkan jarak absolut, tetapi juga pola kepadatan lokal. LOF memberikan skor, di mana nilai lebih tinggi menunjukkan bahwa titik tersebut lebih mungkin menjadi outlier.</p>
+<section id="tahapan-lof">
+<h3>Tahapan LOF<a class="headerlink" href="#tahapan-lof" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Menentukan jumlah tetangga (k-nearest neighbors, k): LOF membutuhkan parameter k yang menentukan jumlah tetangga yang akan dianalisis untuk setiap titik.</p></li>
+<li><p>Menghitung jarak k-tetangga terdekat: Untuk setiap titik, dihitung jarak ke k tetangga terdekatnya.</p></li>
+<li><p>Menentukan kepadatan lokal: Kepadatan lokal dihitung berdasarkan jarak rata-rata ke tetangga terdekat.</p></li>
+<li><p>Menghitung LOF score: Perbandingan kepadatan lokal titik dengan kepadatan lokal dari tetangga-tetangganya digunakan untuk menentukan apakah suatu titik adalah outlier.</p></li>
+<li><p>Menentukan threshold outlier: Biasanya, nilai LOF yang lebih tinggi dari ambang batas tertentu dianggap sebagai outlier.</p></li>
+</ol>
+</section>
+<section id="mengitung-manual">
+<h3>Mengitung Manual<a class="headerlink" href="#mengitung-manual" title="Link to this heading">#</a></h3>
+<p>Sebagai contoh, kita akan menghitung LOF secara manual menggunakan dataset kecil yang terdiri dari 10 baris dengan 2 fitur:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>ID</p></th>
+<th class="head"><p>Feature 1</p></th>
+<th class="head"><p>Feature 2</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>2.0</p></td>
+<td><p>3.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>2.5</p></td>
+<td><p>3.2</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>2.2</p></td>
+<td><p>3.1</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>8.0</p></td>
+<td><p>9.0</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>2.1</p></td>
+<td><p>3.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>2.3</p></td>
+<td><p>3.2</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>8.1</p></td>
+<td><p>9.2</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>2.4</p></td>
+<td><p>3.3</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>2.6</p></td>
+<td><p>3.4</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>7.9</p></td>
+<td><p>9.1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Misalkan kita ingin menghitung LOF untuk titik <strong>ID = 3 (2.2, 3.1)</strong>.</p>
+<ol class="arabic">
+<li><p><strong>Hitung Jarak Euclidean ke Tetangga Terdekat</strong>:</p>
+<ul class="simple">
+<li><p>Ke titik 5 (2.1, 3.0): 0.14</p></li>
+<li><p>Ke titik 6 (2.3, 3.2): 0.14</p></li>
+<li><p>Ke titik 2 (2.5, 3.2): 0.31</p></li>
+</ul>
+</li>
+<li><p><strong>Tentukan k-Tetangga Terdekat (k=3)</strong>:</p>
+<ul class="simple">
+<li><p>Tetangga terdekat: titik 5, 6, dan 2.</p></li>
+</ul>
+</li>
+<li><p><strong>Hitung Reachability Distance</strong>:</p>
+<ul class="simple">
+<li><p>Reachability distance dihitung sebagai maksimum antara jarak Euclidean dan jarak k-neighbor.</p></li>
+<li><p>rD(3,5) = max(0.14, 0.31) = 0.31</p></li>
+<li><p>rD(3,6) = max(0.14, 0.31) = 0.31</p></li>
+<li><p>rD(3,2) = max(0.31, 0.31) = 0.31</p></li>
+</ul>
+</li>
+<li><p><strong>Hitung Local Reachability Density (LRD)</strong>:</p>
+<p><img alt="image.png" src="attachment:eab984c1-398b-40d1-b85f-29ad43924915.png" /></p>
+</li>
+<li><p><strong>Hitung LOF</strong>:</p></li>
+</ol>
+<p><img alt="image.png" src="attachment:4366e83e-e4bd-4664-b801-cf7e7ff058fd.png" /></p>
+<ol class="arabic simple" start="7">
+<li><p><strong>Interpretasi</strong>:</p>
+<ul class="simple">
+<li><p>Karena <strong>LOF &lt; 1</strong>, titik <strong>ID = 3</strong> bukan outlier.</p></li>
+<li><p>Jika LOF jauh lebih besar dari 1, titik akan dianggap outlier.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="implementasi-lof-menggunakan-scikit-learn">
+<h3>Implementasi LOF menggunakan Scikit-Learn<a class="headerlink" href="#implementasi-lof-menggunakan-scikit-learn" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">LocalOutlierFactor</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Dataset</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Feature 1&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">,</span> <span class="mf">2.1</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">,</span> <span class="mf">8.1</span><span class="p">,</span> <span class="mf">2.4</span><span class="p">,</span> <span class="mf">2.6</span><span class="p">,</span> <span class="mf">7.9</span><span class="p">],</span>
+    <span class="s2">&quot;Feature 2&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">,</span> <span class="mf">3.1</span><span class="p">,</span> <span class="mf">9.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">,</span> <span class="mf">9.2</span><span class="p">,</span> <span class="mf">3.3</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">,</span> <span class="mf">9.1</span><span class="p">]</span>
+<span class="p">}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># Model LOF</span>
+<span class="n">lof</span> <span class="o">=</span> <span class="n">LocalOutlierFactor</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;LOF Label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lof</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="c1"># Menampilkan jumlah outlier</span>
+<span class="n">num_outliers</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;LOF Label&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Jumlah outlier: </span><span class="si">{</span><span class="n">num_outliers</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Menampilkan data outlier</span>
+<span class="n">outliers</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;LOF Label&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Data Outlier:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">outliers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah outlier: 3
+
+Data Outlier:
+   Feature 1  Feature 2  LOF Label
+3        8.0        9.0         -1
+6        8.1        9.2         -1
+9        7.9        9.1         -1
+</pre></div>
+</div>
+</div>
+</div>
+<p>Kode di atas menggunakan metode <strong>Local Outlier Factor (LOF)</strong> dari pustaka <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> untuk mendeteksi <strong>outlier</strong> dalam dataset. Dataset terdiri dari dua fitur dengan 10 sampel yang disimpan dalam bentuk <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>. Model LOF dibuat dengan mempertimbangkan <strong>3 tetangga terdekat</strong> (<code class="docutils literal notranslate"><span class="pre">n_neighbors=3</span></code>) untuk menghitung kepadatan lokal setiap titik. Hasil perhitungan LOF mengembalikan label <code class="docutils literal notranslate"><span class="pre">1</span></code> untuk data normal dan <code class="docutils literal notranslate"><span class="pre">-1</span></code> untuk data yang dianggap <strong>outlier</strong>. Setelah itu, kode menghitung jumlah outlier dan menampilkan daftar sampel yang terdeteksi sebagai <strong>outlier</strong> berdasarkan skor LOF. Dengan pendekatan ini, kita dapat mengidentifikasi data yang berbeda secara signifikan dari sekitarnya, yang berguna dalam <strong>analisis data</strong> dan <strong>pembersihan dataset</strong>.</p>
+</section>
 </section>
 </section>
 
@@ -882,10 +1050,20 @@
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tahap-deteksi-outlier-dengan-knn">Tahap Deteksi Outlier dengan KNN</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kelebihan">Kelebihan</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kekurangan">Kekurangan</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deteksi-outlier">Deteksi Outlier</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-nearest-neighbors-knn">K-Nearest Neighbors (KNN)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tahap-deteksi-outlier-dengan-knn">Tahap Deteksi Outlier dengan KNN</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kelebihan">Kelebihan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kekurangan">Kekurangan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-outlier-factor-lof">Local Outlier Factor (LOF)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tahapan-lof">Tahapan LOF</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mengitung-manual">Mengitung Manual</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-lof-menggunakan-scikit-learn">Implementasi LOF menggunakan Scikit-Learn</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
