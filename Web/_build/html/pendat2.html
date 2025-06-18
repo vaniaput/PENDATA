@@ -16,33 +16,30 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <!-- So that users can add custom icons -->
-  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
@@ -67,7 +64,6 @@
     <link rel="prev" title="Data UnderStanding" href="pendat1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -83,8 +79,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -92,6 +99,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -99,8 +107,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -116,8 +124,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -147,17 +154,21 @@
     
     
     <img src="_static/logo.png" class="logo__image only-light" alt="WebStatisku - Home"/>
-    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="WebStatisku - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="WebStatisku - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -178,6 +189,7 @@
 <li class="toctree-l1"><a class="reference internal" href="pendat4.html"><strong>FUZZY C-MEANS</strong></a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="pendat5.html">Decision Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pendat6.html">Teknik Binning</a></li>
 </ul>
 
     </div>
@@ -186,14 +198,9 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -337,16 +344,24 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
+  </button>
+`);
+</script>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -542,37 +557,150 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">OperationalError</span><span class="g g-Whitespace">                          </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">44</span>
-<span class="g g-Whitespace">     </span><span class="mi">41</span>     <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span> <span class="c1"># ✅ Ambil data dari kedua database</span>
-<span class="ne">---&gt; </span><span class="mi">44</span> <span class="n">df_postgresql</span> <span class="o">=</span> <span class="n">get_pg_data</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">45</span> <span class="n">df_mysql</span> <span class="o">=</span> <span class="n">get_mysql_data</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">47</span> <span class="c1"># ✅ Gabungkan berdasarkan kolom &#39;id&#39; &amp; &#39;class&#39;</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> id           class  petal_length  petal_width  sepal_length  sepal_width  knn_distance  outlier_knn
+  1     Iris-setosa          14.0          2.0          51.0         35.0     56.510530        False
+  2     Iris-setosa          14.0          2.0          49.0         30.0     52.205172        False
+  3     Iris-setosa          13.0          2.0          47.0         32.0     51.482230        False
+  4     Iris-setosa          15.0          2.0          46.0         31.0     50.519501        False
+  5     Iris-setosa          14.0          2.0           5.0         36.0     34.915326        False
+  6     Iris-setosa           1.7          0.4           5.4          3.9      3.845777        False
+  7     Iris-setosa           1.4          0.3           4.6          3.4      4.228475        False
+  8     Iris-setosa           1.5          0.2           5.0          3.4      4.060788        False
+  9     Iris-setosa           1.4          0.2           4.4          2.9      4.302325        False
+ 11     Iris-setosa           1.5          0.2           5.4          3.7      4.033609        False
+ 12     Iris-setosa           1.6          0.2           4.8          3.4      4.023680        False
+ 13     Iris-setosa           1.4          0.1           4.8          3.0      4.198809        False
+ 14     Iris-setosa           1.1          0.1           4.3          3.0      4.631414        False
+ 15     Iris-setosa           1.2          0.2           5.8         40.0     37.421651        False
+ 16     Iris-setosa           1.5          0.4           5.7          4.4      4.113393        False
+ 17     Iris-setosa           1.3          0.4           5.4          3.9      4.203570        False
+ 18     Iris-setosa           1.4          0.3           5.1          3.5      4.102438        False
+ 19     Iris-setosa           1.7          0.3           5.7          3.8      3.806573        False
+ 20     Iris-setosa           1.5          0.3          51.0          3.8     45.600658        False
+ 21     Iris-setosa           1.7          0.2           5.4          3.4      3.797368        False
+ 22     Iris-setosa           1.5          0.4           5.1          3.7      4.026164        False
+ 23     Iris-setosa           1.0          0.2           4.6          3.6      4.641121        False
+ 24     Iris-setosa           1.7          0.5           5.1          3.3      3.738984        False
+ 25     Iris-setosa           1.9          0.2           4.8         34.0     31.406528        False
+ 26     Iris-setosa           1.6          0.2           5.0          3.0      3.942081        False
+ 27     Iris-setosa           1.6          0.4           5.0          3.4      3.896152        False
+ 28     Iris-setosa           1.5          0.2           5.2          3.5      4.032369        False
+ 29     Iris-setosa           1.4          0.2           5.2          3.4      4.110961        False
+ 31     Iris-setosa           1.6          0.2           4.8          3.1      3.996248        False
+ 32     Iris-setosa           1.5          0.4           5.4          3.4      3.915354        False
+ 33     Iris-setosa           1.5          0.1           5.2          4.1      4.220190        False
+ 34     Iris-setosa           1.4          0.2           5.5          4.2      4.240283        False
+ 36     Iris-setosa           1.2          0.2           5.0          3.2      4.315090        False
+ 37     Iris-setosa           1.3          0.2           5.5          3.5      4.158125        False
+ 38     Iris-setosa           1.5          0.1           4.9          3.1      4.106093        False
+ 39     Iris-setosa           1.3          0.2           4.4          3.0      4.387482        False
+ 40     Iris-setosa           1.5          0.2           5.1          3.4      4.039802        False
+ 41     Iris-setosa           1.3          0.3           5.0          3.5      4.215448        False
+ 42     Iris-setosa           1.3          0.3           4.5          2.3      4.341659        False
+ 43     Iris-setosa           1.3          0.2           4.4          3.2      4.402272        False
+ 44     Iris-setosa           1.6          0.6           5.0          3.5      3.858756        False
+ 45     Iris-setosa           1.9          0.4           5.1          3.8      3.701351        False
+ 46     Iris-setosa           1.4          0.3           4.8          3.0      4.112177        False
+ 47     Iris-setosa           1.6          0.2           5.1          3.8      4.028647        False
+ 48     Iris-setosa           1.4          0.2           4.6          3.2      4.240283        False
+ 49     Iris-setosa           1.5          0.2           5.3          3.7      4.050926        False
+ 50     Iris-setosa           1.4          0.2           5.0          3.3      4.141256        False
+ 56 Iris-versicolor           4.5          1.3           5.7          2.8      3.203123        False
+ 57 Iris-versicolor           4.7          1.6           6.3          3.3      3.535534        False
+ 58 Iris-versicolor           3.3          1.0           4.9          2.4      2.619160        False
+ 59 Iris-versicolor           4.6          1.3           6.6          2.9      3.522783        False
+ 60 Iris-versicolor           3.9          1.4           5.2          2.7      2.787472        False
+ 61 Iris-versicolor           3.5          1.0           5.0          2.0      2.760435        False
+ 62 Iris-versicolor           4.2          1.5           5.9          3.0      3.109662        False
+ 63 Iris-versicolor           4.0          1.0           6.0          2.2      3.046309        False
+ 64 Iris-versicolor           4.7          1.4           6.1          2.9      3.461214        False
+ 65 Iris-versicolor           3.6          1.3           5.6          2.9      2.539685        False
+ 66 Iris-versicolor           4.4          1.4           6.7          3.1      3.395585        False
+ 67 Iris-versicolor           4.5          1.5           5.6          3.0      3.226453        False
+ 68 Iris-versicolor           4.1          1.0           5.8          2.7      2.920616        False
+ 69 Iris-versicolor           4.5          1.5           6.2          2.2      3.514257        False
+ 70 Iris-versicolor           3.9          1.1           5.6          2.5      2.789265        False
+ 71 Iris-versicolor           4.8          1.8           5.9          3.2      3.612478        False
+ 72 Iris-versicolor           4.0          1.3           6.1          2.8      2.959730        False
+ 73 Iris-versicolor           4.9          1.5           6.3          2.5      3.793415        False
+ 74 Iris-versicolor           4.7          1.2           6.1          2.8      3.424909        False
+ 75 Iris-versicolor           4.3          1.3           6.4          2.9      3.178050        False
+ 76 Iris-versicolor           4.4          1.4           6.6          3.0      3.360060        False
+ 77 Iris-versicolor           4.8          1.4           6.8          2.8      3.822303        False
+ 78 Iris-versicolor           5.0          1.7           6.7          3.0      3.988734        False
+ 79 Iris-versicolor           4.5          1.5           6.0          2.9      3.289377        False
+ 80 Iris-versicolor           3.5          1.0           5.7          2.6      2.487971        False
+ 81 Iris-versicolor           3.8          1.1           5.5          2.4      2.762245        False
+ 82 Iris-versicolor           3.7          1.0           5.5          2.4      2.673948        False
+ 83 Iris-versicolor           3.9          1.2           5.8          2.7      2.810694        False
+ 84 Iris-versicolor           5.1          1.6           6.0          2.7      3.896152        False
+ 85 Iris-versicolor           4.5          1.5           5.4          3.0      3.235738        False
+ 86 Iris-versicolor           4.5          1.6           6.0          3.4      3.286335        False
+ 87 Iris-versicolor           4.7          1.5           6.7          3.1      3.670150        False
+ 88 Iris-versicolor           4.4          1.3           6.3          2.3      3.385262        False
+ 89 Iris-versicolor           4.1          1.3           5.6          3.0      2.891366        False
+ 90 Iris-versicolor           4.0          1.3           5.5          2.5      2.918904        False
+ 91 Iris-versicolor           4.4          1.2           5.5          2.6      3.195309        False
+ 92 Iris-versicolor           4.6          1.4           6.1          3.0      3.355592        False
+ 93 Iris-versicolor           4.0          1.2           5.8          2.6      2.918904        False
+ 94 Iris-versicolor           3.3          1.0           5.0          2.3      2.600000        False
+ 95 Iris-versicolor           4.2          1.3           5.6          2.7      3.039737        False
+ 96 Iris-versicolor           4.2          1.2           5.7          3.0      2.963106        False
+ 97 Iris-versicolor           4.2          1.3           5.7          2.9      3.016621        False
+ 98 Iris-versicolor           4.3          1.3           6.2          2.9      3.128898        False
+ 99 Iris-versicolor           3.0          1.1           5.1          2.5      2.469818        False
+100 Iris-versicolor           4.1          1.3           5.7          2.8      2.951271        False
+106  Iris-virginica           6.6          2.1           7.6          3.0      5.853204        False
+107  Iris-virginica           4.5          1.7           4.9          2.5      3.452535        False
+108  Iris-virginica           6.3          1.8           7.3          2.9      5.401852        False
+109  Iris-virginica           5.8          1.8           6.7          2.5      4.792703        False
+110  Iris-virginica           6.1          2.5           7.2          3.6      5.358171        False
+111  Iris-virginica           5.1          2.0           6.5          3.2      4.095119        False
+112  Iris-virginica           5.3          1.9           6.4          2.7      4.263801        False
+113  Iris-virginica           5.5          2.1           6.8          3.0      4.583667        False
+114  Iris-virginica           5.0          2.0           5.7          2.5      3.937004        False
+115  Iris-virginica           5.1         42.0           5.8          2.8     41.740747        False
+116  Iris-virginica           5.3          2.3           6.4          3.2      4.369210        False
+117  Iris-virginica           5.5          1.8           6.5          3.0      4.396590        False
+118  Iris-virginica           6.7          2.2           7.7          3.8      5.977458        False
+119  Iris-virginica           6.9          2.3           7.7          2.6      6.251400        False
+120  Iris-virginica          50.0          1.5           6.0          2.2     48.336115        False
+121  Iris-virginica           5.7          2.3           6.9          3.2      4.851804        False
+122  Iris-virginica           4.9          2.0           5.6          2.8      3.764306        False
+123  Iris-virginica           6.7          2.0           7.7          2.8      5.979130        False
+124  Iris-virginica           4.9          1.8           6.3          2.7      3.849675        False
+125  Iris-virginica           5.7          2.1           6.7          3.3      4.714870        False
+126  Iris-virginica           6.0         18.0           7.2          3.2     18.256232        False
+127  Iris-virginica           4.8          1.8           6.2          2.8      3.721559        False
+128  Iris-virginica           4.9          1.8           6.1          3.0      3.764306        False
+129  Iris-virginica           5.6          2.1           6.4          2.8      4.589118        False
+130  Iris-virginica          58.0          1.6           7.2          3.0     56.157813        False
+131  Iris-virginica           6.1          1.9           7.4          2.8      5.309426        False
+132  Iris-virginica           6.4          2.0           7.9          3.8      5.742822        False
+133  Iris-virginica           5.6          2.2           6.4          2.8      4.627094        False
+134  Iris-virginica           5.1          1.5           6.3          2.8      3.916631        False
+135  Iris-virginica           5.6         41.0           6.1          2.6     40.798162        False
+136  Iris-virginica           6.1          2.3           7.7          3.0      5.538953        False
+137  Iris-virginica           5.6          2.4           6.3          3.4      4.649731        False
+138  Iris-virginica           5.5          1.8           6.4          3.1      4.364631        False
+139  Iris-virginica           4.8          1.8           6.0          3.0      3.655133        False
+140  Iris-virginica          45.0          2.1           6.9          3.1     43.366692        False
+141  Iris-virginica           5.6          2.4           6.7          3.1      4.752894        False
+142  Iris-virginica           5.1          2.3           6.9          3.1      4.348563        False
+143  Iris-virginica           5.1          1.9           5.8          2.7      3.953479        False
+144  Iris-virginica           5.9          2.3           6.8          3.2      4.996999        False
+145  Iris-virginica           5.7         25.0           6.7          3.3     24.948146        False
+146  Iris-virginica           5.2          2.3           6.7          3.0      4.376071        False
+147  Iris-virginica           5.0          1.9           6.3          2.5      4.014972        False
+148  Iris-virginica           5.2          2.0           6.5          3.0      4.197618        False
+149  Iris-virginica           5.4          2.3           6.2          3.4      4.411349        False
+150  Iris-virginica           5.1          1.8           5.9          3.0      3.896152        False
 
-<span class="nn">Cell In[1], line 11,</span> in <span class="ni">get_pg_data</span><span class="nt">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="k">def</span> <span class="nf">get_pg_data</span><span class="p">():</span>
-<span class="ne">---&gt; </span><span class="mi">11</span>     <span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span>         <span class="n">host</span><span class="o">=</span><span class="s2">&quot;pg-29vania-vaniaptr008-f94a.k.aivencloud.com&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span>         <span class="n">user</span><span class="o">=</span><span class="s2">&quot;avnadmin&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span>         <span class="n">password</span><span class="o">=</span><span class="s2">&quot;AVNS_jN7GWD4QIOAFWBZiFM2&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span>         <span class="n">database</span><span class="o">=</span><span class="s2">&quot;defaultdb&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span>         <span class="n">port</span><span class="o">=</span><span class="mi">12525</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span>     <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span>     <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span>     <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM iris_postgresql&quot;</span><span class="p">)</span>  <span class="c1"># Pastikan tabel ini ada!</span>
-
-<span class="nn">File ~\AppData\Local\Programs\Python\Python311\Lib\site-packages\psycopg2\__init__.py:122,</span> in <span class="ni">connect</span><span class="nt">(dsn, connection_factory, cursor_factory, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">119</span>     <span class="n">kwasync</span><span class="p">[</span><span class="s1">&#39;async_&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;async_&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">121</span> <span class="n">dsn</span> <span class="o">=</span> <span class="n">_ext</span><span class="o">.</span><span class="n">make_dsn</span><span class="p">(</span><span class="n">dsn</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">122</span> <span class="n">conn</span> <span class="o">=</span> <span class="n">_connect</span><span class="p">(</span><span class="n">dsn</span><span class="p">,</span> <span class="n">connection_factory</span><span class="o">=</span><span class="n">connection_factory</span><span class="p">,</span> <span class="o">**</span><span class="n">kwasync</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">123</span> <span class="k">if</span> <span class="n">cursor_factory</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">124</span>     <span class="n">conn</span><span class="o">.</span><span class="n">cursor_factory</span> <span class="o">=</span> <span class="n">cursor_factory</span>
-
-<span class="ne">OperationalError</span>: could not translate host name &quot;pg-29vania-vaniaptr008-f94a.k.aivencloud.com&quot; to address: No such host is known. 
+Jumlah data setelah outlier dihapus: 137
 </pre></div>
 </div>
+<img alt="_images/fc66ab859069acfda6aa309bc3ca6c284ef4a160eea60d730a90fa75f95d7571.png" src="_images/fc66ab859069acfda6aa309bc3ca6c284ef4a160eea60d730a90fa75f95d7571.png" />
+<img alt="_images/0dc18a371dc58bc3c9fa0274a301af8d5677fd18f8868f50976301c02db1f867.png" src="_images/0dc18a371dc58bc3c9fa0274a301af8d5677fd18f8868f50976301c02db1f867.png" />
 </div>
 </div>
 <p>Kode ini mengambil data dari PostgreSQL dan MySQL, lalu menggabungkannya berdasarkan kolom “id” dan “class”. Setelah itu, dilakukan deteksi outlier menggunakan K-Nearest Neighbors (KNN) dengan menghitung jarak rata-rata ke 90 tetangga terdekat, kemudian data dengan jarak di atas rata-rata plus 2 standar deviasi dianggap outlier dan dihapus. Terakhir, hasil data yang telah dibersihkan divisualisasikan dalam scatter plot berdasarkan fitur sepal dan petal untuk melihat perbedaan sebelum dan sesudah penghapusan outlier.</p>
@@ -1411,7 +1539,7 @@ Iris-versicolor       0.62      0.50      0.56        10
    weighted avg       0.71      0.70      0.70        27
 </pre></div>
 </div>
-<img alt="_images/337ad6819f1e20773733373e87dc27dd05607c52cb7a047636a1f3f257ba6e89.png" src="_images/337ad6819f1e20773733373e87dc27dd05607c52cb7a047636a1f3f257ba6e89.png" />
+<img alt="_images/f0238c111f098a54fc23f97ebe398594ecdd3bc2c25490168d9890c6ef72e217.png" src="_images/f0238c111f098a54fc23f97ebe398594ecdd3bc2c25490168d9890c6ef72e217.png" />
 </div>
 </div>
 <p>Kode ini melakukan deteksi outlier dengan LOF dan klasifikasi dengan KNN menggunakan fitur sepal_length dan sepal_width. Pertama, data dikodekan menggunakan LabelEncoder, lalu outlier diidentifikasi dengan Local Outlier Factor (LOF) menggunakan 20 tetangga (n_neighbors=20) dan 10% data dianggap outlier (contamination=0.1). Data yang terdeteksi sebagai outlier dihapus sebelum digunakan dalam pembagian data training (80%) dan testing (20%). Model KNN dengan 11 tetangga (n_neighbors=11) diterapkan dalam pipeline bersama StandardScaler, lalu dilatih dan dievaluasi menggunakan akurasi dan classification report. Terakhir, kode membuat visualisasi decision boundary dengan dua skenario bobot (uniform dan distance), menunjukkan bagaimana model memisahkan kelas berdasarkan fitur yang dipilih.</p>
@@ -1502,32 +1630,47 @@ Iris-versicolor       0.62      0.50      0.56        10
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah data yang salah diklasifikasikan dengan outlier dari total 30 data : 19
-Akurasi dengan outlier: 36.67%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah data yang salah diklasifikasikan dengan outlier dari total 30 data : 20
+Akurasi dengan outlier: 33.33%
 Data yang salah diklasifikasikan dengan outlier:
-Indeks: 0, Label Asli: Iris-versicolor, Prediksi: Iris-setosa
-Indeks: 2, Label Asli: Iris-virginica, Prediksi: Iris-versicolor
-Indeks: 3, Label Asli: Iris-versicolor, Prediksi: Iris-setosa
-Indeks: 4, Label Asli: Iris-versicolor, Prediksi: Iris-setosa
-Indeks: 6, Label Asli: Iris-versicolor, Prediksi: Iris-setosa
-Indeks: 7, Label Asli: Iris-virginica, Prediksi: Iris-versicolor
-Indeks: 8, Label Asli: Iris-versicolor, Prediksi: Iris-setosa
-Indeks: 9, Label Asli: Iris-versicolor, Prediksi: Iris-setosa
-Indeks: 10, Label Asli: Iris-virginica, Prediksi: Iris-versicolor
-Indeks: 15, Label Asli: Iris-versicolor, Prediksi: Iris-setosa
-Indeks: 17, Label Asli: Iris-versicolor, Prediksi: Iris-setosa
-Indeks: 18, Label Asli: Iris-versicolor, Prediksi: Iris-setosa
-Indeks: 19, Label Asli: Iris-virginica, Prediksi: Iris-versicolor
-Indeks: 21, Label Asli: Iris-virginica, Prediksi: Iris-setosa
-Indeks: 23, Label Asli: Iris-virginica, Prediksi: Iris-versicolor
-Indeks: 24, Label Asli: Iris-virginica, Prediksi: Iris-versicolor
-Indeks: 25, Label Asli: Iris-virginica, Prediksi: Iris-versicolor
-Indeks: 26, Label Asli: Iris-virginica, Prediksi: Iris-setosa
-Indeks: 27, Label Asli: Iris-virginica, Prediksi: Iris-versicolor
+Indeks: 0, Label Asli: Iris-versicolor, Prediksi: Iris-virginica
+Indeks: 1, Label Asli: Iris-setosa, Prediksi: Iris-virginica
+Indeks: 3, Label Asli: Iris-versicolor, Prediksi: Iris-virginica
+Indeks: 4, Label Asli: Iris-versicolor, Prediksi: Iris-virginica
+Indeks: 5, Label Asli: Iris-setosa, Prediksi: Iris-virginica
+Indeks: 6, Label Asli: Iris-versicolor, Prediksi: Iris-virginica
+Indeks: 8, Label Asli: Iris-versicolor, Prediksi: Iris-virginica
+Indeks: 9, Label Asli: Iris-versicolor, Prediksi: Iris-virginica
+Indeks: 11, Label Asli: Iris-setosa, Prediksi: Iris-virginica
+Indeks: 12, Label Asli: Iris-setosa, Prediksi: Iris-virginica
+Indeks: 13, Label Asli: Iris-setosa, Prediksi: Iris-versicolor
+Indeks: 14, Label Asli: Iris-setosa, Prediksi: Iris-versicolor
+Indeks: 15, Label Asli: Iris-versicolor, Prediksi: Iris-virginica
+Indeks: 16, Label Asli: Iris-virginica, Prediksi: Iris-versicolor
+Indeks: 17, Label Asli: Iris-versicolor, Prediksi: Iris-virginica
+Indeks: 18, Label Asli: Iris-versicolor, Prediksi: Iris-virginica
+Indeks: 20, Label Asli: Iris-setosa, Prediksi: Iris-versicolor
+Indeks: 22, Label Asli: Iris-setosa, Prediksi: Iris-virginica
+Indeks: 28, Label Asli: Iris-setosa, Prediksi: Iris-virginica
+Indeks: 29, Label Asli: Iris-setosa, Prediksi: Iris-virginica
 
-Jumlah data yang salah diklasifikasikan tanpa outlier dari total 27 data : 0
-Akurasi tanpa outlier: 100.00%
+Jumlah data yang salah diklasifikasikan tanpa outlier dari total 27 data : 14
+Akurasi tanpa outlier: 48.15%
 Data yang salah diklasifikasikan tanpa outlier:
+Indeks: 0, Label Asli: Iris-virginica, Prediksi: Iris-setosa
+Indeks: 1, Label Asli: Iris-versicolor, Prediksi: Iris-setosa
+Indeks: 2, Label Asli: Iris-virginica, Prediksi: Iris-versicolor
+Indeks: 7, Label Asli: Iris-virginica, Prediksi: Iris-versicolor
+Indeks: 8, Label Asli: Iris-virginica, Prediksi: Iris-versicolor
+Indeks: 9, Label Asli: Iris-virginica, Prediksi: Iris-versicolor
+Indeks: 11, Label Asli: Iris-versicolor, Prediksi: Iris-virginica
+Indeks: 13, Label Asli: Iris-virginica, Prediksi: Iris-versicolor
+Indeks: 14, Label Asli: Iris-virginica, Prediksi: Iris-versicolor
+Indeks: 18, Label Asli: Iris-versicolor, Prediksi: Iris-setosa
+Indeks: 19, Label Asli: Iris-versicolor, Prediksi: Iris-setosa
+Indeks: 20, Label Asli: Iris-versicolor, Prediksi: Iris-setosa
+Indeks: 25, Label Asli: Iris-virginica, Prediksi: Iris-versicolor
+Indeks: 26, Label Asli: Iris-versicolor, Prediksi: Iris-setosa
 </pre></div>
 </div>
 </div>
@@ -1563,7 +1706,7 @@ Data yang salah diklasifikasikan tanpa outlier:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f23e4c415f7cc8a6b81a38800c966b1363d0145a27454e441ce38025424f0f2c.png" src="_images/f23e4c415f7cc8a6b81a38800c966b1363d0145a27454e441ce38025424f0f2c.png" />
+<img alt="_images/fa867386e54db8fda6452ee045f9cd1ab6a3bc495ee248bf6ae64d6e983f4420.png" src="_images/fa867386e54db8fda6452ee045f9cd1ab6a3bc495ee248bf6ae64d6e983f4420.png" />
 </div>
 </div>
 <p>Kode ini bertujuan untuk memvisualisasikan performa model Naïve Bayes menggunakan confusion matrix dalam dua kondisi: dengan dan tanpa outlier. Menggunakan matplotlib dan seaborn, dua confusion matrix dibuat dalam satu figure dengan dua subplot yang bersebelahan. Masing-masing confusion matrix menggambarkan perbandingan antara label sebenarnya (y_test_all atau y_test_clean) dengan hasil prediksi model (y_pred_all atau y_pred_clean). Warna biru digunakan untuk memperjelas jumlah prediksi dalam tiap kategori, dan nilai prediksi ditampilkan dalam setiap sel menggunakan annot=True. Sumbu horizontal merepresentasikan label yang diprediksi, sementara sumbu vertikal menunjukkan label sebenarnya. Dengan visualisasi ini, kita dapat melihat pola kesalahan klasifikasi dan membandingkan bagaimana keberadaan outlier mempengaruhi kinerja model.</p>
@@ -1626,8 +1769,7 @@ Data yang salah diklasifikasikan tanpa outlier:
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1708,8 +1850,8 @@ By Vania Putri
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -16,33 +16,30 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <!-- So that users can add custom icons -->
-  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
@@ -69,7 +66,6 @@
     <link rel="prev" title="UTS PENDAT" href="uts.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -85,8 +81,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -94,6 +101,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -101,8 +109,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -118,8 +126,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -149,17 +156,21 @@
     
     
     <img src="_static/logo.png" class="logo__image only-light" alt="WebStatisku - Home"/>
-    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="WebStatisku - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="WebStatisku - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -180,6 +191,7 @@
 <li class="toctree-l1"><a class="reference internal" href="pendat4.html"><strong>FUZZY C-MEANS</strong></a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="pendat5.html">Decision Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pendat6.html">Teknik Binning</a></li>
 </ul>
 
     </div>
@@ -188,14 +200,9 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -339,16 +346,24 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
+  </button>
+`);
+</script>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -580,20 +595,22 @@ S = \frac{1}{n} \sum_{i=1}^{n} s(i)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pymysql in c:\users\vania\appdata\local\programs\python\python311\lib\site-packages (1.1.1)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: pymysql in c:\users\raiha\appdata\local\packages\pythonsoftwarefoundation.python.3.12_qbz5n2kfra8p0\localcache\local-packages\python312\site-packages (1.1.1)
 Note: you may need to restart the kernel to use updated packages.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[notice] A new release of pip is available: 25.0.1 -&gt; 25.1.1
-[notice] To update, run: python.exe -m pip install --upgrade pip
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[notice] A new release of pip is available: 25.1 -&gt; 25.1.1
+[notice] To update, run: C:\Users\raiha\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\python.exe -m pip install --upgrade pip
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: psycopg2 in c:\users\vania\appdata\local\programs\python\python311\lib\site-packages (2.9.10)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: psycopg2 in c:\users\raiha\appdata\local\packages\pythonsoftwarefoundation.python.3.12_qbz5n2kfra8p0\localcache\local-packages\python312\site-packages (2.9.10)
 Note: you may need to restart the kernel to use updated packages.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[notice] A new release of pip is available: 25.0.1 -&gt; 25.1.1
-[notice] To update, run: python.exe -m pip install --upgrade pip
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[notice] A new release of pip is available: 25.1 -&gt; 25.1.1
+[notice] To update, run: C:\Users\raiha\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\python.exe -m pip install --upgrade pip
 </pre></div>
 </div>
 </div>
@@ -667,35 +684,157 @@ Note: you may need to restart the kernel to use updated packages.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">OperationalError</span><span class="g g-Whitespace">                          </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">34</span>
-<span class="g g-Whitespace">     </span><span class="mi">31</span>     <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">33</span> <span class="c1"># Ambil data dari kedua database</span>
-<span class="ne">---&gt; </span><span class="mi">34</span> <span class="n">df_postgresql</span> <span class="o">=</span> <span class="n">get_pg_data</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">35</span> <span class="n">df_mysql</span> <span class="o">=</span> <span class="n">get_mysql_data</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">37</span> <span class="c1"># Gabungkan berdasarkan kolom &#39;id&#39; dan &#39;Class&#39;</span>
-
-<span class="nn">Cell In[3], line 2,</span> in <span class="ni">get_pg_data</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">get_pg_data</span><span class="p">():</span>
-<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>         <span class="n">host</span><span class="o">=</span><span class="s2">&quot;pg-29vania-vaniaptr008-f94a.k.aivencloud.com&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>         <span class="n">user</span><span class="o">=</span><span class="s2">&quot;avnadmin&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>         <span class="n">password</span><span class="o">=</span><span class="s2">&quot;AVNS_jN7GWD4QIOAFWBZiFM2&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span>         <span class="n">database</span><span class="o">=</span><span class="s2">&quot;defaultdb&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span>         <span class="n">port</span><span class="o">=</span><span class="mi">12525</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM iris_postgresql&quot;</span><span class="p">)</span>  <span class="c1"># Pastikan tabel ini ada!</span>
-
-<span class="nn">File ~\AppData\Local\Programs\Python\Python311\Lib\site-packages\psycopg2\__init__.py:122,</span> in <span class="ni">connect</span><span class="nt">(dsn, connection_factory, cursor_factory, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">119</span>     <span class="n">kwasync</span><span class="p">[</span><span class="s1">&#39;async_&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;async_&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">121</span> <span class="n">dsn</span> <span class="o">=</span> <span class="n">_ext</span><span class="o">.</span><span class="n">make_dsn</span><span class="p">(</span><span class="n">dsn</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">122</span> <span class="n">conn</span> <span class="o">=</span> <span class="n">_connect</span><span class="p">(</span><span class="n">dsn</span><span class="p">,</span> <span class="n">connection_factory</span><span class="o">=</span><span class="n">connection_factory</span><span class="p">,</span> <span class="o">**</span><span class="n">kwasync</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">123</span> <span class="k">if</span> <span class="n">cursor_factory</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">124</span>     <span class="n">conn</span><span class="o">.</span><span class="n">cursor_factory</span> <span class="o">=</span> <span class="n">cursor_factory</span>
-
-<span class="ne">OperationalError</span>: could not translate host name &quot;pg-29vania-vaniaptr008-f94a.k.aivencloud.com&quot; to address: No such host is known. 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> id           class  petal_length  petal_width  sepal_length  sepal_width
+  1     Iris-setosa          14.0          2.0          51.0         35.0
+  2     Iris-setosa          14.0          2.0          49.0         30.0
+  3     Iris-setosa          13.0          2.0          47.0         32.0
+  4     Iris-setosa          15.0          2.0          46.0         31.0
+  5     Iris-setosa          14.0          2.0           5.0         36.0
+  6     Iris-setosa           1.7          0.4           5.4          3.9
+  7     Iris-setosa           1.4          0.3           4.6          3.4
+  8     Iris-setosa           1.5          0.2           5.0          3.4
+  9     Iris-setosa           1.4          0.2           4.4          2.9
+ 10     Iris-setosa           1.5          0.1          94.0          3.1
+ 11     Iris-setosa           1.5          0.2           5.4          3.7
+ 12     Iris-setosa           1.6          0.2           4.8          3.4
+ 13     Iris-setosa           1.4          0.1           4.8          3.0
+ 14     Iris-setosa           1.1          0.1           4.3          3.0
+ 15     Iris-setosa           1.2          0.2           5.8         40.0
+ 16     Iris-setosa           1.5          0.4           5.7          4.4
+ 17     Iris-setosa           1.3          0.4           5.4          3.9
+ 18     Iris-setosa           1.4          0.3           5.1          3.5
+ 19     Iris-setosa           1.7          0.3           5.7          3.8
+ 20     Iris-setosa           1.5          0.3          51.0          3.8
+ 21     Iris-setosa           1.7          0.2           5.4          3.4
+ 22     Iris-setosa           1.5          0.4           5.1          3.7
+ 23     Iris-setosa           1.0          0.2           4.6          3.6
+ 24     Iris-setosa           1.7          0.5           5.1          3.3
+ 25     Iris-setosa           1.9          0.2           4.8         34.0
+ 26     Iris-setosa           1.6          0.2           5.0          3.0
+ 27     Iris-setosa           1.6          0.4           5.0          3.4
+ 28     Iris-setosa           1.5          0.2           5.2          3.5
+ 29     Iris-setosa           1.4          0.2           5.2          3.4
+ 30     Iris-setosa           1.6          0.2          74.0          3.2
+ 31     Iris-setosa           1.6          0.2           4.8          3.1
+ 32     Iris-setosa           1.5          0.4           5.4          3.4
+ 33     Iris-setosa           1.5          0.1           5.2          4.1
+ 34     Iris-setosa           1.4          0.2           5.5          4.2
+ 35     Iris-setosa           1.5          0.1           4.9         94.0
+ 36     Iris-setosa           1.2          0.2           5.0          3.2
+ 37     Iris-setosa           1.3          0.2           5.5          3.5
+ 38     Iris-setosa           1.5          0.1           4.9          3.1
+ 39     Iris-setosa           1.3          0.2           4.4          3.0
+ 40     Iris-setosa           1.5          0.2           5.1          3.4
+ 41     Iris-setosa           1.3          0.3           5.0          3.5
+ 42     Iris-setosa           1.3          0.3           4.5          2.3
+ 43     Iris-setosa           1.3          0.2           4.4          3.2
+ 44     Iris-setosa           1.6          0.6           5.0          3.5
+ 45     Iris-setosa           1.9          0.4           5.1          3.8
+ 46     Iris-setosa           1.4          0.3           4.8          3.0
+ 47     Iris-setosa           1.6          0.2           5.1          3.8
+ 48     Iris-setosa           1.4          0.2           4.6          3.2
+ 49     Iris-setosa           1.5          0.2           5.3          3.7
+ 50     Iris-setosa           1.4          0.2           5.0          3.3
+ 51 Iris-versicolor          47.0         14.0          70.0         32.0
+ 52 Iris-versicolor          45.0         15.0          64.0         32.0
+ 53 Iris-versicolor          49.0         15.0          69.0         31.0
+ 54 Iris-versicolor          40.0         13.0          55.0         23.0
+ 55 Iris-versicolor          46.0         15.0          65.0         28.0
+ 56 Iris-versicolor           4.5          1.3           5.7          2.8
+ 57 Iris-versicolor           4.7          1.6           6.3          3.3
+ 58 Iris-versicolor           3.3          1.0           4.9          2.4
+ 59 Iris-versicolor           4.6          1.3           6.6          2.9
+ 60 Iris-versicolor           3.9          1.4           5.2          2.7
+ 61 Iris-versicolor           3.5          1.0           5.0          2.0
+ 62 Iris-versicolor           4.2          1.5           5.9          3.0
+ 63 Iris-versicolor           4.0          1.0           6.0          2.2
+ 64 Iris-versicolor           4.7          1.4           6.1          2.9
+ 65 Iris-versicolor           3.6          1.3           5.6          2.9
+ 66 Iris-versicolor           4.4          1.4           6.7          3.1
+ 67 Iris-versicolor           4.5          1.5           5.6          3.0
+ 68 Iris-versicolor           4.1          1.0           5.8          2.7
+ 69 Iris-versicolor           4.5          1.5           6.2          2.2
+ 70 Iris-versicolor           3.9          1.1           5.6          2.5
+ 71 Iris-versicolor           4.8          1.8           5.9          3.2
+ 72 Iris-versicolor           4.0          1.3           6.1          2.8
+ 73 Iris-versicolor           4.9          1.5           6.3          2.5
+ 74 Iris-versicolor           4.7          1.2           6.1          2.8
+ 75 Iris-versicolor           4.3          1.3           6.4          2.9
+ 76 Iris-versicolor           4.4          1.4           6.6          3.0
+ 77 Iris-versicolor           4.8          1.4           6.8          2.8
+ 78 Iris-versicolor           5.0          1.7           6.7          3.0
+ 79 Iris-versicolor           4.5          1.5           6.0          2.9
+ 80 Iris-versicolor           3.5          1.0           5.7          2.6
+ 81 Iris-versicolor           3.8          1.1           5.5          2.4
+ 82 Iris-versicolor           3.7          1.0           5.5          2.4
+ 83 Iris-versicolor           3.9          1.2           5.8          2.7
+ 84 Iris-versicolor           5.1          1.6           6.0          2.7
+ 85 Iris-versicolor           4.5          1.5           5.4          3.0
+ 86 Iris-versicolor           4.5          1.6           6.0          3.4
+ 87 Iris-versicolor           4.7          1.5           6.7          3.1
+ 88 Iris-versicolor           4.4          1.3           6.3          2.3
+ 89 Iris-versicolor           4.1          1.3           5.6          3.0
+ 90 Iris-versicolor           4.0          1.3           5.5          2.5
+ 91 Iris-versicolor           4.4          1.2           5.5          2.6
+ 92 Iris-versicolor           4.6          1.4           6.1          3.0
+ 93 Iris-versicolor           4.0          1.2           5.8          2.6
+ 94 Iris-versicolor           3.3          1.0           5.0          2.3
+ 95 Iris-versicolor           4.2          1.3           5.6          2.7
+ 96 Iris-versicolor           4.2          1.2           5.7          3.0
+ 97 Iris-versicolor           4.2          1.3           5.7          2.9
+ 98 Iris-versicolor           4.3          1.3           6.2          2.9
+ 99 Iris-versicolor           3.0          1.1           5.1          2.5
+100 Iris-versicolor           4.1          1.3           5.7          2.8
+101  Iris-virginica          60.0         25.0          63.0         33.0
+102  Iris-virginica          51.0         19.0          58.0         27.0
+103  Iris-virginica          59.0         21.0          71.0         30.0
+104  Iris-virginica          56.0         18.0          63.0         29.0
+105  Iris-virginica          58.0         22.0          65.0         30.0
+106  Iris-virginica           6.6          2.1           7.6          3.0
+107  Iris-virginica           4.5          1.7           4.9          2.5
+108  Iris-virginica           6.3          1.8           7.3          2.9
+109  Iris-virginica           5.8          1.8           6.7          2.5
+110  Iris-virginica           6.1          2.5           7.2          3.6
+111  Iris-virginica           5.1          2.0           6.5          3.2
+112  Iris-virginica           5.3          1.9           6.4          2.7
+113  Iris-virginica           5.5          2.1           6.8          3.0
+114  Iris-virginica           5.0          2.0           5.7          2.5
+115  Iris-virginica           5.1         42.0           5.8          2.8
+116  Iris-virginica           5.3          2.3           6.4          3.2
+117  Iris-virginica           5.5          1.8           6.5          3.0
+118  Iris-virginica           6.7          2.2           7.7          3.8
+119  Iris-virginica           6.9          2.3           7.7          2.6
+120  Iris-virginica          50.0          1.5           6.0          2.2
+121  Iris-virginica           5.7          2.3           6.9          3.2
+122  Iris-virginica           4.9          2.0           5.6          2.8
+123  Iris-virginica           6.7          2.0           7.7          2.8
+124  Iris-virginica           4.9          1.8           6.3          2.7
+125  Iris-virginica           5.7          2.1           6.7          3.3
+126  Iris-virginica           6.0         18.0           7.2          3.2
+127  Iris-virginica           4.8          1.8           6.2          2.8
+128  Iris-virginica           4.9          1.8           6.1          3.0
+129  Iris-virginica           5.6          2.1           6.4          2.8
+130  Iris-virginica          58.0          1.6           7.2          3.0
+131  Iris-virginica           6.1          1.9           7.4          2.8
+132  Iris-virginica           6.4          2.0           7.9          3.8
+133  Iris-virginica           5.6          2.2           6.4          2.8
+134  Iris-virginica           5.1          1.5           6.3          2.8
+135  Iris-virginica           5.6         41.0           6.1          2.6
+136  Iris-virginica           6.1          2.3           7.7          3.0
+137  Iris-virginica           5.6          2.4           6.3          3.4
+138  Iris-virginica           5.5          1.8           6.4          3.1
+139  Iris-virginica           4.8          1.8           6.0          3.0
+140  Iris-virginica          45.0          2.1           6.9          3.1
+141  Iris-virginica           5.6          2.4           6.7          3.1
+142  Iris-virginica           5.1          2.3           6.9          3.1
+143  Iris-virginica           5.1          1.9           5.8          2.7
+144  Iris-virginica           5.9          2.3           6.8          3.2
+145  Iris-virginica           5.7         25.0           6.7          3.3
+146  Iris-virginica           5.2          2.3           6.7          3.0
+147  Iris-virginica           5.0          1.9           6.3          2.5
+148  Iris-virginica           5.2          2.0           6.5          3.0
+149  Iris-virginica           5.4          2.3           6.2          3.4
+150  Iris-virginica           5.1          1.8           5.9          3.0
 </pre></div>
 </div>
 </div>
@@ -961,9 +1100,9 @@ Akurasi (Adjusted Rand Score): 0.014
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d2bf8856cb39bce4286873ad8b09633f93fb01f1873de37f3277e4ea567b4dfb.png" src="_images/d2bf8856cb39bce4286873ad8b09633f93fb01f1873de37f3277e4ea567b4dfb.png" />
-<img alt="_images/705fc6c88c35000d7a9fd0efee85558da75ffdaef86049ba7e6aceb204dffd84.png" src="_images/705fc6c88c35000d7a9fd0efee85558da75ffdaef86049ba7e6aceb204dffd84.png" />
-<img alt="_images/1d02a4d35b63be11f76959a1026ae5d18b303c688e594fd4546623798328306f.png" src="_images/1d02a4d35b63be11f76959a1026ae5d18b303c688e594fd4546623798328306f.png" />
+<img alt="_images/9dc6db850c6deec480a65d05a2d664e1215fec8e1e1e29fbfa8a5dd9b558e80a.png" src="_images/9dc6db850c6deec480a65d05a2d664e1215fec8e1e1e29fbfa8a5dd9b558e80a.png" />
+<img alt="_images/e8eac751ea45252d95e0c5843896e2c582adcdf7c54b92521204338bcefd35f2.png" src="_images/e8eac751ea45252d95e0c5843896e2c582adcdf7c54b92521204338bcefd35f2.png" />
+<img alt="_images/d136d2b16a9277d9aba8ba27b52ee788b70d1cfd21c5fa217a13e49e4257ed51.png" src="_images/d136d2b16a9277d9aba8ba27b52ee788b70d1cfd21c5fa217a13e49e4257ed51.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1001,9 +1140,9 @@ Akurasi (Adjusted Rand Score): 0.014
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/43ab21b2d45806dc5779f4be5e09cebc297abd85d7d02de506c8625663ea72c4.png" src="_images/43ab21b2d45806dc5779f4be5e09cebc297abd85d7d02de506c8625663ea72c4.png" />
-<img alt="_images/c7c92fa92b17e11507becdfa73efc9ac6f47389adc37b42e1106132d6dac4e78.png" src="_images/c7c92fa92b17e11507becdfa73efc9ac6f47389adc37b42e1106132d6dac4e78.png" />
-<img alt="_images/e058e1ee8ea9b758182c9e9299ae9128951c30af227cda6d44987cd19b4ea04a.png" src="_images/e058e1ee8ea9b758182c9e9299ae9128951c30af227cda6d44987cd19b4ea04a.png" />
+<img alt="_images/9a59bafe6c7586c86a1a928bc5e81f3139c891c82e7c096fbeb10be0ef7ccfd5.png" src="_images/9a59bafe6c7586c86a1a928bc5e81f3139c891c82e7c096fbeb10be0ef7ccfd5.png" />
+<img alt="_images/2a6fea6ca6e9c1e27dc9b54c48c8d26e3abc30376d86a297652682c7350a4334.png" src="_images/2a6fea6ca6e9c1e27dc9b54c48c8d26e3abc30376d86a297652682c7350a4334.png" />
+<img alt="_images/1cc0537d46e4474f305f3b336d19aaa9ef1fd9b3cd63902e189b155a945eb378.png" src="_images/1cc0537d46e4474f305f3b336d19aaa9ef1fd9b3cd63902e189b155a945eb378.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1752,7 +1891,7 @@ Inertia dari sklearn: 135.933
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/af612385b524282dfb3da8dfea050f32714b542be7c2fd72d079af13c2c38bc3.png" src="_images/af612385b524282dfb3da8dfea050f32714b542be7c2fd72d079af13c2c38bc3.png" />
+<img alt="_images/039d3b863c04c77c432c7ce63324a0cc41804304f8900ba557c34fb0c7b1cd13.png" src="_images/039d3b863c04c77c432c7ce63324a0cc41804304f8900ba557c34fb0c7b1cd13.png" />
 </div>
 </div>
 </section>
@@ -1837,7 +1976,7 @@ Silhouette Score untuk 4 klaster: 0.825
 &gt;&gt;&gt; Jumlah cluster terbaik dengan dengan Silhouette Score mendekati 1 adalah k = 4 (dengan score = 0.825)
 </pre></div>
 </div>
-<img alt="_images/a3dcbedb5a096000add80f3b5837a2e2ddce6bb07af0975dd711d727aadb218a.png" src="_images/a3dcbedb5a096000add80f3b5837a2e2ddce6bb07af0975dd711d727aadb218a.png" />
+<img alt="_images/ce1a2f1f8dc923d0f11a671f4350c602cd6e480131c77debd1dbb087406ffd6e.png" src="_images/ce1a2f1f8dc923d0f11a671f4350c602cd6e480131c77debd1dbb087406ffd6e.png" />
 </div>
 </div>
 </section>
@@ -1898,8 +2037,7 @@ Silhouette Score untuk 4 klaster: 0.825
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1976,8 +2114,8 @@ By Vania Putri
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
