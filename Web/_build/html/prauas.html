@@ -1,0 +1,1633 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Deteksi Dini Kanker Payudara Melalui Pemeriksaan Mammografi &#8212; WebStatisku</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'prauas';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Teknik Binning" href="pendat6.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="WebStatisku - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="WebStatisku - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Selamat Datang Web Statis Penambangan Data
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="pendat1.html">Data UnderStanding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pendat2.html">Data Understanding (Outlier)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uts.html">UTS PENDAT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pendat3.html"><strong>Algoritma <em>K-Means</em></strong></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="pendat4.html"><strong>FUZZY C-MEANS</strong></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="pendat5.html">Decision Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pendat6.html">Teknik Binning</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Deteksi Dini Kanker Payudara Melalui Pemeriksaan Mammografi</strong></a></li>
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fprauas.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/prauas.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Deteksi Dini Kanker Payudara Melalui Pemeriksaan Mammografi</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Deteksi Dini Kanker Payudara Melalui Pemeriksaan Mammografi</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pendahuluan"><strong>Pendahuluan</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-set"><strong>Data Set</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan"><strong>Tujuan</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-understanding"><strong>Data Understanding</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-penjelasan-fitur">a. Penjelasan Fitur</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-ekplorasi-data">b. Ekplorasi Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-visualisasi-data">c. Visualisasi Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepocessing-data"><strong>Prepocessing data</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling-klasifikasi"><strong>Modelling Klasifikasi</strong></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling">Modelling</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling-klasifikasi-dataset-cancer-menggunakan-decission-tree">Modelling Klasifikasi Dataset Cancer menggunakan Decission Tree</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pembagian-dataset-data-latih-dan-data-uji"><strong>1. Pembagian Dataset: Data Latih dan Data Uji</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pra-pemrosesan-data"><strong>2. Pra-Pemrosesan Data</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pelatihan-model-decision-tree"><strong>3. Pelatihan Model Decision Tree</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi-model"><strong>4. Evaluasi Model</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prediksi-status-cancer"><strong>5. Prediksi Status Cancer</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan"><strong>Kesimpulan</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling-klasifikasi-dataset-cancer-menggunakan-knn">Modelling Klasifikasi Dataset Cancer menggunakan KNN</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pembagian-dataset-training-dan-testing"><strong>1. Pembagian Dataset: Training dan Testing</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>2. Pra-Pemrosesan Data</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#konsep-kerja-knn"><strong>3. Konsep Kerja KNN</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>4. Evaluasi Model</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><strong>Kesimpulan</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling-klasifikasi-dataset-cancer-menggunakan-naive-bayes">Modelling Klasifikasi Dataset Cancer menggunakan Naive Bayes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pembagian-dataset-menjadi-data-latih-dan-data-uji"><strong>1.  Pembagian Dataset menjadi Data Latih dan Data Uji</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-probabilitas-awal-prior-probability"><strong>2. Menghitung Probabilitas Awal (Prior Probability)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-rata-rata-dan-standar-deviasi-setiap-fitur"><strong>3. Menghitung Rata-rata dan Standar Deviasi Setiap Fitur</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-distribusi-gaussian"><strong>4. Menghitung Distribusi Gaussian</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-posterior-probability"><strong>5. Menghitung Posterior Probability</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-prediksi-kelas"><strong>6. Menentukan Prediksi Kelas</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><strong>Kesimpulan</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="deteksi-dini-kanker-payudara-melalui-pemeriksaan-mammografi">
+<h1><strong>Deteksi Dini Kanker Payudara Melalui Pemeriksaan Mammografi</strong><a class="headerlink" href="#deteksi-dini-kanker-payudara-melalui-pemeriksaan-mammografi" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="pendahuluan">
+<h1><strong>Pendahuluan</strong><a class="headerlink" href="#pendahuluan" title="Link to this heading">#</a></h1>
+<p>Kanker payudara merupakan salah satu jenis penyakit kanker yang paling sering terjadi dan menjadi penyebab kematian utama pada wanita di berbagai belahan dunia. Penyakit ini muncul akibat pertumbuhan sel abnormal pada jaringan payudara yang tidak terkendali. Jika tidak didiagnosis dan ditangani sejak awal, sel-sel tersebut dapat menyebar ke organ lain. Oleh karena itu, proses deteksi dini menjadi sangat krusial untuk meningkatkan kemungkinan keberhasilan pengobatan serta menurunkan risiko kematian akibat penyakit ini.</p>
+<p>Salah satu metode yang banyak digunakan dalam pemeriksaan awal kanker payudara adalah mammografi, yaitu teknik pencitraan dengan sinar-X yang dapat mendeteksi adanya kelainan di jaringan payudara. Dari hasil pencitraan ini, sering kali ditemukan massa atau benjolan yang mencurigakan. Istilah mammographic mass merujuk pada benjolan yang tampak pada citra mammografi. Massa tersebut dapat bersifat tidak berbahaya (jinak) atau bersifat ganas (kanker), sehingga perlu dilakukan analisis lebih lanjut untuk menentukan sifat dan potensi bahayanya.</p>
+<p>Untuk membantu proses evaluasi, para ahli biasanya menilai beberapa ciri dari massa tersebut, seperti bentuk (shape), batas tepi (margin), dan kepadatan (density). Penilaian terhadap karakteristik ini sangat berguna dalam memperkirakan kemungkinan keganasan suatu massa. Informasi ini juga menjadi dasar dalam pengambilan keputusan medis selanjutnya, apakah pasien perlu menjalani pemeriksaan lanjutan seperti biopsi atau cukup dengan pemantauan rutin.</p>
+<section id="data-set">
+<h2><strong>Data Set</strong><a class="headerlink" href="#data-set" title="Link to this heading">#</a></h2>
+<p>Data diambil dari <a class="reference external" href="https://archive.ics.uci.edu/dataset/14/breast+cancer">https://archive.ics.uci.edu/dataset/14/breast+cancer</a>.</p>
+<p>Yaitu data Kanker Payudara dengan jumlah data sebanyak 286 data dan 9 fitur.</p>
+<p>Untuk memproses dan menganalisis data ini, langkah awal yang perlu dilakukan adalah mengunduh dan mengimpor dataset ke dalam lingkungan pemrograman seperti Python. Dataset ini dapat diakses secara langsung melalui UCI Machine Learning Repository.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">ucimlrepo</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: ucimlrepo in c:\users\raiha\appdata\local\packages\pythonsoftwarefoundation.python.3.12_qbz5n2kfra8p0\localcache\local-packages\python312\site-packages (0.0.7)
+Requirement already satisfied: pandas&gt;=1.0.0 in c:\users\raiha\appdata\local\packages\pythonsoftwarefoundation.python.3.12_qbz5n2kfra8p0\localcache\local-packages\python312\site-packages (from ucimlrepo) (2.2.2)
+Requirement already satisfied: certifi&gt;=2020.12.5 in c:\users\raiha\appdata\local\packages\pythonsoftwarefoundation.python.3.12_qbz5n2kfra8p0\localcache\local-packages\python312\site-packages (from ucimlrepo) (2024.8.30)
+Requirement already satisfied: numpy&gt;=1.26.0 in c:\users\raiha\appdata\local\packages\pythonsoftwarefoundation.python.3.12_qbz5n2kfra8p0\localcache\local-packages\python312\site-packages (from pandas&gt;=1.0.0-&gt;ucimlrepo) (2.0.2)
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in c:\users\raiha\appdata\local\packages\pythonsoftwarefoundation.python.3.12_qbz5n2kfra8p0\localcache\local-packages\python312\site-packages (from pandas&gt;=1.0.0-&gt;ucimlrepo) (2.9.0.post0)
+Requirement already satisfied: pytz&gt;=2020.1 in c:\users\raiha\appdata\local\packages\pythonsoftwarefoundation.python.3.12_qbz5n2kfra8p0\localcache\local-packages\python312\site-packages (from pandas&gt;=1.0.0-&gt;ucimlrepo) (2024.1)
+Requirement already satisfied: tzdata&gt;=2022.7 in c:\users\raiha\appdata\local\packages\pythonsoftwarefoundation.python.3.12_qbz5n2kfra8p0\localcache\local-packages\python312\site-packages (from pandas&gt;=1.0.0-&gt;ucimlrepo) (2024.1)
+Requirement already satisfied: six&gt;=1.5 in c:\users\raiha\appdata\local\packages\pythonsoftwarefoundation.python.3.12_qbz5n2kfra8p0\localcache\local-packages\python312\site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas&gt;=1.0.0-&gt;ucimlrepo) (1.16.0)
+Note: you may need to restart the kernel to use updated packages.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[notice] A new release of pip is available: 25.1 -&gt; 25.1.1
+[notice] To update, run: C:\Users\raiha\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\python.exe -m pip install --upgrade pip
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ucimlrepo</span> <span class="kn">import</span> <span class="n">fetch_ucirepo</span>
+
+<span class="c1"># fetch dataset</span>
+<span class="n">breast_cancer</span> <span class="o">=</span> <span class="n">fetch_ucirepo</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="c1"># data (as pandas dataframes)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">breast_cancer</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">features</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">breast_cancer</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">targets</span>
+
+<span class="c1"># metadata</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">breast_cancer</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>
+
+<span class="c1"># variable information</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">breast_cancer</span><span class="o">.</span><span class="n">variables</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;uci_id&#39;: 14, &#39;name&#39;: &#39;Breast Cancer&#39;, &#39;repository_url&#39;: &#39;https://archive.ics.uci.edu/dataset/14/breast+cancer&#39;, &#39;data_url&#39;: &#39;https://archive.ics.uci.edu/static/public/14/data.csv&#39;, &#39;abstract&#39;: &#39;This breast cancer domain was obtained from the University Medical Centre, Institute of Oncology, Ljubljana, Yugoslavia. This is one of three domains provided by the Oncology Institute that has repeatedly appeared in the machine learning literature. (See also lymphography and primary-tumor.)&#39;, &#39;area&#39;: &#39;Health and Medicine&#39;, &#39;tasks&#39;: [&#39;Classification&#39;], &#39;characteristics&#39;: [&#39;Multivariate&#39;], &#39;num_instances&#39;: 286, &#39;num_features&#39;: 9, &#39;feature_types&#39;: [&#39;Categorical&#39;], &#39;demographics&#39;: [&#39;Age&#39;], &#39;target_col&#39;: [&#39;Class&#39;], &#39;index_col&#39;: None, &#39;has_missing_values&#39;: &#39;yes&#39;, &#39;missing_values_symbol&#39;: &#39;NaN&#39;, &#39;year_of_dataset_creation&#39;: 1988, &#39;last_updated&#39;: &#39;Thu Mar 07 2024&#39;, &#39;dataset_doi&#39;: &#39;10.24432/C51P4M&#39;, &#39;creators&#39;: [&#39;Matjaz Zwitter&#39;, &#39;Milan Soklic&#39;], &#39;intro_paper&#39;: None, &#39;additional_info&#39;: {&#39;summary&#39;: &#39;This data set includes 201 instances of one class and 85 instances of another class.  The instances are described by 9 attributes, some of which are linear and some are nominal.\n&#39;, &#39;purpose&#39;: None, &#39;funded_by&#39;: None, &#39;instances_represent&#39;: None, &#39;recommended_data_splits&#39;: None, &#39;sensitive_data&#39;: None, &#39;preprocessing_description&#39;: None, &#39;variable_info&#39;: &#39;   1. Class: no-recurrence-events, recurrence-events\r\n   2. age: 10-19, 20-29, 30-39, 40-49, 50-59, 60-69, 70-79, 80-89, 90-99.\r\n   3. menopause: lt40, ge40, premeno.\r\n   4. tumor-size: 0-4, 5-9, 10-14, 15-19, 20-24, 25-29, 30-34, 35-39, 40-44, 45-49, 50-54, 55-59.\r\n   5. inv-nodes: 0-2, 3-5, 6-8, 9-11, 12-14, 15-17, 18-20, 21-23, 24-26, 27-29, 30-32, 33-35, 36-39.\r\n   6. node-caps: yes, no.\r\n   7. deg-malig: 1, 2, 3.\r\n   8. breast: left, right.\r\n   9. breast-quad: left-up, left-low, right-up,\tright-low, central.\r\n  10. irradiat:\tyes, no.&#39;, &#39;citation&#39;: &#39;Obtained from the University Medical Centre, Institute of Oncology, Ljubljana, Yugoslavia.  Thanks go to M. Zwitter and M. Soklic for providing the data.  Please include this citation if you plan to use this database:\nMatjaz Zwitter &amp; Milan Soklic (physicians)\nInstitute of Oncology \nUniversity Medical Center\nLjubljana, Yugoslavia&#39;}}
+          name     role         type demographic  \
+0        Class   Target       Binary        None   
+1          age  Feature  Categorical         Age   
+2    menopause  Feature  Categorical        None   
+3   tumor-size  Feature  Categorical        None   
+4    inv-nodes  Feature  Categorical        None   
+5    node-caps  Feature       Binary        None   
+6    deg-malig  Feature      Integer        None   
+7       breast  Feature       Binary        None   
+8  breast-quad  Feature  Categorical        None   
+9     irradiat  Feature       Binary        None   
+
+                                         description  units missing_values  
+0            no-recurrence-events, recurrence-events   None             no  
+1  10-19, 20-29, 30-39, 40-49, 50-59, 60-69, 70-7...  years             no  
+2                                lt40, ge40, premeno   None             no  
+3  0-4, 5-9, 10-14, 15-19, 20-24, 25-29, 30-34, 3...   None             no  
+4   0-2, 3-5, 6-8, 9-11, 12-14, 15-17, 18-20, 21-...   None             no  
+5                                            yes, no   None            yes  
+6                                            1, 2, 3   None             no  
+7                                        left, right   None             no  
+8   left-up, left-low, right-up,\tright-low, central   None            yes  
+9                                            yes, no   None             no  
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="tujuan">
+<h2><strong>Tujuan</strong><a class="headerlink" href="#tujuan" title="Link to this heading">#</a></h2>
+<p>Dataset ini digunakan untuk menyediakan data yang dapat digunakan dalam pengembangan model klasifikasi guna membedakan antara massa jinak dan massa ganas pada citra mammografi, sehingga dapat membantu dalam deteksi dini kanker payudara dan mengurangi prosedur biopsi yang tidak perlu.</p>
+</section>
+<section id="data-understanding">
+<h2><strong>Data Understanding</strong><a class="headerlink" href="#data-understanding" title="Link to this heading">#</a></h2>
+<section id="a-penjelasan-fitur">
+<h3>a. Penjelasan Fitur<a class="headerlink" href="#a-penjelasan-fitur" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Class = Kelas target yang menunjukkan apakah kejadian kanker berulang atau tidak setelah pengobatan awal.</p></li>
+<li><p>Age = Rentang usia pasien dalam tahun.</p></li>
+<li><p>Menopause = Status menopause pasien.</p></li>
+<li><p>Tumor-Size =  Ukuran tumor dalam mm.</p></li>
+<li><p>Inv-Nodes = Jumlah kelenjar getah bening yang terlibat.</p></li>
+<li><p>Node-caps = Apakah kapsul node terlibat atau tidak.</p></li>
+<li><p>deg-malig = Derajat keganasan tumor (1 = rendah, 2 = sedang, 3 = tinggi).</p></li>
+<li><p>Breast = Sisi payudara yang terkena (kiri atau kanan).</p></li>
+<li><p>Breast-quad =  Lokasi kuadran payudara yang terkena.</p></li>
+<li><p>Irradiat = Apakah pasien mendapat radiasi atau tidak.</p></li>
+</ul>
+</section>
+<section id="b-ekplorasi-data">
+<h3>b. Ekplorasi Data<a class="headerlink" href="#b-ekplorasi-data" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Ubah ke DataFrame untuk memudahkan eksplorasi</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">X</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">breast_cancer</span><span class="o">.</span><span class="n">feature_names</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span>  <span class="c1"># Tambahkan target ke DataFrame</span>
+
+<span class="c1"># Info data untuk melihat jumlah data dan tipe fitur</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
+
+<span class="c1"># Tampilkan beberapa baris pertama data</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 286 entries, 0 to 285
+Data columns (total 10 columns):
+ #   Column       Non-Null Count  Dtype 
+---  ------       --------------  ----- 
+ 0   age          286 non-null    object
+ 1   menopause    286 non-null    object
+ 2   tumor-size   286 non-null    object
+ 3   inv-nodes    286 non-null    object
+ 4   node-caps    278 non-null    object
+ 5   deg-malig    286 non-null    int64 
+ 6   breast       286 non-null    object
+ 7   breast-quad  285 non-null    object
+ 8   irradiat     286 non-null    object
+ 9   target       286 non-null    object
+dtypes: int64(1), object(9)
+memory usage: 22.5+ KB
+None
+     age menopause tumor-size inv-nodes node-caps  deg-malig breast  \
+0  30-39   premeno      30-34       0-2        no          3   left   
+1  40-49   premeno      20-24       0-2        no          2  right   
+2  40-49   premeno      20-24       0-2        no          2   left   
+3  60-69      ge40      15-19       0-2        no          2  right   
+4  40-49   premeno        0-4       0-2        no          2  right   
+
+  breast-quad irradiat                target  
+0    left_low       no  no-recurrence-events  
+1    right_up       no  no-recurrence-events  
+2    left_low       no  no-recurrence-events  
+3     left_up       no  no-recurrence-events  
+4   right_low       no  no-recurrence-events  
+</pre></div>
+</div>
+</div>
+</div>
+<p>🔍 Kesimpulan :</p>
+<ul class="simple">
+<li><p>Jumlah data: 286 entri, 10 kolom (mayoritas kategori).</p></li>
+<li><p>Tipe data: Sebagian besar bertipe object, hanya deg-malig numerik.</p></li>
+<li><p>Missing values: Ada pada node-caps (8) dan breast-quad (1).</p></li>
+<li><p>Fitur penting: age, menopause, tumor-size, inv-nodes, node-caps, deg-malig, dst.</p></li>
+<li><p>Target: Dua kelas — no-recurrence-events dan recurrence-events.</p></li>
+</ul>
+</section>
+<section id="c-visualisasi-data">
+<h3>c. Visualisasi Data<a class="headerlink" href="#c-visualisasi-data" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">ucimlrepo</span> <span class="kn">import</span> <span class="n">fetch_ucirepo</span>
+
+<span class="c1"># Ambil dataset</span>
+<span class="n">breast_cancer</span> <span class="o">=</span> <span class="n">fetch_ucirepo</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="c1"># Gabungkan fitur dan target</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">breast_cancer</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">features</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">breast_cancer</span><span class="o">.</span><span class="n">feature_names</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">breast_cancer</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">targets</span>
+
+<span class="c1"># Atur agar semua kolom tampil secara horizontal</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>       <span class="c1"># Tampilkan semua kolom</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.expand_frame_repr&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>  <span class="c1"># Jangan potong ke bawah</span>
+
+<span class="c1"># Tampilkan data</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="c1"># Simpan ke CSV</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;breast_cancer_full.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       age menopause tumor-size inv-nodes node-caps  deg-malig breast breast-quad irradiat                target
+0    30-39   premeno      30-34       0-2        no          3   left    left_low       no  no-recurrence-events
+1    40-49   premeno      20-24       0-2        no          2  right    right_up       no  no-recurrence-events
+2    40-49   premeno      20-24       0-2        no          2   left    left_low       no  no-recurrence-events
+3    60-69      ge40      15-19       0-2        no          2  right     left_up       no  no-recurrence-events
+4    40-49   premeno        0-4       0-2        no          2  right   right_low       no  no-recurrence-events
+..     ...       ...        ...       ...       ...        ...    ...         ...      ...                   ...
+281  30-39   premeno      30-34       0-2        no          2   left     left_up       no     recurrence-events
+282  30-39   premeno      20-24       0-2        no          3   left     left_up      yes     recurrence-events
+283  60-69      ge40      20-24       0-2        no          1  right     left_up       no     recurrence-events
+284  40-49      ge40      30-34     5-Mar        no          3   left    left_low       no     recurrence-events
+285  50-59      ge40      30-34     5-Mar        no          3   left    left_low       no     recurrence-events
+
+[286 rows x 10 columns]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="prepocessing-data">
+<h2><strong>Prepocessing data</strong><a class="headerlink" href="#prepocessing-data" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load data dari file CSV</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;breast_cancer_full.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cek dan Tangani Missing Value</span>
+<span class="c1"># Cek nilai unik untuk mendeteksi &#39;?&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;?&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+
+<span class="c1"># Ganti &#39;?&#39; dengan NaN agar bisa diproses sebagai missing value</span>
+<span class="n">df</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;?&#39;</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">NA</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Cek jumlah missing value</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+
+<span class="c1"># Imputasi: Ganti NaN dengan nilai modus (yang paling sering muncul)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;node-caps&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;node-caps&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mode</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;breast-quad&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;breast-quad&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mode</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>age            0
+menopause      0
+tumor-size     0
+inv-nodes      0
+node-caps      0
+deg-malig      0
+breast         0
+breast-quad    0
+irradiat       0
+target         0
+dtype: int64
+age            0
+menopause      0
+tumor-size     0
+inv-nodes      0
+node-caps      8
+deg-malig      0
+breast         0
+breast-quad    1
+irradiat       0
+target         0
+dtype: int64
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\raiha\AppData\Local\Temp\ipykernel_6080\1864720896.py:12: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
+
+For example, when doing &#39;df[col].method(value, inplace=True)&#39;, try using &#39;df.method({col: value}, inplace=True)&#39; or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
+
+
+  df[&#39;node-caps&#39;].fillna(df[&#39;node-caps&#39;].mode()[0], inplace=True)
+C:\Users\raiha\AppData\Local\Temp\ipykernel_6080\1864720896.py:13: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
+
+For example, when doing &#39;df[col].method(value, inplace=True)&#39;, try using &#39;df.method({col: value}, inplace=True)&#39; or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
+
+
+  df[&#39;breast-quad&#39;].fillna(df[&#39;breast-quad&#39;].mode()[0], inplace=True)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Label Encoding (Ubah Kategori Jadi Angka)</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelEncoder</span>
+
+<span class="c1"># Buat label encoder untuk setiap kolom</span>
+<span class="n">label_encoders</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="c1"># Encode semua kolom, termasuk target</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="n">le</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+    <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">])</span>
+    <span class="n">label_encoders</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">le</span>  <span class="c1"># Simpan encoder jika nanti ingin decode lagi</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pisahkan Fitur dan Target (Splitting Data)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;target&#39;</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simpan Hasil</span>
+
+<span class="c1"># Simpan ke file CSV</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;breast_cancer_preprocessed.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cek Hasil Preprocessing</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;breast_cancer_preprocessed.csv&#39;</span><span class="p">)</span>
+
+<span class="c1"># Atur agar semua kolom dan baris bisa tampil</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.expand_frame_repr&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Tampilkan seluruh isi DataFrame</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     age  menopause  tumor-size  inv-nodes  node-caps  deg-malig  breast  breast-quad  irradiat  target
+0      1          2           5          0          0          2       0            1         0       0
+1      2          2           3          0          0          1       1            4         0       0
+2      2          2           3          0          0          1       0            1         0       0
+3      4          0           2          0          0          1       1            2         0       0
+4      2          2           0          0          0          1       1            3         0       0
+5      4          0           2          0          0          1       0            1         0       0
+6      3          2           4          0          0          1       0            1         0       0
+7      4          0           3          0          0          0       0            1         0       0
+8      2          2           9          0          0          1       0            1         0       0
+9      2          2           3          0          0          1       1            2         0       0
+10     2          2           0          0          0          2       0            0         0       0
+11     3          0           4          0          0          1       0            1         0       0
+12     4          1           1          0          0          0       0            4         0       0
+13     3          0           4          0          0          2       0            4         0       0
+14     2          2           5          0          0          2       0            2         0       0
+15     4          1           5          0          0          0       0            1         0       0
+16     2          2           2          0          0          1       0            1         0       0
+17     3          2           5          0          0          2       0            1         0       0
+18     4          0           5          0          0          2       0            1         0       0
+19     3          0           5          0          0          0       1            4         0       0
+20     3          0           7          0          0          1       0            1         0       0
+21     4          0           2          0          0          1       0            1         0       0
+22     1          2           4          0          0          1       1            1         0       0
+23     3          2           7          0          0          1       0            2         0       0
+24     3          2           6          0          0          1       1            2         0       0
+25     2          2           4          0          0          1       0            2         0       0
+26     3          2           3          0          0          0       0            1         0       0
+27     4          0           4          0          0          2       1            2         0       0
+28     2          2           7          0          0          1       1            1         0       0
+29     4          0           5          0          0          1       0            1         0       0
+30     3          0           7          0          0          2       1            2         0       0
+31     3          2           2          0          0          1       1            1         0       0
+32     3          2           1          0          0          2       0            1         0       0
+33     3          0           1          0          0          0       1            2         0       0
+34     3          0           1          0          0          0       0            2         0       0
+35     1          2           5          0          0          1       0            2         0       0
+36     3          0           0          0          0          1       0            0         0       0
+37     3          0           2          0          0          0       1            0         0       0
+38     2          2           1          0          0          1       0            1         0       0
+39     2          2           5          0          0          0       0            1         0       0
+40     3          0           3          0          0          0       1            1         0       0
+41     4          0           4          0          0          1       0            1         0       0
+42     4          0          10          0          0          0       0            0         0       0
+43     2          2           1          0          0          1       0            2         0       0
+44     3          0           9          0          0          0       1            4         0       0
+45     3          0           5          0          0          0       0            2         0       0
+46     2          2           4          0          0          1       1            1         0       0
+47     3          2           4          0          0          0       1            2         0       0
+48     2          2           3          0          0          0       1            4         0       0
+49     2          2           3          0          0          0       1            1         0       0
+50     3          1           2          0          0          1       0            1         0       0
+51     1          2           3          0          0          1       0            3         0       0
+52     3          2           2          0          0          0       0            1         0       0
+53     5          0           3          0          0          2       0            2         0       0
+54     5          0           7          0          0          0       1            2         0       0
+55     5          0           7          0          0          0       1            4         0       0
+56     3          0           0          0          0          0       1            0         0       0
+57     3          0          10          0          0          1       1            4         0       0
+58     4          0           5          0          0          0       0            2         0       0
+59     4          0           2          0          0          0       1            2         0       0
+60     2          2           3          0          0          1       0            0         0       0
+61     2          2           1          0          0          0       1            3         0       0
+62     3          0           0          0          0          0       0            1         0       0
+63     0          2           6          0          0          1       1            4         0       0
+64     2          2           4          0          0          0       0            3         0       0
+65     2          2           1          0          0          0       1            2         0       0
+66     2          2           4          0          0          0       1            3         0       0
+67     3          0           3          0          0          2       0            2         0       0
+68     3          0           6          0          0          2       0            1         0       0
+69     4          0           9          0          0          1       0            1         0       0
+70     4          0           1          0          0          0       0            1         0       0
+71     2          2           4          0          0          1       1            2         0       0
+72     4          0           3          0          0          1       0            2         0       0
+73     3          2           2          0          0          1       1            3         0       0
+74     1          2          10          0          0          1       0            3         0       0
+75     3          0           1          0          0          0       0            1         0       0
+76     3          0           1          0          0          1       0            1         0       0
+77     1          2           4          0          0          0       0            0         0       0
+78     3          2           4          0          0          1       0            1         0       0
+79     2          2           4          0          0          1       1            0         0       0
+80     3          0           1          0          0          1       1            1         0       0
+81     4          0           1          0          0          0       0            2         0       0
+82     4          0           2          0          0          1       1            1         0       0
+83     3          0           2          0          0          1       1            1         0       0
+84     2          2           3          0          0          0       0            3         0       0
+85     3          0           6          0          0          2       0            2         0       0
+86     4          0           4          0          0          1       1            1         0       0
+87     5          0           0          0          0          0       0            3         0       0
+88     3          0           3          0          0          2       1            2         0       0
+89     2          2           7          0          0          0       1            2         0       0
+90     1          2           0          0          0          1       1            0         0       0
+91     3          0           3          0          0          2       0            2         0       0
+92     3          0           4          0          0          1       1            2         0       0
+93     4          0           3          0          0          1       1            2         0       0
+94     3          2           1          0          0          0       0            1         0       0
+95     2          2           5          0          0          1       1            3         0       0
+96     4          0           5          0          0          1       0            2         0       0
+97     4          0           2          0          0          1       1            2         0       0
+98     2          2           5          0          0          0       0            4         0       0
+99     1          2           4          0          0          1       0            1         0       0
+100    2          0           3          0          0          2       0            1         0       0
+101    3          0           5          0          0          2       1            1         0       0
+102    3          2           4          0          0          1       1            3         0       0
+103    2          2           3          0          0          1       0            3         0       0
+104    2          2           1          0          0          1       1            1         0       0
+105    2          2           5          0          0          0       1            2         0       0
+106    2          2           3          0          0          1       0            2         0       0
+107    1          2           7          0          0          1       1            4         0       0
+108    2          2           5          0          0          2       1            4         0       0
+109    4          0           5          0          0          0       1            2         0       0
+110    3          0           4          0          0          0       0            1         0       0
+111    3          0           2          0          0          0       1            0         0       0
+112    2          2           3          0          0          1       1            2         0       0
+113    2          2           1          0          0          0       1            2         0       0
+114    2          2           6          0          0          1       1            4         0       0
+115    3          0           3          0          0          1       1            2         0       0
+116    1          2           2          0          0          0       0            1         0       0
+117    2          0           3          0          0          2       0            2         0       0
+118    1          2           1          0          0          0       1            1         0       0
+119    4          0           2          0          0          0       0            3         0       0
+120    4          0           3          0          0          0       0            1         0       0
+121    3          0           2          0          0          1       1            4         0       0
+122    3          0           7          0          0          2       0            2         0       0
+123    3          0           5          0          0          0       1            1         0       0
+124    4          0           1          0          0          0       1            1         0       0
+125    5          0           1          0          0          1       0            0         0       0
+126    1          2           5          6          1          1       1            4         0       0
+127    1          2           4          6          1          1       1            2         1       0
+128    3          2           4          0          1          1       0            2         0       0
+129    2          2           6          1          1          1       1            2         1       0
+130    2          2           6          1          1          1       1            4         1       0
+131    2          2           7          5          1          2       1            2         1       0
+132    2          2           5          6          0          1       0            2         0       0
+133    3          0           7          0          0          2       0            4         0       0
+134    4          0           5          0          0          1       0            1         1       0
+135    1          2           3          5          0          1       1            0         0       0
+136    1          2           7          5          0          2       1            4         1       0
+137    2          2          10          0          0          0       0            1         1       0
+138    1          2           7          0          0          1       0            1         1       0
+139    2          2           5          0          0          1       0            3         0       0
+140    3          0           7          5          1          1       0            1         0       0
+141    3          2           3          5          1          1       0            1         0       0
+142    4          0           1          0          0          0       0            2         0       0
+143    2          2           8          0          0          1       0            1         1       0
+144    4          0           8          6          1          2       0            0         0       0
+145    2          2           4          0          0          1       0            3         1       0
+146    4          0           9          0          0          1       1            2         1       0
+147    3          2           5          5          1          1       0            1         1       0
+148    1          2           3          0          0          2       0            0         0       0
+149    3          1           5          0          0          2       1            2         0       0
+150    3          0           4          3          1          2       1            2         0       0
+151    4          0           5          5          1          2       0            1         0       0
+152    3          0           6          3          0          2       0            1         0       0
+153    4          0           2          0          0          2       1            2         1       0
+154    1          1           2          0          0          2       1            2         0       0
+155    4          0           7          5          0          1       1            2         1       0
+156    3          0           4          5          1          2       1            2         0       0
+157    3          2           5          0          0          0       0            0         0       0
+158    3          0           5          0          0          0       1            0         0       0
+159    2          2           6          0          0          0       0            1         0       0
+160    2          2           4          0          0          2       1            2         1       0
+161    2          2           5          5          1          1       1            1         0       0
+162    4          0           1          0          0          1       1            2         1       0
+163    4          0           4          5          0          0       1            2         1       0
+164    4          0           4          5          0          0       1            1         1       0
+165    2          2           3          5          0          1       1            2         0       0
+166    2          2           3          5          0          1       1            1         0       0
+167    2          0           7          3          1          1       1            2         1       0
+168    3          2           1          0          0          1       1            2         0       0
+169    2          0           5          0          0          1       0            2         1       0
+170    1          2           3          5          1          1       1            2         1       0
+171    1          2           2          0          0          0       0            1         0       0
+172    4          0           5          6          1          1       1            4         0       0
+173    3          0           3          5          1          1       1            2         0       0
+174    3          2           4          5          1          1       0            1         1       0
+175    2          2           5          0          0          1       1            4         1       0
+176    2          0           4          0          0          1       0            1         0       0
+177    4          0           1          0          0          1       0            1         0       0
+178    3          2           4          5          0          1       1            2         1       0
+179    2          2           3          0          0          2       1            1         1       0
+180    2          2           6          0          1          2       1            2         1       0
+181    2          2           6          0          1          2       1            1         1       0
+182    2          2           4          0          0          0       1            1         1       0
+183    3          0           5          1          0          2       0            2         1       0
+184    3          0           5          1          0          2       0            1         1       0
+185    2          2           3          6          0          1       1            1         1       0
+186    3          0           4          0          0          0       0            3         0       0
+187    4          0           2          0          0          1       0            2         1       0
+188    2          2           1          0          0          1       1            2         0       0
+189    3          0           3          0          1          1       1            2         0       0
+190    2          2           2          2          0          2       1            3         1       0
+191    2          2           4          0          0          1       0            2         1       0
+192    3          0           5          6          1          1       0            1         0       0
+193    1          2           1          0          0          1       0            3         0       0
+194    3          2           9          0          1          1       1            2         1       0
+195    3          0           6          0          0          1       0            2         0       0
+196    3          2           1          5          0          0       1            2         0       0
+197    2          2           1          0          0          1       0            1         1       0
+198    3          0           2          0          1          1       0            0         1       0
+199    3          2           4          0          0          0       0            1         0       0
+200    4          0           4          0          0          2       1            1         0       0
+201    3          2           2          0          0          1       0            1         0       1
+202    2          2           7          0          0          0       0            1         0       1
+203    3          0           6          0          0          1       0            1         0       1
+204    3          2           4          0          0          1       0            4         0       1
+205    1          2           0          0          0          1       1            0         0       1
+206    3          0           5          0          0          2       0            1         0       1
+207    3          2           4          0          0          1       0            4         0       1
+208    3          2           5          0          0          2       0            4         0       1
+209    2          2           6          0          0          0       1            2         0       1
+210    2          2           3          0          0          1       0            1         0       1
+211    3          0           3          0          0          1       1            0         0       1
+212    2          2           5          0          0          2       1            4         0       1
+213    3          2           4          0          0          0       1            2         0       1
+214    4          0           7          0          0          1       1            1         0       1
+215    2          0           3          0          0          1       1            2         0       1
+216    3          0           3          0          0          1       0            2         0       1
+217    2          2           2          0          0          1       0            2         0       1
+218    4          0           5          0          0          2       1            0         0       1
+219    1          2           2          0          0          0       1            1         0       1
+220    2          2           4          0          0          2       0            4         0       1
+221    1          2           5          0          0          0       1            2         0       1
+222    4          0           4          0          0          2       0            3         1       1
+223    4          0           3          0          0          2       1            1         0       1
+224    1          2           4          5          1          2       0            1         1       1
+225    2          0           3          5          0          2       1            1         1       1
+226    2          2           5          3          1          2       0            1         0       1
+227    3          2           5          0          0          2       1            2         1       1
+228    4          0           7          5          1          2       1            1         0       1
+229    4          0           8          0          0          0       1            4         1       1
+230    3          2           9          1          1          1       1            2         0       1
+231    2          2           5          5          0          1       1            2         0       1
+232    1          2           5          5          0          2       1            2         1       1
+233    5          0           2          1          0          0       0            1         1       1
+234    4          0           5          0          0          2       1            2         1       1
+235    3          2           4          5          1          2       0            1         1       1
+236    2          2           4          0          0          1       1            1         0       1
+237    2          2           4          0          0          1       1            1         0       1
+238    1          2           6          0          0          2       0            1         0       1
+239    2          2           3          5          1          1       1            4         1       1
+240    4          0           3          5          0          1       0            1         1       1
+241    2          2           2          3          1          2       0            1         0       1
+242    3          0           4          6          0          2       0            1         1       1
+243    3          0           3          5          1          2       1            4         0       1
+244    2          2           5          2          1          2       0            2         1       1
+245    1          2           5          1          0          1       1            2         1       1
+246    1          2           2          6          1          2       0            1         1       1
+247    3          0           5          1          1          2       0            3         1       1
+248    4          0           6          6          1          2       0            1         0       1
+249    1          2           3          5          1          1       0            1         0       1
+250    2          2           4          0          0          2       0            2         0       1
+251    2          2           9          0          0          1       1            1         1       1
+252    1          2           7          0          0          0       0            2         0       1
+253    4          0           9          0          0          2       1            2         0       1
+254    2          2           5          0          1          2       1            4         0       1
+255    2          2           5          6          1          2       1            2         0       1
+256    2          2           5          0          0          0       0            1         1       1
+257    2          2           3          5          1          1       0            1         1       1
+258    3          0           5          6          1          1       0            3         1       1
+259    3          0           5          5          0          2       1            2         0       1
+260    4          0           4          5          0          1       1            4         0       1
+261    2          0           4          2          1          2       0            3         1       1
+262    4          0           4          0          0          2       0            2         0       1
+263    3          1           3          0          0          0       0            2         0       1
+264    3          1           3          0          0          0       0            1         0       1
+265    1          2           6          1          1          2       0            1         0       1
+266    2          2           5          5          1          1       0            4         0       1
+267    4          0           3          4          1          2       0            1         1       1
+268    1          2           6          0          0          2       0            1         0       1
+269    2          2           4          0          0          1       0            1         1       1
+270    3          0           5          6          1          2       0            3         0       1
+271    3          2           4          0          0          2       1            1         1       1
+272    2          2           2          0          1          2       1            2         0       1
+273    4          0           5          0          1          1       1            4         1       1
+274    4          0           5          5          1          1       0            0         1       1
+275    2          2           4          1          1          2       1            2         0       1
+276    1          2           4          6          1          2       0            3         1       1
+277    4          0           1          6          1          2       0            2         1       1
+278    3          2           6          3          1          2       1            4         0       1
+279    3          0           7          6          1          2       0            1         1       1
+280    3          0           7          6          1          2       0            1         1       1
+281    1          2           5          0          0          1       0            2         0       1
+282    1          2           3          0          0          2       0            2         1       1
+283    4          0           3          0          0          0       1            2         0       1
+284    2          0           5          5          0          2       0            1         0       1
+285    3          0           5          5          0          2       0            1         0       1
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="modelling-klasifikasi">
+<h2><strong>Modelling Klasifikasi</strong><a class="headerlink" href="#modelling-klasifikasi" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Sebelum lanjut ke modeling, terlebih dahulu kita import library yang digunakan</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelEncoder</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">ConfusionMatrixDisplay</span>
+
+<span class="c1"># Model</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span><span class="p">,</span> <span class="n">plot_tree</span>
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">GaussianNB</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Kemudian kita load dan siapkan data yang akan digunakan dengan melakukan splitting data (80% train, 20% test)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load data hasil preprocessing</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;breast_cancer_preprocessed.csv&#39;</span><span class="p">)</span>
+
+<span class="c1"># Pisahkan fitur dan target</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;target&#39;</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span>
+
+<span class="c1"># Split data (80% train, 20% test)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="modelling">
+<h1>Modelling<a class="headerlink" href="#modelling" title="Link to this heading">#</a></h1>
+<p>Modelling adalah proses membuat representasi sederhana dari data atau sistem untuk memahami, menganalisis, atau memprediksi suatu fenomena. Dalam data science, modelling digunakan untuk membangun model yang dapat mengenali pola dan membuat prediksi.</p>
+<section id="modelling-klasifikasi-dataset-cancer-menggunakan-decission-tree">
+<h2>Modelling Klasifikasi Dataset Cancer menggunakan Decission Tree<a class="headerlink" href="#modelling-klasifikasi-dataset-cancer-menggunakan-decission-tree" title="Link to this heading">#</a></h2>
+<p>Pemodelan ini bertujuan untuk mengklasifikasikan status kanker pada pasien berdasarkan sejumlah fitur seperti radius tumor, tekstur, perimeter, area, dan karakteristik lainnya yang diperoleh dari hasil biopsi. Kategori target terdiri dari dua kelas, yaitu: Recurrence (kanker kambuh) dan No Recurrence (tidak kambuh).</p>
+<p>Model klasifikasi yang digunakan adalah Decision Tree Classifier, salah satu metode supervised learning berbasis aturan dan struktur pohon bercabang. Setiap percabangan mewakili keputusan berdasarkan nilai suatu fitur, dan setiap daun pohon menunjukkan hasil akhir klasifikasi.</p>
+<section id="pembagian-dataset-data-latih-dan-data-uji">
+<h3><strong>1. Pembagian Dataset: Data Latih dan Data Uji</strong><a class="headerlink" href="#pembagian-dataset-data-latih-dan-data-uji" title="Link to this heading">#</a></h3>
+<p>Langkah awal dalam pemodelan adalah membagi data menjadi dua bagian:</p>
+<ul class="simple">
+<li><p>Data Latih (Training Set): digunakan untuk melatih model.</p></li>
+<li><p>Data Uji (Testing Set): digunakan untuk mengevaluasi performa model terhadap data yang belum pernah dilihat sebelumnya.</p></li>
+</ul>
+<p>Untuk eksperimen ini menggunakan rasio umum 80% data latih dan 20% data uji agar model dapat belajar dari sebagian besar data, namun tetap dapat diuji terhadap data yang belum dikenal.</p>
+</section>
+<section id="pra-pemrosesan-data">
+<h3><strong>2. Pra-Pemrosesan Data</strong><a class="headerlink" href="#pra-pemrosesan-data" title="Link to this heading">#</a></h3>
+<p>Sebelum data dimasukkan ke dalam model Decision Tree, dilakukan beberapa tahapan pra-pemrosesan:</p>
+<ul class="simple">
+<li><p>Label Kategori: Nilai target yang semula berupa angka diubah menjadi label kategor:</p>
+<ul>
+<li><p>0 → Non Recurrence</p></li>
+<li><p>1 → Recurrence</p></li>
+</ul>
+</li>
+<li><p>Pemisahan Fitur dan Target: Fitur-fitur dipisahkan dari label target untuk keperluan pelatihan.</p></li>
+<li><p>Diskritisasi Tidak Diperlukan: Karena Decision Tree mampu menangani fitur numerik langsung.</p></li>
+</ul>
+</section>
+<section id="pelatihan-model-decision-tree">
+<h3><strong>3. Pelatihan Model Decision Tree</strong><a class="headerlink" href="#pelatihan-model-decision-tree" title="Link to this heading">#</a></h3>
+<p>Model dilatih menggunakan algoritma Decision Tree, di mana:</p>
+<ul class="simple">
+<li><p>Setiap node pohon akan membagi data berdasarkan fitur yang memberikan informasi paling banyak dalam membedakan kelas, diukur dengan Gini Index (atau bisa juga menggunakan Entropy).</p></li>
+<li><p>Proses pemisahan dilakukan secara rekursif hingga mencapai kedalaman maksimum atau tidak ada lagi fitur yang bisa digunakan.</p></li>
+</ul>
+<p>Dalam eksperimen ini digunakan konfigurasi:</p>
+<ul class="simple">
+<li><p>Kriteria: gini</p></li>
+<li><p>Kedalaman maksimum (max_depth): 5, untuk menghindari overfitting.</p></li>
+</ul>
+</section>
+<section id="evaluasi-model">
+<h3><strong>4. Evaluasi Model</strong><a class="headerlink" href="#evaluasi-model" title="Link to this heading">#</a></h3>
+<p>Setelah model selesai dilatih, dilakukan prediksi terhadap data uji (X_test). Evaluasi dilakukan dengan beberapa metrik penting:</p>
+<ul class="simple">
+<li><p>Akurasi: Mengukur proporsi data uji yang diprediksi dengan benar.</p></li>
+<li><p>Classification Report: Menampilkan precision, recall, dan F1-score untuk masing-masing kelas (Recurrence dan No Recurrence)</p></li>
+<li><p>Confusion Matrix: Menampilkan jumlah prediksi benar dan salah untuk tiap kelas secara lebih detail.</p></li>
+</ul>
+<p>Selain evaluasi numerik, struktur pohon keputusan juga divisualisasikan untuk melihat bagaimana model membuat keputusan. Setiap simpul dalam pohon menunjukkan fitur yang digunakan untuk membagi data, nilai batasnya, serta distribusi kelas pada node tersebut. Visualisasi ini memudahkan dalam memahami bagaimana model memprioritaskan fitur dalam proses klasifikasi.</p>
+</section>
+<section id="prediksi-status-cancer">
+<h3><strong>5. Prediksi Status Cancer</strong><a class="headerlink" href="#prediksi-status-cancer" title="Link to this heading">#</a></h3>
+<p>Setelah model dilatih dan dievaluasi, ia siap digunakan untuk:</p>
+<ul class="simple">
+<li><p>Memprediksi status kanker pada data pasien baru berdasarkan nilai-nilai fitur klinis seperti radius, tekstur, perimeter, dan area sel.</p></li>
+<li><p>Memberikan wawasan mengenai fitur mana yang paling berpengaruh dalam proses prediksi, seperti ukuran dan bentuk sel, yang mungkin menjadi indikator penting terhadap kemungkinan kekambuhan kanker.</p></li>
+</ul>
+</section>
+<section id="kesimpulan">
+<h3><strong>Kesimpulan</strong><a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h3>
+<p>Decision Tree adalah metode klasifikasi yang efektif dan mudah diinterpretasikan, cocok digunakan untuk klasifikasi data klinis seperti pada kasus deteksi kanker. Keunggulannya antara lain:</p>
+<ul class="simple">
+<li><p>Mampu menangani data numerik dan kategorikal tanpa perlu normalisasi.</p></li>
+<li><p>Menghasilkan struktur pohon yang bisa divisualisasikan dan mudah diinterpretasikan.</p></li>
+<li><p>Proses pelatihan cepat, fleksibel, dan cocok untuk dataset berukuran kecil hingga menengah.</p></li>
+</ul>
+<p>Model ini sangat berguna sebagai alat bantu diagnosis awal kanker, yang dapat membantu tenaga medis maupun sistem pendukung keputusan untuk membuat prediksi secara cepat dan efisien — bahkan sebelum hasil laboratorium lengkap tersedia.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt_model</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">dt_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Prediksi</span>
+<span class="n">y_pred_dt</span> <span class="o">=</span> <span class="n">dt_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Evaluasi</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=== Decision Tree ===&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi:&quot;</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_dt</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Classification Report:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_dt</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Confusion Matrix:&quot;</span><span class="p">)</span>
+<span class="n">ConfusionMatrixDisplay</span><span class="o">.</span><span class="n">from_estimator</span><span class="p">(</span><span class="n">dt_model</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Blues&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Confusion Matrix - Decision Tree&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Visualisasi pohon keputusan</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">plot_tree</span><span class="p">(</span><span class="n">dt_model</span><span class="p">,</span> <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">feature_names</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">class_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;No Recurrence&#39;</span><span class="p">,</span> <span class="s1">&#39;Recurrence&#39;</span><span class="p">],</span> <span class="n">rounded</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Visualisasi Decision Tree&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== Decision Tree ===
+Akurasi: 0.603448275862069
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.65      0.81      0.72        37
+           1       0.42      0.24      0.30        21
+
+    accuracy                           0.60        58
+   macro avg       0.53      0.52      0.51        58
+weighted avg       0.57      0.60      0.57        58
+
+Confusion Matrix:
+</pre></div>
+</div>
+<img alt="_images/c4dc0794f6e31b56db37b2cf777745ecd5ebeebb17434a1f7f1f65b36e05cff3.png" src="_images/c4dc0794f6e31b56db37b2cf777745ecd5ebeebb17434a1f7f1f65b36e05cff3.png" />
+<img alt="_images/ff1343db92f932e78928a2f8199231f219f6bd012c449cc987f70ab9bf24d8ff.png" src="_images/ff1343db92f932e78928a2f8199231f219f6bd012c449cc987f70ab9bf24d8ff.png" />
+</div>
+</div>
+<p>Hasil yang didapat :</p>
+<p>Model Decision Tree menghasilkan akurasi sekitar 60,34%, yang berarti dari seluruh data uji, sekitar 60% berhasil diklasifikasikan dengan benar. Model ini cukup baik dalam mengenali kasus tanpa kekambuhan (kelas 0), ditunjukkan oleh recall sebesar 81% dan f1-score sebesar 0,72 pada kelas ini.</p>
+<p>Namun, performanya menurun drastis pada kelas kekambuhan (kelas 1). Recall-nya hanya 24%, menunjukkan bahwa model sering gagal mendeteksi pasien yang mengalami kekambuhan. F1-score di kelas ini juga rendah, hanya 0,30, menunjukkan keseimbangan antara precision dan recall yang buruk.</p>
+</section>
+</section>
+<section id="modelling-klasifikasi-dataset-cancer-menggunakan-knn">
+<h2>Modelling Klasifikasi Dataset Cancer menggunakan KNN<a class="headerlink" href="#modelling-klasifikasi-dataset-cancer-menggunakan-knn" title="Link to this heading">#</a></h2>
+<p>Model K-Nearest Neighbors (KNN) digunakan dalam pemodelan ini untuk memprediksi status pasien apakah termasuk dalam kategori Recurrence (kanker kambuh) atau No Recurrence (tidak kambuh), berdasarkan fitur-fitur hasil biopsi seperti radius, perimeter, tekstur, dan area sel.</p>
+<p>KNN adalah metode instance-based learning, di mana proses prediksi pada data baru dilakukan dengan membandingkan jaraknya terhadap data latih, lalu menentukan kelas berdasarkan mayoritas “tetangga” terdekatnya.</p>
+<section id="pembagian-dataset-training-dan-testing">
+<h3><strong>1. Pembagian Dataset: Training dan Testing</strong><a class="headerlink" href="#pembagian-dataset-training-dan-testing" title="Link to this heading">#</a></h3>
+<p>Sama seperti metode supervised learning lainnya, dataset dibagi menjadi dua bagian:</p>
+<ul class="simple">
+<li><p>Data Latih (Training Set): Digunakan sebagai referensi dalam pencarian tetangga terdekat.</p></li>
+<li><p>Data Uji (Testing Set): Digunakan untuk mengevaluasi kemampuan model dalam mengenali pola pada data yang belum pernah dilihat.</p></li>
+</ul>
+<p>Pada pemodelan ini digunakan rasio 80% data latih dan 20% data uji, yang merupakan pembagian umum dalam eksperimen machine learning. Rasio ini bisa disesuaikan tergantung ukuran dan keseimbangan data.</p>
+</section>
+<section id="id1">
+<h3><strong>2. Pra-Pemrosesan Data</strong><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Agar algoritma KNN bekerja secara optimal, dilakukan beberapa langkah pra-pemrosesan sebagai berikut:</p>
+<ul class="simple">
+<li><p>Konversi Target: Kolom class yang berisi angka 0 dan 1 diubah menjadi label kategori:</p>
+<ul>
+<li><p>0 → Non Recurrence</p></li>
+<li><p>1 → Recurrence</p></li>
+</ul>
+</li>
+<li><p>Encoding Fitur Kategorikal: Jika terdapat fitur kategorikal, maka perlu diubah ke bentuk numerik agar bisa digunakan dalam perhitungan jarak.</p></li>
+<li><p>Normalisasi (Scaling): Karena KNN sangat sensitif terhadap skala fitur, maka semua fitur numerik perlu dinormalisasi (misalnya menggunakan StandardScaler) agar setiap fitur memiliki kontribusi yang setara dalam perhitungan jarak. Tanpa scaling, fitur dengan rentang nilai besar akan mendominasi jarak Euclidean.</p></li>
+</ul>
+</section>
+<section id="konsep-kerja-knn">
+<h3><strong>3. Konsep Kerja KNN</strong><a class="headerlink" href="#konsep-kerja-knn" title="Link to this heading">#</a></h3>
+<p>Berbeda dengan model seperti Decision Tree yang membangun aturan eksplisit, KNN bekerja berdasarkan kemiripan antar titik data. Berikut alur klasifikasinya:</p>
+<ul class="simple">
+<li><p>Hitung jarak (misalnya Euclidean) antara data uji dan semua data latih.</p></li>
+<li><p>Pilih k tetangga terdekat (pada kode ini digunakan k=5)..</p></li>
+<li><p>Lakukan voting mayoritas terhadap label dari 5 tetangga tersebut.</p></li>
+<li><p>Kelas yang paling banyak muncul akan menjadi hasil prediksi akhir.</p></li>
+</ul>
+<p>Misalnya, jika dari 5 tetangga terdekat, 3 adalah pasien dengan status Recurrence dan 2 No Recurrence, maka data uji akan diprediksi sebagai Recurrence.</p>
+</section>
+<section id="id2">
+<h3><strong>4. Evaluasi Model</strong><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>Setelah dilakukan prediksi, performa model KNN dievaluasi dengan beberapa metrik umum klasifikasi:</p>
+<ul class="simple">
+<li><p>Akurasi: Mengukur seberapa banyak prediksi model yang sesuai dengan label asli.</p></li>
+<li><p>Classification Report: Memberikan metrik precision, recall, dan F1-score untuk setiap kelas.</p></li>
+<li><p>Confusion Matrix: Menunjukkan distribusi prediksi benar dan salah untuk kedua kelas, memudahkan analisis kesalahan klasifikasi.</p></li>
+</ul>
+<p>Eksperimen terhadap nilai k juga dapat dilakukan (misalnya: k=3, k=7, dst.) untuk mencari jumlah tetangga yang menghasilkan akurasi terbaik.</p>
+</section>
+<section id="id3">
+<h3><strong>Kesimpulan</strong><a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>Model K-Nearest Neighbors menunjukkan performa yang cukup baik dalam mengklasifikasikan status kanker berdasarkan fitur-fitur klinis pasien. Selama data telah melalui proses pra-pemrosesan seperti encoding dan normalisasi, KNN dapat menjadi metode klasifikasi yang sederhana namun efektif.</p>
+<p>Metode ini sangat cocok digunakan sebagai sistem pendukung keputusan di bidang medis, karena dapat membantu memprediksi potensi kekambuhan kanker secara cepat, bahkan sebelum dilakukan pemeriksaan lebih lanjut yang lebih kompleks.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">knn_model</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">knn_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Prediksi</span>
+<span class="n">y_pred_knn</span> <span class="o">=</span> <span class="n">knn_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Evaluasi</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=== K-Nearest Neighbors (KNN) ===&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi:&quot;</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_knn</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Classification Report:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_knn</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Confusion Matrix:&quot;</span><span class="p">)</span>
+<span class="n">ConfusionMatrixDisplay</span><span class="o">.</span><span class="n">from_estimator</span><span class="p">(</span><span class="n">knn_model</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Blues&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Confusion Matrix - KNN&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== K-Nearest Neighbors (KNN) ===
+Akurasi: 0.6206896551724138
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.64      0.95      0.76        37
+           1       0.33      0.05      0.08        21
+
+    accuracy                           0.62        58
+   macro avg       0.48      0.50      0.42        58
+weighted avg       0.53      0.62      0.52        58
+
+Confusion Matrix:
+</pre></div>
+</div>
+<img alt="_images/86a7175fc60e4a45ae81494548e9b4d01e8ce2973047ab6a17856a674ab85b47.png" src="_images/86a7175fc60e4a45ae81494548e9b4d01e8ce2973047ab6a17856a674ab85b47.png" />
+</div>
+</div>
+<p>Hasil yang didapat :</p>
+<p>Model KNN memberikan akurasi sekitar 58,62%, sedikit lebih rendah dari Decision Tree. Sama seperti model sebelumnya, KNN juga sangat baik dalam mengenali kelas 0 (tidak kambuh), bahkan recall-nya mencapai 89%.</p>
+<p>Namun kelemahan utamanya adalah performa yang sangat buruk dalam mengenali kelas 1 (kekambuhan). Recall hanya 5%, artinya hampir semua kasus kekambuhan tidak dikenali oleh model. F1-score-nya pun hanya 0,08, menjadikan model ini sangat tidak seimbang karena terlalu condong pada kelas mayoritas.</p>
+</section>
+</section>
+<section id="modelling-klasifikasi-dataset-cancer-menggunakan-naive-bayes">
+<h2>Modelling Klasifikasi Dataset Cancer menggunakan Naive Bayes<a class="headerlink" href="#modelling-klasifikasi-dataset-cancer-menggunakan-naive-bayes" title="Link to this heading">#</a></h2>
+<p>Modelling ini bertujuan untuk proses membangun model untuk memprediksi apakah pasien mengalami Recurrence (kanker kambuh) atau No Recurrence (tidak kambuh), berdasarkan fitur-fitur medis seperti radius, area, dan tekstur sel.</p>
+<p>Naive Bayes bekerja dengan menghitung probabilitas suatu data termasuk ke dalam kelas tertentu, dengan asumsi bahwa fitur-fitur bersifat independen. Metode ini cepat, sederhana, dan efektif, sehingga cocok digunakan untuk deteksi dini kanker.</p>
+<section id="pembagian-dataset-menjadi-data-latih-dan-data-uji">
+<h3><strong>1.  Pembagian Dataset menjadi Data Latih dan Data Uji</strong><a class="headerlink" href="#pembagian-dataset-menjadi-data-latih-dan-data-uji" title="Link to this heading">#</a></h3>
+<p>Langkah awal dalam proses modeling adalah membagi data menjadi dua bagian:</p>
+<ul>
+<li><p>Data Latih (Train Set): digunakan untuk membangun dan melatih model.</p></li>
+<li><p>Data Uji (Test Set): digunakan untuk  menguji performa model terhadap data yang belum pernah dilihat sebelumnya.</p>
+<p>Dalam modeling ini digunakan rasio 80% data latih dan 20% data uji, yang merupakan pembagian umum. Rasio ini bersifat fleksibel dan dapat disesuaikan tergantung kebutuhan dan ukuran dataset.</p>
+</li>
+</ul>
+</section>
+<section id="menghitung-probabilitas-awal-prior-probability">
+<h3><strong>2. Menghitung Probabilitas Awal (Prior Probability)</strong><a class="headerlink" href="#menghitung-probabilitas-awal-prior-probability" title="Link to this heading">#</a></h3>
+<p>Setelah data dibagi, langkah selanjutnya adalah menghitung probabilitas awal (prior) untuk masing-masing kelas target, yaitu:</p>
+<ul class="simple">
+<li><p>Recurrence</p></li>
+<li><p>No Recurrence</p></li>
+</ul>
+<p>Probabilitas ini dihitung dengan cara:</p>
+<ul class="simple">
+<li><p>Hitung jumlah data latih yang termasuk ke dalam masing-masing kelas.</p></li>
+<li><p>Bagi jumlah tersebut dengan total data latih.</p></li>
+</ul>
+<p>Nilai prior ini mewakili kemungkinan awal seorang pasien termasuk salah satu kelas tanpa mempertimbangkan fitur apapun.</p>
+</section>
+<section id="menghitung-rata-rata-dan-standar-deviasi-setiap-fitur">
+<h3><strong>3. Menghitung Rata-rata dan Standar Deviasi Setiap Fitur</strong><a class="headerlink" href="#menghitung-rata-rata-dan-standar-deviasi-setiap-fitur" title="Link to this heading">#</a></h3>
+<p>Untuk masing-masing kelas model menghitung:</p>
+<ul class="simple">
+<li><p>Rata-rata (mean) dari setiap fitur numerik</p></li>
+<li><p>Standar deviasi (standard deviation) dari setiap fitur.</p></li>
+</ul>
+<p>Hal ini penting karena Gaussian Naive Bayes mengasumsikan bahwa nilai-nilai fitur dalam setiap kelas mengikuti distribusi normal. Nilai rata-rata dan deviasi inilah yang akan digunakan dalam perhitungan probabilitas selanjutnya.</p>
+</section>
+<section id="menghitung-distribusi-gaussian">
+<h3><strong>4. Menghitung Distribusi Gaussian</strong><a class="headerlink" href="#menghitung-distribusi-gaussian" title="Link to this heading">#</a></h3>
+<p>Menggunakan rumus distribusi Gaussian, probabilitas kemunculan nilai fitur dihitung menggunakan rumus distribusi Gaussian sebagai berikut:</p>
+<div class="math notranslate nohighlight">
+\[
+P(x|\mu,\sigma) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left( -\frac{(x - \mu)^2}{2\sigma^2} \right)
+\]</div>
+<p>Keterangan:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(x\)</span>: nilai fitur input</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mu\)</span>: rata-rata fitur pada kelas tertentu</p></li>
+<li><p><span class="math notranslate nohighlight">\(\sigma\)</span>: standar deviasi fitur pada kelas tertentu</p></li>
+</ul>
+</section>
+<section id="menghitung-posterior-probability">
+<h3><strong>5. Menghitung Posterior Probability</strong><a class="headerlink" href="#menghitung-posterior-probability" title="Link to this heading">#</a></h3>
+<p>Selanjutnya, semua probabilitas dari setiap fitur akan digabungkan untuk menghasilkan probabilitas akhir (posterior) dari masing-masing kelas menggunakan rumus:</p>
+<div class="math notranslate nohighlight">
+\[
+P(C_i|X) \propto P(x_1|C_i) \cdot P(x_2|C_i) \cdot \ldots \cdot P(x_n|C_i) \cdot P(C_i)
+\]</div>
+<p>Keterangan:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(P(x_k|C_i)\)</span>: hasil dari fungsi Gaussian fitur ke-<span class="math notranslate nohighlight">\(k\)</span> pada kelas <span class="math notranslate nohighlight">\(C_i\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(P(C_i)\)</span>: prior probability dari kelas <span class="math notranslate nohighlight">\(C_i\)</span></p></li>
+</ul>
+</section>
+<section id="menentukan-prediksi-kelas">
+<h3><strong>6. Menentukan Prediksi Kelas</strong><a class="headerlink" href="#menentukan-prediksi-kelas" title="Link to this heading">#</a></h3>
+<p>Setelah menghitung semua nilai posterior untuk masing-masing kelas, model akan memilih kelas dengan probabilitas tertinggi sebagai hasil prediksi akhir untuk data uji tersebut.</p>
+</section>
+<section id="id4">
+<h3><strong>Kesimpulan</strong><a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>Model Gaussian Naive Bayes sangat cocok digunakan dalam klasifikasi status kanker karena:</p>
+<ul class="simple">
+<li><p>Cepat dan efisien, terutama untuk dataset berukuran sedang</p></li>
+<li><p>Tidak memerlukan banyak parameter dan dapat langsung digunakan pada data numerik yang mengikuti distribusi normal.</p></li>
+<li><p>Tetap dapat bekerja meskipun antar fitur tidak saling bergantung secara statistik</p></li>
+</ul>
+<p>Model ini sangat berguna sebagai alat bantu diagnosis awal kanker. Ketika diintegrasikan ke dalam sistem pendukung keputusan (Decision Support System), model ini dapat membantu dokter dalam mendeteksi risiko kekambuhan kanker dengan lebih cepat dan tepat, tanpa menunggu hasil pengujian lanjutan yang lebih kompleks.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nb_model</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
+<span class="n">nb_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Prediksi</span>
+<span class="n">y_pred_nb</span> <span class="o">=</span> <span class="n">nb_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Evaluasi</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=== Naive Bayes ===&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi:&quot;</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_nb</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Classification Report:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_nb</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Confusion Matrix:&quot;</span><span class="p">)</span>
+<span class="n">ConfusionMatrixDisplay</span><span class="o">.</span><span class="n">from_estimator</span><span class="p">(</span><span class="n">nb_model</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Blues&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Confusion Matrix - Naive Bayes&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== Naive Bayes ===
+Akurasi: 0.6551724137931034
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.69      0.84      0.76        37
+           1       0.54      0.33      0.41        21
+
+    accuracy                           0.66        58
+   macro avg       0.61      0.59      0.58        58
+weighted avg       0.63      0.66      0.63        58
+
+Confusion Matrix:
+</pre></div>
+</div>
+<img alt="_images/43066245cd54ab0bd432df55eac040ecf3a61d7cc533309c45ab46d9f7fff124.png" src="_images/43066245cd54ab0bd432df55eac040ecf3a61d7cc533309c45ab46d9f7fff124.png" />
+</div>
+</div>
+<p>Hasil yang didapat :</p>
+<p>Naive Bayes adalah model dengan performa paling baik dari ketiganya, dengan akurasi sebesar 65,52%. Untuk kelas 0, model masih menunjukkan performa yang baik dengan recall 84% dan f1-score 0,76.</p>
+<p>Yang membedakan adalah kemampuannya menangkap kelas minoritas (kelas 1 - kekambuhan) lebih baik dibanding model lain. Recall-nya mencapai 33% dan f1-score 0,41. Meskipun tidak terlalu tinggi, angka ini menunjukkan bahwa Naive Bayes memiliki kemampuan lebih seimbang dalam mengenali kedua kelas dibanding dua model sebelumnya.</p>
+<p>##<strong>Evaluasi Model</strong></p>
+<p>Berdasarkan hasil evaluasi:</p>
+<p><strong>Decision Tree</strong>:</p>
+<p>Akurasi: 60,34%</p>
+<p>F1-score kelas 1: 0,30</p>
+<p><strong>KNN</strong>:</p>
+<p>Akurasi: 58,62%</p>
+<p>F1-score kelas 1: 0,08</p>
+<p><strong>Naive Bayes</strong>:</p>
+<p>Akurasi: 65,52%</p>
+<p>F1-score kelas 1: 0,41</p>
+<p>Maka, Naive Bayes adalah model terbaik di antara ketiganya, karena memiliki akurasi tertinggi dan mampu mengenali kelas minoritas (recurrence) lebih baik dibanding Decision Tree maupun KNN. Model ini paling layak digunakan jika tujuan utama adalah mendeteksi pasien yang mengalami kekambuhan kanker payudara.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="pendat6.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Teknik Binning</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Deteksi Dini Kanker Payudara Melalui Pemeriksaan Mammografi</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pendahuluan"><strong>Pendahuluan</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-set"><strong>Data Set</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan"><strong>Tujuan</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-understanding"><strong>Data Understanding</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-penjelasan-fitur">a. Penjelasan Fitur</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-ekplorasi-data">b. Ekplorasi Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-visualisasi-data">c. Visualisasi Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepocessing-data"><strong>Prepocessing data</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling-klasifikasi"><strong>Modelling Klasifikasi</strong></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling">Modelling</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling-klasifikasi-dataset-cancer-menggunakan-decission-tree">Modelling Klasifikasi Dataset Cancer menggunakan Decission Tree</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pembagian-dataset-data-latih-dan-data-uji"><strong>1. Pembagian Dataset: Data Latih dan Data Uji</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pra-pemrosesan-data"><strong>2. Pra-Pemrosesan Data</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pelatihan-model-decision-tree"><strong>3. Pelatihan Model Decision Tree</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi-model"><strong>4. Evaluasi Model</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prediksi-status-cancer"><strong>5. Prediksi Status Cancer</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan"><strong>Kesimpulan</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling-klasifikasi-dataset-cancer-menggunakan-knn">Modelling Klasifikasi Dataset Cancer menggunakan KNN</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pembagian-dataset-training-dan-testing"><strong>1. Pembagian Dataset: Training dan Testing</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>2. Pra-Pemrosesan Data</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#konsep-kerja-knn"><strong>3. Konsep Kerja KNN</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>4. Evaluasi Model</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><strong>Kesimpulan</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling-klasifikasi-dataset-cancer-menggunakan-naive-bayes">Modelling Klasifikasi Dataset Cancer menggunakan Naive Bayes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pembagian-dataset-menjadi-data-latih-dan-data-uji"><strong>1.  Pembagian Dataset menjadi Data Latih dan Data Uji</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-probabilitas-awal-prior-probability"><strong>2. Menghitung Probabilitas Awal (Prior Probability)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-rata-rata-dan-standar-deviasi-setiap-fitur"><strong>3. Menghitung Rata-rata dan Standar Deviasi Setiap Fitur</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-distribusi-gaussian"><strong>4. Menghitung Distribusi Gaussian</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-posterior-probability"><strong>5. Menghitung Posterior Probability</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-prediksi-kelas"><strong>6. Menentukan Prediksi Kelas</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><strong>Kesimpulan</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Vania Putri
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
