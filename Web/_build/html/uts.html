@@ -193,6 +193,14 @@
 <li class="toctree-l1"><a class="reference internal" href="prauas.html"><strong>Deteksi Dini Kanker Payudara Melalui Pemeriksaan Mammografi</strong></a></li>
 
 
+<li class="toctree-l1"><a class="reference internal" href="uas.html"><strong>Prediksi Risiko Diabetes Tahap Awal</strong></a></li>
+
+
+
+
+
+
+
 </ul>
 
     </div>
@@ -705,9 +713,7 @@ dtype: int64
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: Random Forest
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi: 0.7738
+Akurasi: 0.7738
 Classification Report:
               precision    recall  f1-score   support
 
@@ -737,22 +743,6 @@ weighted avg       0.63      0.64      0.63        84
 Model: Logistic Regression
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi: 0.7976
-Classification Report:
-              precision    recall  f1-score   support
-
-           0       0.79      0.86      0.83        44
-           1       0.00      0.00      0.00         4
-           2       0.81      0.81      0.81        36
-
-    accuracy                           0.80        84
-   macro avg       0.53      0.56      0.54        84
-weighted avg       0.76      0.80      0.78        84
-
-
-Model: K-Nearest Neighbors
-</pre></div>
-</div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\raiha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\sklearn\metrics\_classification.py:1531: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
   _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, len(result))
 C:\Users\raiha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\sklearn\metrics\_classification.py:1531: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
@@ -775,7 +765,21 @@ C:\Users\raiha\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n
   _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, len(result))
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi: 0.6905
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi: 0.7976
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.79      0.86      0.83        44
+           1       0.00      0.00      0.00         4
+           2       0.81      0.81      0.81        36
+
+    accuracy                           0.80        84
+   macro avg       0.53      0.56      0.54        84
+weighted avg       0.76      0.80      0.78        84
+
+
+Model: K-Nearest Neighbors
+Akurasi: 0.6905
 Classification Report:
               precision    recall  f1-score   support
 

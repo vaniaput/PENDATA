@@ -62,6 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'prauas';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Prediksi Risiko Diabetes Tahap Awal" href="uas.html" />
     <link rel="prev" title="Teknik Binning" href="pendat6.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -192,6 +193,14 @@
 <li class="toctree-l1"><a class="reference internal" href="pendat5.html">Decision Tree</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pendat6.html">Teknik Binning</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Deteksi Dini Kanker Payudara Melalui Pemeriksaan Mammografi</strong></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="uas.html"><strong>Prediksi Risiko Diabetes Tahap Awal</strong></a></li>
+
+
+
+
+
 
 
 </ul>
@@ -431,6 +440,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><strong>Kesimpulan</strong></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><strong>Evaluasi Model</strong></a></li>
 </ul>
 </li>
 </ul>
@@ -499,34 +509,6 @@ Note: you may need to restart the kernel to use updated packages.
 
 <span class="c1"># variable information</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">breast_cancer</span><span class="o">.</span><span class="n">variables</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;uci_id&#39;: 14, &#39;name&#39;: &#39;Breast Cancer&#39;, &#39;repository_url&#39;: &#39;https://archive.ics.uci.edu/dataset/14/breast+cancer&#39;, &#39;data_url&#39;: &#39;https://archive.ics.uci.edu/static/public/14/data.csv&#39;, &#39;abstract&#39;: &#39;This breast cancer domain was obtained from the University Medical Centre, Institute of Oncology, Ljubljana, Yugoslavia. This is one of three domains provided by the Oncology Institute that has repeatedly appeared in the machine learning literature. (See also lymphography and primary-tumor.)&#39;, &#39;area&#39;: &#39;Health and Medicine&#39;, &#39;tasks&#39;: [&#39;Classification&#39;], &#39;characteristics&#39;: [&#39;Multivariate&#39;], &#39;num_instances&#39;: 286, &#39;num_features&#39;: 9, &#39;feature_types&#39;: [&#39;Categorical&#39;], &#39;demographics&#39;: [&#39;Age&#39;], &#39;target_col&#39;: [&#39;Class&#39;], &#39;index_col&#39;: None, &#39;has_missing_values&#39;: &#39;yes&#39;, &#39;missing_values_symbol&#39;: &#39;NaN&#39;, &#39;year_of_dataset_creation&#39;: 1988, &#39;last_updated&#39;: &#39;Thu Mar 07 2024&#39;, &#39;dataset_doi&#39;: &#39;10.24432/C51P4M&#39;, &#39;creators&#39;: [&#39;Matjaz Zwitter&#39;, &#39;Milan Soklic&#39;], &#39;intro_paper&#39;: None, &#39;additional_info&#39;: {&#39;summary&#39;: &#39;This data set includes 201 instances of one class and 85 instances of another class.  The instances are described by 9 attributes, some of which are linear and some are nominal.\n&#39;, &#39;purpose&#39;: None, &#39;funded_by&#39;: None, &#39;instances_represent&#39;: None, &#39;recommended_data_splits&#39;: None, &#39;sensitive_data&#39;: None, &#39;preprocessing_description&#39;: None, &#39;variable_info&#39;: &#39;   1. Class: no-recurrence-events, recurrence-events\r\n   2. age: 10-19, 20-29, 30-39, 40-49, 50-59, 60-69, 70-79, 80-89, 90-99.\r\n   3. menopause: lt40, ge40, premeno.\r\n   4. tumor-size: 0-4, 5-9, 10-14, 15-19, 20-24, 25-29, 30-34, 35-39, 40-44, 45-49, 50-54, 55-59.\r\n   5. inv-nodes: 0-2, 3-5, 6-8, 9-11, 12-14, 15-17, 18-20, 21-23, 24-26, 27-29, 30-32, 33-35, 36-39.\r\n   6. node-caps: yes, no.\r\n   7. deg-malig: 1, 2, 3.\r\n   8. breast: left, right.\r\n   9. breast-quad: left-up, left-low, right-up,\tright-low, central.\r\n  10. irradiat:\tyes, no.&#39;, &#39;citation&#39;: &#39;Obtained from the University Medical Centre, Institute of Oncology, Ljubljana, Yugoslavia.  Thanks go to M. Zwitter and M. Soklic for providing the data.  Please include this citation if you plan to use this database:\nMatjaz Zwitter &amp; Milan Soklic (physicians)\nInstitute of Oncology \nUniversity Medical Center\nLjubljana, Yugoslavia&#39;}}
-          name     role         type demographic  \
-0        Class   Target       Binary        None   
-1          age  Feature  Categorical         Age   
-2    menopause  Feature  Categorical        None   
-3   tumor-size  Feature  Categorical        None   
-4    inv-nodes  Feature  Categorical        None   
-5    node-caps  Feature       Binary        None   
-6    deg-malig  Feature      Integer        None   
-7       breast  Feature       Binary        None   
-8  breast-quad  Feature  Categorical        None   
-9     irradiat  Feature       Binary        None   
-
-                                         description  units missing_values  
-0            no-recurrence-events, recurrence-events   None             no  
-1  10-19, 20-29, 30-39, 40-49, 50-59, 60-69, 70-7...  years             no  
-2                                lt40, ge40, premeno   None             no  
-3  0-4, 5-9, 10-14, 15-19, 20-24, 25-29, 30-34, 3...   None             no  
-4   0-2, 3-5, 6-8, 9-11, 12-14, 15-17, 18-20, 21-...   None             no  
-5                                            yes, no   None            yes  
-6                                            1, 2, 3   None             no  
-7                                        left, right   None             no  
-8   left-up, left-low, right-up,\tright-low, central   None            yes  
-9                                            yes, no   None             no  
 </pre></div>
 </div>
 </div>
@@ -649,14 +631,287 @@ None
 2    40-49   premeno      20-24       0-2        no          2   left    left_low       no  no-recurrence-events
 3    60-69      ge40      15-19       0-2        no          2  right     left_up       no  no-recurrence-events
 4    40-49   premeno        0-4       0-2        no          2  right   right_low       no  no-recurrence-events
-..     ...       ...        ...       ...       ...        ...    ...         ...      ...                   ...
+5    60-69      ge40      15-19       0-2        no          2   left    left_low       no  no-recurrence-events
+6    50-59   premeno      25-29       0-2        no          2   left    left_low       no  no-recurrence-events
+7    60-69      ge40      20-24       0-2        no          1   left    left_low       no  no-recurrence-events
+8    40-49   premeno      50-54       0-2        no          2   left    left_low       no  no-recurrence-events
+9    40-49   premeno      20-24       0-2        no          2  right     left_up       no  no-recurrence-events
+10   40-49   premeno        0-4       0-2        no          3   left     central       no  no-recurrence-events
+11   50-59      ge40      25-29       0-2        no          2   left    left_low       no  no-recurrence-events
+12   60-69      lt40     14-Oct       0-2        no          1   left    right_up       no  no-recurrence-events
+13   50-59      ge40      25-29       0-2        no          3   left    right_up       no  no-recurrence-events
+14   40-49   premeno      30-34       0-2        no          3   left     left_up       no  no-recurrence-events
+15   60-69      lt40      30-34       0-2        no          1   left    left_low       no  no-recurrence-events
+16   40-49   premeno      15-19       0-2        no          2   left    left_low       no  no-recurrence-events
+17   50-59   premeno      30-34       0-2        no          3   left    left_low       no  no-recurrence-events
+18   60-69      ge40      30-34       0-2        no          3   left    left_low       no  no-recurrence-events
+19   50-59      ge40      30-34       0-2        no          1  right    right_up       no  no-recurrence-events
+20   50-59      ge40      40-44       0-2        no          2   left    left_low       no  no-recurrence-events
+21   60-69      ge40      15-19       0-2        no          2   left    left_low       no  no-recurrence-events
+22   30-39   premeno      25-29       0-2        no          2  right    left_low       no  no-recurrence-events
+23   50-59   premeno      40-44       0-2        no          2   left     left_up       no  no-recurrence-events
+24   50-59   premeno      35-39       0-2        no          2  right     left_up       no  no-recurrence-events
+25   40-49   premeno      25-29       0-2        no          2   left     left_up       no  no-recurrence-events
+26   50-59   premeno      20-24       0-2        no          1   left    left_low       no  no-recurrence-events
+27   60-69      ge40      25-29       0-2        no          3  right     left_up       no  no-recurrence-events
+28   40-49   premeno      40-44       0-2        no          2  right    left_low       no  no-recurrence-events
+29   60-69      ge40      30-34       0-2        no          2   left    left_low       no  no-recurrence-events
+30   50-59      ge40      40-44       0-2        no          3  right     left_up       no  no-recurrence-events
+31   50-59   premeno      15-19       0-2        no          2  right    left_low       no  no-recurrence-events
+32   50-59   premeno     14-Oct       0-2        no          3   left    left_low       no  no-recurrence-events
+33   50-59      ge40     14-Oct       0-2        no          1  right     left_up       no  no-recurrence-events
+34   50-59      ge40     14-Oct       0-2        no          1   left     left_up       no  no-recurrence-events
+35   30-39   premeno      30-34       0-2        no          2   left     left_up       no  no-recurrence-events
+36   50-59      ge40        0-4       0-2        no          2   left     central       no  no-recurrence-events
+37   50-59      ge40      15-19       0-2        no          1  right     central       no  no-recurrence-events
+38   40-49   premeno     14-Oct       0-2        no          2   left    left_low       no  no-recurrence-events
+39   40-49   premeno      30-34       0-2        no          1   left    left_low       no  no-recurrence-events
+40   50-59      ge40      20-24       0-2        no          1  right    left_low       no  no-recurrence-events
+41   60-69      ge40      25-29       0-2        no          2   left    left_low       no  no-recurrence-events
+42   60-69      ge40      9-May       0-2        no          1   left     central       no  no-recurrence-events
+43   40-49   premeno     14-Oct       0-2        no          2   left     left_up       no  no-recurrence-events
+44   50-59      ge40      50-54       0-2        no          1  right    right_up       no  no-recurrence-events
+45   50-59      ge40      30-34       0-2        no          1   left     left_up       no  no-recurrence-events
+46   40-49   premeno      25-29       0-2        no          2  right    left_low       no  no-recurrence-events
+47   50-59   premeno      25-29       0-2        no          1  right     left_up       no  no-recurrence-events
+48   40-49   premeno      20-24       0-2        no          1  right    right_up       no  no-recurrence-events
+49   40-49   premeno      20-24       0-2        no          1  right    left_low       no  no-recurrence-events
+50   50-59      lt40      15-19       0-2        no          2   left    left_low       no  no-recurrence-events
+51   30-39   premeno      20-24       0-2        no          2   left   right_low       no  no-recurrence-events
+52   50-59   premeno      15-19       0-2        no          1   left    left_low       no  no-recurrence-events
+53   70-79      ge40      20-24       0-2        no          3   left     left_up       no  no-recurrence-events
+54   70-79      ge40      40-44       0-2        no          1  right     left_up       no  no-recurrence-events
+55   70-79      ge40      40-44       0-2        no          1  right    right_up       no  no-recurrence-events
+56   50-59      ge40        0-4       0-2        no          1  right     central       no  no-recurrence-events
+57   50-59      ge40      9-May       0-2        no          2  right    right_up       no  no-recurrence-events
+58   60-69      ge40      30-34       0-2        no          1   left     left_up       no  no-recurrence-events
+59   60-69      ge40      15-19       0-2        no          1  right     left_up       no  no-recurrence-events
+60   40-49   premeno      20-24       0-2        no          2   left     central       no  no-recurrence-events
+61   40-49   premeno     14-Oct       0-2        no          1  right   right_low       no  no-recurrence-events
+62   50-59      ge40        0-4       0-2        no          1   left    left_low       no  no-recurrence-events
+63   20-29   premeno      35-39       0-2        no          2  right    right_up       no  no-recurrence-events
+64   40-49   premeno      25-29       0-2        no          1   left   right_low       no  no-recurrence-events
+65   40-49   premeno     14-Oct       0-2        no          1  right     left_up       no  no-recurrence-events
+66   40-49   premeno      25-29       0-2        no          1  right   right_low       no  no-recurrence-events
+67   50-59      ge40      20-24       0-2        no          3   left     left_up       no  no-recurrence-events
+68   50-59      ge40      35-39       0-2        no          3   left    left_low       no  no-recurrence-events
+69   60-69      ge40      50-54       0-2        no          2   left    left_low       no  no-recurrence-events
+70   60-69      ge40     14-Oct       0-2        no          1   left    left_low       no  no-recurrence-events
+71   40-49   premeno      25-29       0-2        no          2  right     left_up       no  no-recurrence-events
+72   60-69      ge40      20-24       0-2        no          2   left     left_up       no  no-recurrence-events
+73   50-59   premeno      15-19       0-2        no          2  right   right_low       no  no-recurrence-events
+74   30-39   premeno      9-May       0-2        no          2   left   right_low       no  no-recurrence-events
+75   50-59      ge40     14-Oct       0-2        no          1   left    left_low       no  no-recurrence-events
+76   50-59      ge40     14-Oct       0-2        no          2   left    left_low       no  no-recurrence-events
+77   30-39   premeno      25-29       0-2        no          1   left     central       no  no-recurrence-events
+78   50-59   premeno      25-29       0-2        no          2   left    left_low       no  no-recurrence-events
+79   40-49   premeno      25-29       0-2        no          2  right     central       no  no-recurrence-events
+80   50-59      ge40     14-Oct       0-2        no          2  right    left_low       no  no-recurrence-events
+81   60-69      ge40     14-Oct       0-2        no          1   left     left_up       no  no-recurrence-events
+82   60-69      ge40      15-19       0-2        no          2  right    left_low       no  no-recurrence-events
+83   50-59      ge40      15-19       0-2        no          2  right    left_low       no  no-recurrence-events
+84   40-49   premeno      20-24       0-2        no          1   left   right_low       no  no-recurrence-events
+85   50-59      ge40      35-39       0-2        no          3   left     left_up       no  no-recurrence-events
+86   60-69      ge40      25-29       0-2        no          2  right    left_low       no  no-recurrence-events
+87   70-79      ge40        0-4       0-2        no          1   left   right_low       no  no-recurrence-events
+88   50-59      ge40      20-24       0-2        no          3  right     left_up       no  no-recurrence-events
+89   40-49   premeno      40-44       0-2        no          1  right     left_up       no  no-recurrence-events
+90   30-39   premeno        0-4       0-2        no          2  right     central       no  no-recurrence-events
+91   50-59      ge40      20-24       0-2        no          3   left     left_up       no  no-recurrence-events
+92   50-59      ge40      25-29       0-2        no          2  right     left_up       no  no-recurrence-events
+93   60-69      ge40      20-24       0-2        no          2  right     left_up       no  no-recurrence-events
+94   50-59   premeno     14-Oct       0-2        no          1   left    left_low       no  no-recurrence-events
+95   40-49   premeno      30-34       0-2        no          2  right   right_low       no  no-recurrence-events
+96   60-69      ge40      30-34       0-2        no          2   left     left_up       no  no-recurrence-events
+97   60-69      ge40      15-19       0-2        no          2  right     left_up       no  no-recurrence-events
+98   40-49   premeno      30-34       0-2        no          1   left    right_up       no  no-recurrence-events
+99   30-39   premeno      25-29       0-2        no          2   left    left_low       no  no-recurrence-events
+100  40-49      ge40      20-24       0-2        no          3   left    left_low       no  no-recurrence-events
+101  50-59      ge40      30-34       0-2        no          3  right    left_low       no  no-recurrence-events
+102  50-59   premeno      25-29       0-2        no          2  right   right_low       no  no-recurrence-events
+103  40-49   premeno      20-24       0-2        no          2   left   right_low       no  no-recurrence-events
+104  40-49   premeno     14-Oct       0-2        no          2  right    left_low       no  no-recurrence-events
+105  40-49   premeno      30-34       0-2        no          1  right     left_up       no  no-recurrence-events
+106  40-49   premeno      20-24       0-2        no          2   left     left_up       no  no-recurrence-events
+107  30-39   premeno      40-44       0-2        no          2  right    right_up       no  no-recurrence-events
+108  40-49   premeno      30-34       0-2        no          3  right    right_up       no  no-recurrence-events
+109  60-69      ge40      30-34       0-2        no          1  right     left_up       no  no-recurrence-events
+110  50-59      ge40      25-29       0-2        no          1   left    left_low       no  no-recurrence-events
+111  50-59      ge40      15-19       0-2        no          1  right     central       no  no-recurrence-events
+112  40-49   premeno      20-24       0-2        no          2  right     left_up       no  no-recurrence-events
+113  40-49   premeno     14-Oct       0-2        no          1  right     left_up       no  no-recurrence-events
+114  40-49   premeno      35-39       0-2        no          2  right    right_up       no  no-recurrence-events
+115  50-59      ge40      20-24       0-2        no          2  right     left_up       no  no-recurrence-events
+116  30-39   premeno      15-19       0-2        no          1   left    left_low       no  no-recurrence-events
+117  40-49      ge40      20-24       0-2        no          3   left     left_up       no  no-recurrence-events
+118  30-39   premeno     14-Oct       0-2        no          1  right    left_low       no  no-recurrence-events
+119  60-69      ge40      15-19       0-2        no          1   left   right_low       no  no-recurrence-events
+120  60-69      ge40      20-24       0-2        no          1   left    left_low       no  no-recurrence-events
+121  50-59      ge40      15-19       0-2        no          2  right    right_up       no  no-recurrence-events
+122  50-59      ge40      40-44       0-2        no          3   left     left_up       no  no-recurrence-events
+123  50-59      ge40      30-34       0-2        no          1  right    left_low       no  no-recurrence-events
+124  60-69      ge40     14-Oct       0-2        no          1  right    left_low       no  no-recurrence-events
+125  70-79      ge40     14-Oct       0-2        no          2   left     central       no  no-recurrence-events
+126  30-39   premeno      30-34     8-Jun       yes          2  right    right_up       no  no-recurrence-events
+127  30-39   premeno      25-29     8-Jun       yes          2  right     left_up      yes  no-recurrence-events
+128  50-59   premeno      25-29       0-2       yes          2   left     left_up       no  no-recurrence-events
+129  40-49   premeno      35-39    11-Sep       yes          2  right     left_up      yes  no-recurrence-events
+130  40-49   premeno      35-39    11-Sep       yes          2  right    right_up      yes  no-recurrence-events
+131  40-49   premeno      40-44     5-Mar       yes          3  right     left_up      yes  no-recurrence-events
+132  40-49   premeno      30-34     8-Jun        no          2   left     left_up       no  no-recurrence-events
+133  50-59      ge40      40-44       0-2        no          3   left    right_up       no  no-recurrence-events
+134  60-69      ge40      30-34       0-2        no          2   left    left_low      yes  no-recurrence-events
+135  30-39   premeno      20-24     5-Mar        no          2  right     central       no  no-recurrence-events
+136  30-39   premeno      40-44     5-Mar        no          3  right    right_up      yes  no-recurrence-events
+137  40-49   premeno      9-May       0-2        no          1   left    left_low      yes  no-recurrence-events
+138  30-39   premeno      40-44       0-2        no          2   left    left_low      yes  no-recurrence-events
+139  40-49   premeno      30-34       0-2        no          2   left   right_low       no  no-recurrence-events
+140  50-59      ge40      40-44     5-Mar       yes          2   left    left_low       no  no-recurrence-events
+141  50-59   premeno      20-24     5-Mar       yes          2   left    left_low       no  no-recurrence-events
+142  60-69      ge40     14-Oct       0-2        no          1   left     left_up       no  no-recurrence-events
+143  40-49   premeno      45-49       0-2        no          2   left    left_low      yes  no-recurrence-events
+144  60-69      ge40      45-49     8-Jun       yes          3   left     central       no  no-recurrence-events
+145  40-49   premeno      25-29       0-2       NaN          2   left   right_low      yes  no-recurrence-events
+146  60-69      ge40      50-54       0-2        no          2  right     left_up      yes  no-recurrence-events
+147  50-59   premeno      30-34     5-Mar       yes          2   left    left_low      yes  no-recurrence-events
+148  30-39   premeno      20-24       0-2        no          3   left     central       no  no-recurrence-events
+149  50-59      lt40      30-34       0-2        no          3  right     left_up       no  no-recurrence-events
+150  50-59      ge40      25-29     15-17       yes          3  right     left_up       no  no-recurrence-events
+151  60-69      ge40      30-34     5-Mar       yes          3   left    left_low       no  no-recurrence-events
+152  50-59      ge40      35-39     15-17        no          3   left    left_low       no  no-recurrence-events
+153  60-69      ge40      15-19       0-2        no          3  right     left_up      yes  no-recurrence-events
+154  30-39      lt40      15-19       0-2        no          3  right     left_up       no  no-recurrence-events
+155  60-69      ge40      40-44     5-Mar        no          2  right     left_up      yes  no-recurrence-events
+156  50-59      ge40      25-29     5-Mar       yes          3  right     left_up       no  no-recurrence-events
+157  50-59   premeno      30-34       0-2        no          1   left     central       no  no-recurrence-events
+158  50-59      ge40      30-34       0-2        no          1  right     central       no  no-recurrence-events
+159  40-49   premeno      35-39       0-2        no          1   left    left_low       no  no-recurrence-events
+160  40-49   premeno      25-29       0-2        no          3  right     left_up      yes  no-recurrence-events
+161  40-49   premeno      30-34     5-Mar       yes          2  right    left_low       no  no-recurrence-events
+162  60-69      ge40     14-Oct       0-2        no          2  right     left_up      yes  no-recurrence-events
+163  60-69      ge40      25-29     5-Mar       NaN          1  right     left_up      yes  no-recurrence-events
+164  60-69      ge40      25-29     5-Mar       NaN          1  right    left_low      yes  no-recurrence-events
+165  40-49   premeno      20-24     5-Mar        no          2  right     left_up       no  no-recurrence-events
+166  40-49   premeno      20-24     5-Mar        no          2  right    left_low       no  no-recurrence-events
+167  40-49      ge40      40-44     15-17       yes          2  right     left_up      yes  no-recurrence-events
+168  50-59   premeno     14-Oct       0-2        no          2  right     left_up       no  no-recurrence-events
+169  40-49      ge40      30-34       0-2        no          2   left     left_up      yes  no-recurrence-events
+170  30-39   premeno      20-24     5-Mar       yes          2  right     left_up      yes  no-recurrence-events
+171  30-39   premeno      15-19       0-2        no          1   left    left_low       no  no-recurrence-events
+172  60-69      ge40      30-34     8-Jun       yes          2  right    right_up       no  no-recurrence-events
+173  50-59      ge40      20-24     5-Mar       yes          2  right     left_up       no  no-recurrence-events
+174  50-59   premeno      25-29     5-Mar       yes          2   left    left_low      yes  no-recurrence-events
+175  40-49   premeno      30-34       0-2        no          2  right    right_up      yes  no-recurrence-events
+176  40-49      ge40      25-29       0-2        no          2   left    left_low       no  no-recurrence-events
+177  60-69      ge40     14-Oct       0-2        no          2   left    left_low       no  no-recurrence-events
+178  50-59   premeno      25-29     5-Mar        no          2  right     left_up      yes  no-recurrence-events
+179  40-49   premeno      20-24       0-2        no          3  right    left_low      yes  no-recurrence-events
+180  40-49   premeno      35-39       0-2       yes          3  right     left_up      yes  no-recurrence-events
+181  40-49   premeno      35-39       0-2       yes          3  right    left_low      yes  no-recurrence-events
+182  40-49   premeno      25-29       0-2        no          1  right    left_low      yes  no-recurrence-events
+183  50-59      ge40      30-34    11-Sep       NaN          3   left     left_up      yes  no-recurrence-events
+184  50-59      ge40      30-34    11-Sep       NaN          3   left    left_low      yes  no-recurrence-events
+185  40-49   premeno      20-24     8-Jun        no          2  right    left_low      yes  no-recurrence-events
+186  50-59      ge40      25-29       0-2        no          1   left   right_low       no  no-recurrence-events
+187  60-69      ge40      15-19       0-2        no          2   left     left_up      yes  no-recurrence-events
+188  40-49   premeno     14-Oct       0-2        no          2  right     left_up       no  no-recurrence-events
+189  50-59      ge40      20-24       0-2       yes          2  right     left_up       no  no-recurrence-events
+190  40-49   premeno      15-19    14-Dec        no          3  right   right_low      yes  no-recurrence-events
+191  40-49   premeno      25-29       0-2        no          2   left     left_up      yes  no-recurrence-events
+192  50-59      ge40      30-34     8-Jun       yes          2   left    left_low       no  no-recurrence-events
+193  30-39   premeno     14-Oct       0-2        no          2   left   right_low       no  no-recurrence-events
+194  50-59   premeno      50-54       0-2       yes          2  right     left_up      yes  no-recurrence-events
+195  50-59      ge40      35-39       0-2        no          2   left     left_up       no  no-recurrence-events
+196  50-59   premeno     14-Oct     5-Mar        no          1  right     left_up       no  no-recurrence-events
+197  40-49   premeno     14-Oct       0-2        no          2   left    left_low      yes  no-recurrence-events
+198  50-59      ge40      15-19       0-2       yes          2   left     central      yes  no-recurrence-events
+199  50-59   premeno      25-29       0-2        no          1   left    left_low       no  no-recurrence-events
+200  60-69      ge40      25-29       0-2        no          3  right    left_low       no  no-recurrence-events
+201  50-59   premeno      15-19       0-2        no          2   left    left_low       no     recurrence-events
+202  40-49   premeno      40-44       0-2        no          1   left    left_low       no     recurrence-events
+203  50-59      ge40      35-39       0-2        no          2   left    left_low       no     recurrence-events
+204  50-59   premeno      25-29       0-2        no          2   left    right_up       no     recurrence-events
+205  30-39   premeno        0-4       0-2        no          2  right     central       no     recurrence-events
+206  50-59      ge40      30-34       0-2        no          3   left         NaN       no     recurrence-events
+207  50-59   premeno      25-29       0-2        no          2   left    right_up       no     recurrence-events
+208  50-59   premeno      30-34       0-2        no          3   left    right_up       no     recurrence-events
+209  40-49   premeno      35-39       0-2        no          1  right     left_up       no     recurrence-events
+210  40-49   premeno      20-24       0-2        no          2   left    left_low       no     recurrence-events
+211  50-59      ge40      20-24       0-2        no          2  right     central       no     recurrence-events
+212  40-49   premeno      30-34       0-2        no          3  right    right_up       no     recurrence-events
+213  50-59   premeno      25-29       0-2        no          1  right     left_up       no     recurrence-events
+214  60-69      ge40      40-44       0-2        no          2  right    left_low       no     recurrence-events
+215  40-49      ge40      20-24       0-2        no          2  right     left_up       no     recurrence-events
+216  50-59      ge40      20-24       0-2        no          2   left     left_up       no     recurrence-events
+217  40-49   premeno      15-19       0-2        no          2   left     left_up       no     recurrence-events
+218  60-69      ge40      30-34       0-2        no          3  right     central       no     recurrence-events
+219  30-39   premeno      15-19       0-2        no          1  right    left_low       no     recurrence-events
+220  40-49   premeno      25-29       0-2        no          3   left    right_up       no     recurrence-events
+221  30-39   premeno      30-34       0-2        no          1  right     left_up       no     recurrence-events
+222  60-69      ge40      25-29       0-2        no          3   left   right_low      yes     recurrence-events
+223  60-69      ge40      20-24       0-2        no          3  right    left_low       no     recurrence-events
+224  30-39   premeno      25-29     5-Mar       yes          3   left    left_low      yes     recurrence-events
+225  40-49      ge40      20-24     5-Mar        no          3  right    left_low      yes     recurrence-events
+226  40-49   premeno      30-34     15-17       yes          3   left    left_low       no     recurrence-events
+227  50-59   premeno      30-34       0-2        no          3  right     left_up      yes     recurrence-events
+228  60-69      ge40      40-44     5-Mar       yes          3  right    left_low       no     recurrence-events
+229  60-69      ge40      45-49       0-2        no          1  right    right_up      yes     recurrence-events
+230  50-59   premeno      50-54    11-Sep       yes          2  right     left_up       no     recurrence-events
+231  40-49   premeno      30-34     5-Mar        no          2  right     left_up       no     recurrence-events
+232  30-39   premeno      30-34     5-Mar        no          3  right     left_up      yes     recurrence-events
+233  70-79      ge40      15-19    11-Sep       NaN          1   left    left_low      yes     recurrence-events
+234  60-69      ge40      30-34       0-2        no          3  right     left_up      yes     recurrence-events
+235  50-59   premeno      25-29     5-Mar       yes          3   left    left_low      yes     recurrence-events
+236  40-49   premeno      25-29       0-2        no          2  right    left_low       no     recurrence-events
+237  40-49   premeno      25-29       0-2        no          2  right    left_low       no     recurrence-events
+238  30-39   premeno      35-39       0-2        no          3   left    left_low       no     recurrence-events
+239  40-49   premeno      20-24     5-Mar       yes          2  right    right_up      yes     recurrence-events
+240  60-69      ge40      20-24     5-Mar        no          2   left    left_low      yes     recurrence-events
+241  40-49   premeno      15-19     15-17       yes          3   left    left_low       no     recurrence-events
+242  50-59      ge40      25-29     8-Jun        no          3   left    left_low      yes     recurrence-events
+243  50-59      ge40      20-24     5-Mar       yes          3  right    right_up       no     recurrence-events
+244  40-49   premeno      30-34    14-Dec       yes          3   left     left_up      yes     recurrence-events
+245  30-39   premeno      30-34    11-Sep        no          2  right     left_up      yes     recurrence-events
+246  30-39   premeno      15-19     8-Jun       yes          3   left    left_low      yes     recurrence-events
+247  50-59      ge40      30-34    11-Sep       yes          3   left   right_low      yes     recurrence-events
+248  60-69      ge40      35-39     8-Jun       yes          3   left    left_low       no     recurrence-events
+249  30-39   premeno      20-24     5-Mar       yes          2   left    left_low       no     recurrence-events
+250  40-49   premeno      25-29       0-2        no          3   left     left_up       no     recurrence-events
+251  40-49   premeno      50-54       0-2        no          2  right    left_low      yes     recurrence-events
+252  30-39   premeno      40-44       0-2        no          1   left     left_up       no     recurrence-events
+253  60-69      ge40      50-54       0-2        no          3  right     left_up       no     recurrence-events
+254  40-49   premeno      30-34       0-2       yes          3  right    right_up       no     recurrence-events
+255  40-49   premeno      30-34     8-Jun       yes          3  right     left_up       no     recurrence-events
+256  40-49   premeno      30-34       0-2        no          1   left    left_low      yes     recurrence-events
+257  40-49   premeno      20-24     5-Mar       yes          2   left    left_low      yes     recurrence-events
+258  50-59      ge40      30-34     8-Jun       yes          2   left   right_low      yes     recurrence-events
+259  50-59      ge40      30-34     5-Mar        no          3  right     left_up       no     recurrence-events
+260  60-69      ge40      25-29     5-Mar        no          2  right    right_up       no     recurrence-events
+261  40-49      ge40      25-29    14-Dec       yes          3   left   right_low      yes     recurrence-events
+262  60-69      ge40      25-29       0-2        no          3   left     left_up       no     recurrence-events
+263  50-59      lt40      20-24       0-2       NaN          1   left     left_up       no     recurrence-events
+264  50-59      lt40      20-24       0-2       NaN          1   left    left_low       no     recurrence-events
+265  30-39   premeno      35-39    11-Sep       yes          3   left    left_low       no     recurrence-events
+266  40-49   premeno      30-34     5-Mar       yes          2   left    right_up       no     recurrence-events
+267  60-69      ge40      20-24     24-26       yes          3   left    left_low      yes     recurrence-events
+268  30-39   premeno      35-39       0-2        no          3   left    left_low       no     recurrence-events
+269  40-49   premeno      25-29       0-2        no          2   left    left_low      yes     recurrence-events
+270  50-59      ge40      30-34     8-Jun       yes          3   left   right_low       no     recurrence-events
+271  50-59   premeno      25-29       0-2        no          3  right    left_low      yes     recurrence-events
+272  40-49   premeno      15-19       0-2       yes          3  right     left_up       no     recurrence-events
+273  60-69      ge40      30-34       0-2       yes          2  right    right_up      yes     recurrence-events
+274  60-69      ge40      30-34     5-Mar       yes          2   left     central      yes     recurrence-events
+275  40-49   premeno      25-29    11-Sep       yes          3  right     left_up       no     recurrence-events
+276  30-39   premeno      25-29     8-Jun       yes          3   left   right_low      yes     recurrence-events
+277  60-69      ge40     14-Oct     8-Jun       yes          3   left     left_up      yes     recurrence-events
+278  50-59   premeno      35-39     15-17       yes          3  right    right_up       no     recurrence-events
+279  50-59      ge40      40-44     8-Jun       yes          3   left    left_low      yes     recurrence-events
+280  50-59      ge40      40-44     8-Jun       yes          3   left    left_low      yes     recurrence-events
 281  30-39   premeno      30-34       0-2        no          2   left     left_up       no     recurrence-events
 282  30-39   premeno      20-24       0-2        no          3   left     left_up      yes     recurrence-events
 283  60-69      ge40      20-24       0-2        no          1  right     left_up       no     recurrence-events
 284  40-49      ge40      30-34     5-Mar        no          3   left    left_low       no     recurrence-events
 285  50-59      ge40      30-34     5-Mar        no          3   left    left_low       no     recurrence-events
-
-[286 rows x 10 columns]
 </pre></div>
 </div>
 </div>
@@ -707,23 +962,23 @@ age            0
 menopause      0
 tumor-size     0
 inv-nodes      0
-node-caps      8
+node-caps      0
 deg-malig      0
 breast         0
-breast-quad    1
+breast-quad    0
 irradiat       0
 target         0
 dtype: int64
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\raiha\AppData\Local\Temp\ipykernel_6080\1864720896.py:12: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipython-input-12-1864720896.py:12: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
 The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
 
 For example, when doing &#39;df[col].method(value, inplace=True)&#39;, try using &#39;df.method({col: value}, inplace=True)&#39; or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
 
 
   df[&#39;node-caps&#39;].fillna(df[&#39;node-caps&#39;].mode()[0], inplace=True)
-C:\Users\raiha\AppData\Local\Temp\ipykernel_6080\1864720896.py:13: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+/tmp/ipython-input-12-1864720896.py:13: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
 The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
 
 For example, when doing &#39;df[col].method(value, inplace=True)&#39;, try using &#39;df.method({col: value}, inplace=True)&#39; or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
@@ -1234,8 +1489,8 @@ weighted avg       0.57      0.60      0.57        58
 Confusion Matrix:
 </pre></div>
 </div>
-<img alt="_images/c4dc0794f6e31b56db37b2cf777745ecd5ebeebb17434a1f7f1f65b36e05cff3.png" src="_images/c4dc0794f6e31b56db37b2cf777745ecd5ebeebb17434a1f7f1f65b36e05cff3.png" />
-<img alt="_images/ff1343db92f932e78928a2f8199231f219f6bd012c449cc987f70ab9bf24d8ff.png" src="_images/ff1343db92f932e78928a2f8199231f219f6bd012c449cc987f70ab9bf24d8ff.png" />
+<img alt="_images/f156a0646a8ca66164ba3617cf181f9c81944f4e136348345320a654d1e587ed.png" src="_images/f156a0646a8ca66164ba3617cf181f9c81944f4e136348345320a654d1e587ed.png" />
+<img alt="_images/361f3ff3a9ac6fa06357d97229f8d8a078a6460276a8e359b3208e0bcd678bab.png" src="_images/361f3ff3a9ac6fa06357d97229f8d8a078a6460276a8e359b3208e0bcd678bab.png" />
 </div>
 </div>
 <p>Hasil yang didapat :</p>
@@ -1317,22 +1572,22 @@ Confusion Matrix:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== K-Nearest Neighbors (KNN) ===
-Akurasi: 0.6206896551724138
+Akurasi: 0.5862068965517241
 
 Classification Report:
               precision    recall  f1-score   support
 
-           0       0.64      0.95      0.76        37
-           1       0.33      0.05      0.08        21
+           0       0.62      0.89      0.73        37
+           1       0.20      0.05      0.08        21
 
-    accuracy                           0.62        58
-   macro avg       0.48      0.50      0.42        58
-weighted avg       0.53      0.62      0.52        58
+    accuracy                           0.59        58
+   macro avg       0.41      0.47      0.41        58
+weighted avg       0.47      0.59      0.50        58
 
 Confusion Matrix:
 </pre></div>
 </div>
-<img alt="_images/86a7175fc60e4a45ae81494548e9b4d01e8ce2973047ab6a17856a674ab85b47.png" src="_images/86a7175fc60e4a45ae81494548e9b4d01e8ce2973047ab6a17856a674ab85b47.png" />
+<img alt="_images/c7cd4589acace4f8ba4920dfa328a964b4672109d6c2fbccf1d8bcfb49b5a7bb.png" src="_images/c7cd4589acace4f8ba4920dfa328a964b4672109d6c2fbccf1d8bcfb49b5a7bb.png" />
 </div>
 </div>
 <p>Hasil yang didapat :</p>
@@ -1454,13 +1709,16 @@ weighted avg       0.63      0.66      0.63        58
 Confusion Matrix:
 </pre></div>
 </div>
-<img alt="_images/43066245cd54ab0bd432df55eac040ecf3a61d7cc533309c45ab46d9f7fff124.png" src="_images/43066245cd54ab0bd432df55eac040ecf3a61d7cc533309c45ab46d9f7fff124.png" />
+<img alt="_images/2e06c9ff3f849a9d85582b88b84e189ba44cab9460a449cf1ca625c7e1d74296.png" src="_images/2e06c9ff3f849a9d85582b88b84e189ba44cab9460a449cf1ca625c7e1d74296.png" />
 </div>
 </div>
 <p>Hasil yang didapat :</p>
 <p>Naive Bayes adalah model dengan performa paling baik dari ketiganya, dengan akurasi sebesar 65,52%. Untuk kelas 0, model masih menunjukkan performa yang baik dengan recall 84% dan f1-score 0,76.</p>
 <p>Yang membedakan adalah kemampuannya menangkap kelas minoritas (kelas 1 - kekambuhan) lebih baik dibanding model lain. Recall-nya mencapai 33% dan f1-score 0,41. Meskipun tidak terlalu tinggi, angka ini menunjukkan bahwa Naive Bayes memiliki kemampuan lebih seimbang dalam mengenali kedua kelas dibanding dua model sebelumnya.</p>
-<p>##<strong>Evaluasi Model</strong></p>
+</section>
+</section>
+<section id="id5">
+<h2><strong>Evaluasi Model</strong><a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
 <p>Berdasarkan hasil evaluasi:</p>
 <p><strong>Decision Tree</strong>:</p>
 <p>Akurasi: 60,34%</p>
@@ -1472,7 +1730,6 @@ Confusion Matrix:
 <p>Akurasi: 65,52%</p>
 <p>F1-score kelas 1: 0,41</p>
 <p>Maka, Naive Bayes adalah model terbaik di antara ketiganya, karena memiliki akurasi tertinggi dan mampu mengenali kelas minoritas (recurrence) lebih baik dibanding Decision Tree maupun KNN. Model ini paling layak digunakan jika tujuan utama adalah mendeteksi pasien yang mengalami kekambuhan kanker payudara.</p>
-</section>
 </section>
 </section>
 
@@ -1514,6 +1771,15 @@ Confusion Matrix:
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Teknik Binning</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="uas.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><strong>Prediksi Risiko Diabetes Tahap Awal</strong></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -1573,6 +1839,7 @@ Confusion Matrix:
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><strong>Kesimpulan</strong></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><strong>Evaluasi Model</strong></a></li>
 </ul>
 </li>
 </ul>
